@@ -1,0 +1,27 @@
+{
+  "name": "astromeet",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/ggc-dev-project/astromeet.git"
+  },
+  "author": "David Edwards",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/ggc-dev-project/astromeet/issues"
+  },
+  "homepage": "https://gitlab.com/ggc-dev-project/astromeet#README",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "morgan": "^1.7.0"
+  }
+}
