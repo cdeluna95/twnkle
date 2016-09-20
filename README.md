@@ -200,6 +200,24 @@ your work, you need to execute a rebase. This will merge your changes with the d
 branch. After a set period of time, all changes from the development branch will be reviewed
 and merged into the master branch.
 
+##### Typical Workflow
+When you start working on a new feature
+
+* `git checkout develop`
+* `git pull`
+* `git branch <new-branch-name> develop`
+* `git checkout <new-branch-name>
+* apply all of your changes
+* if your changes took a long time to write then
+  * `git checkout develop`
+  * `git pull`
+  * `git checkout <new-branch-name>`
+* `git rebase develop <new-branch-name>`
+* `git checkout develop`
+* `git merge <new-branch-name>`
+* `git push`
+
+
 ##### GIT Commands
 Here is a list of commands that will more then likely be used while working on 
 this project.
