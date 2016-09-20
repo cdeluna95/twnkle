@@ -206,6 +206,15 @@ this project.
 
 * `git branch <new-branch-name> develop` - This creates a new branch for the feature
 that you are working on, based on the development branch
+  * `git checkout <new-branch-name>` - This is used right after creating a new branch to switch
+your current branch to the new branch.
+* `git rebase develop <child-branch>` - This command takes all of the commits from your feature
+branch and applies them to the development branch. If a merge conflict arises, then you'll have
+to stop, solve the merge conflict and then continue.
+  * `git rebase --continue` - This command continues rebasing your branch.
+* `git merge <feature-branch>` - This command merges your feature branch into your current branch
+  * NOTE - before you merge `git checkout develop`
+
 
 ##### GIT Best Practices
 Here are some things that will keep you from wanting to pull your hair out when working 
