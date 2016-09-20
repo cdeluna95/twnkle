@@ -201,6 +201,11 @@ branch. After a set period of time, all changes from the development branch will
 and merged into the master branch.
 
 ##### GIT Commands
+Here is a list of commands that will more then likely be used while working on 
+this project.
+
+* `git branch <new-branch-name> develop` - This creates a new branch for the feature
+that you are working on, based on the development branch
 
 ##### GIT Best Practices
 Here are some things that will keep you from wanting to pull your hair out when working 
