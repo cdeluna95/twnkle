@@ -200,6 +200,8 @@ your work, you need to execute a rebase. This will merge your changes with the d
 branch. After a set period of time, all changes from the development branch will be reviewed
 and merged into the master branch.
 
+##### GIT Commands
+
 ##### GIT Best Practices
 Here are some things that will keep you from wanting to pull your hair out when working 
 with GIT. 
