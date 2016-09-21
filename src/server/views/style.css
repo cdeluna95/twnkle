@@ -1,0 +1,183 @@
+/* Global fonts */
+
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans|Shadows+Into+Light|Architects+Daughter';
+
+/* Global styles */
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Button styles */
+
+.btn-primary {
+  letter-spacing: 2px;
+  color: #ff3030;
+  background-color: #fff;
+  border-color: #ff3030;
+  border-radius: 3%;
+  transition: 0.5s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #ff3030;
+  border-color: #fff;
+  transition: 0.5s ease-in-out;
+}
+
+.btn-default {
+  letter-spacing: 2px;
+  color: #fff;
+  background-color: #ff3030;
+  border-color: #fff;
+  border-radius: 3%;
+  transition: 0.5s ease-in-out;
+}
+
+.btn-default:hover {
+  background-color: #fff;
+  border-color: #ff3030;
+  transition: 0.5s ease-in-out;
+}
+
+/* Navigation styles */
+
+.navbar {
+  background: rgba(0, 0, 0, 0.5);
+  border: 0;
+}
+
+.navbar-default .navbar-toggle, .navbar-collapse {
+	border: 0;
+	transition: 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+	transition: 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-brand {
+	color: #fff;
+	font-family: 'Shadows Into Light', cursive;
+	font-size: 30px;
+  font-weight: bold;
+  letter-spacing: 5px;
+	transition: 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-nav li a {
+	color: #fff;
+	font-family: 'Architects Daughter', cursive;
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	transition: 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus  {
+	background-color: #db2929;
+	transition: 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	color: #db2929;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-default .navbar-nav > li > a:hover, 
+.navbar-default .navbar-nav > li > a:focus {
+  color: #db2929;
+  transition: 0.15s ease-in-out;
+}
+
+/* Homepage styles */
+
+#index {
+  height: 100%;
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.6)
+    ),
+    url(images/astrology-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.index-wrapper {
+  color: #fff;
+  text-shadow: 3px 5px 10px #000;
+  text-align: center;
+  padding-top: 15em;
+}
+
+.index-title {
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 60px;
+}
+
+/* About styles */
+
+#about {
+  background: #d3d3d3;
+}
+
+.about-wrapper {
+  padding: 5em 0 5em 0;
+}
+
+.about-title {
+  text-align: center;
+}
+
+/* Filler styles */
+
+#filler {
+  background: #292929;
+}
+
+.filler-wrapper {
+  color: #fff;
+  padding: 5em 0 5em 0;
+}
+
+.filler-title {
+  text-align: center;
+}
+
+/* Filler #2 styles */
+
+#filler2 {
+  background: #bababa;
+}
+
+.filler2-wrapper {
+  padding: 5em 0 5em 0;
+}
+
+.filler2-title {
+  text-align: center;
+}
+
+/* Footer */
+
+#footer {
+  text-align: center;
+}
+
+/* Media queries*/
+
+@media only screen 
+and (min-device-width : 375px) 
+and (max-device-width : 667px) {
+  .index-wrapper { padding-top: 12em; }
+  .index-name { font-size: 25px; } }
