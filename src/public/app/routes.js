@@ -10,6 +10,11 @@
                 url: '/login',
                 templateUrl: '/app/login/_login.html',
                 controller: 'LoginCtrl'
+            })
+            .state('home', {
+                url: '/home',
+                templateUrl: '/app/home/_home.html',
+                controller: 'HomeCtrl'
             });
     }
 

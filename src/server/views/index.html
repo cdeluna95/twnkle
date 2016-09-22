@@ -1,3 +1,8 @@
+<!--
+
+    If you are messing with this file, you probably shouldn't be. This file shouldn't change too much.
+
+-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,116 +16,73 @@
   <!-- Design and CSS -->
   <link rel="stylesheet" href="/assets/css/app.min.css" />
   <link rel="stylesheet" href="/lib/vendor.min.css" />
-  <link type="image/png" rel="shortcut icon" href="images/favicon.png" />
-  <link type="text/css" rel="stylesheet" href="css/bootstrap.css" />
-  <link type="text/css" rel="stylesheet" href="style.css" />
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <link rel="stylesheet" href="../../assets/css/ie10-viewport-bug-workaround.css" />
-  <!-- JS-->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
 </head>
 
 <body ng-app="app">
   <!-- Navigation bar -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-        <a class="navbar-brand" href="#header">AstroMeet</a>
-      </div>
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="matches.html">Find Matches</a></li>
-          <li><a href="connections.html">Connections</a></li>
-          <li><a href="setting.html">Account Setting</a></li>
-          <li><a href="feedback.html">Feedback</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <astromeet-nav></astromeet-nav>
 
-  <!-- Homepage -->
-  <div id="index">
-    <div class="index-wrapper">
-      <h1 class="index-title">
-        AstroMeet
-      </h1>
-      <div class="index-button">
-        <a class="btn btn-primary" href="#" role="button">Sign in</a> or <a class="btn btn-default" href="#" role="button">Sign up</a>
-      </div>
-    </div>
+  <div class="container">
+      <div ui-view></div>
   </div>
 
-  <!-- About -->
-  <div id="about">
-    <div class="container">
-      <div class="about-wrapper">
-        <h2 class="about-title">
-          About
-        </h2>
-        <p>Man braid humblebrag wolf ugh messenger bag lomo. Cliche gluten-free truffaut, portland ennui vice intelligentsia vaporware af yuccie 90's pinterest glossier edison bulb. Hammock vegan farm-to-table beard yr four dollar toast, street art quinoa
-          before they sold out pug lo-fi. Banjo you probably haven't heard of them fixie mustache crucifix shoreditch. Mustache chillwave cardigan sartorial shabby chic. Pitchfork cray selvage asymmetrical shabby chic. Offal ramps chartreuse retro chillwave,
-          +1 microdosing bushwick crucifix celiac irony air plant try-hard semiotics scenester.</p>
-      </div>
-    </div>
-  </div>
 
-  <!-- Filler -->
-  <div id="filler">
-    <div class="container">
-      <div class="filler-wrapper">
-        <h2 class="filler-title">
-          Filler
-        </h2>
-        <p>Authentic tote bag ugh, 8-bit tbh before they sold out la croix tacos. Cliche you probably haven't heard of them live-edge, hashtag chillwave blue bottle snackwave aesthetic bitters pop-up jianbing four loko. Meh post-ironic master cleanse, woke
-          poutine mustache bicycle rights +1. Four loko sriracha pork belly waistcoat, chartreuse man braid thundercats la croix. Tilde williamsburg humblebrag, slow-carb tousled fingerstache yr +1. Irony green juice trust fund mumblecore prism. Kogi
-          affogato poutine, subway tile dreamcatcher XOXO small batch hashtag offal whatever chartreuse salvia jean shorts chambray plaid.</p>
-        <p>Everyday carry umami offal man bun vegan, thundercats schlitz sustainable. Bicycle rights beard knausgaard retro flannel, hammock leggings craft beer. Bicycle rights shabby chic cardigan, hell of seitan blue bottle retro bitters venmo crucifix
-          pour-over tattooed asymmetrical. Ennui fap woke health goth truffaut irony. Chartreuse readymade twee vice biodiesel. Health goth roof party hot chicken, mlkshk YOLO franzen woke raclette vice glossier distillery before they sold out. Offal
-          wolf YOLO, leggings actually af fam cred sriracha banjo gentrify raw denim.</p>
-        <p>Aesthetic poke yuccie, brunch banh mi readymade salvia sriracha af. Pabst mustache church-key, tousled meggings intelligentsia XOXO retro blog seitan affogato. Farm-to-table whatever bitters, prism copper mug fingerstache direct trade forage fam
-          microdosing church-key scenester. VHS blue bottle four dollar toast gochujang, af leggings hot chicken fingerstache XOXO fap. Tumblr keffiyeh letterpress freegan, sriracha hell of cred. Direct trade williamsburg cred, biodiesel unicorn sustainable
-          twee asymmetrical drinking vinegar vape single-origin coffee. Artisan flexitarian austin kale chips, godard thundercats cornhole tofu keytar gentrify marfa beard single-origin coffee ramps chartreuse.
-        </p>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; About &ndash;&gt;-->
+  <!--<div id="about">-->
+    <!--<div class="container">-->
+      <!--<div class="about-wrapper">-->
+        <!--<h2 class="about-title">-->
+          <!--About-->
+        <!--</h2>-->
+        <!--<p>Man braid humblebrag wolf ugh messenger bag lomo. Cliche gluten-free truffaut, portland ennui vice intelligentsia vaporware af yuccie 90's pinterest glossier edison bulb. Hammock vegan farm-to-table beard yr four dollar toast, street art quinoa-->
+          <!--before they sold out pug lo-fi. Banjo you probably haven't heard of them fixie mustache crucifix shoreditch. Mustache chillwave cardigan sartorial shabby chic. Pitchfork cray selvage asymmetrical shabby chic. Offal ramps chartreuse retro chillwave,-->
+          <!--+1 microdosing bushwick crucifix celiac irony air plant try-hard semiotics scenester.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Filler -->
-  <div id="filler2">
-    <div class="container">
-      <div class="filler2-wrapper">
-        <h2 class="filler2-title">
-          Filler #2
-        </h2>
-        <p>Umami gluten-free brunch, chia bushwick next level you probably haven't heard of them skateboard gastropub thundercats fanny pack readymade synth jean shorts. Normcore authentic vape, vinyl ramps cronut street art tilde. Narwhal ethical leggings
-          fanny pack, swag readymade paleo franzen blog microdosing. Heirloom offal butcher, man braid quinoa green juice aesthetic. Jean shorts brunch mixtape trust fund, readymade direct trade schlitz kickstarter live-edge beard semiotics portland.
-          Trust fund humblebrag before they sold out put a bird on it. Humblebrag waistcoat yuccie meggings brooklyn.</p>
-      </div>
-    </div>
-  </div>
+  <!--&lt;!&ndash; Filler &ndash;&gt;-->
+  <!--<div id="filler">-->
+    <!--<div class="container">-->
+      <!--<div class="filler-wrapper">-->
+        <!--<h2 class="filler-title">-->
+          <!--Filler-->
+        <!--</h2>-->
+        <!--<p>Authentic tote bag ugh, 8-bit tbh before they sold out la croix tacos. Cliche you probably haven't heard of them live-edge, hashtag chillwave blue bottle snackwave aesthetic bitters pop-up jianbing four loko. Meh post-ironic master cleanse, woke-->
+          <!--poutine mustache bicycle rights +1. Four loko sriracha pork belly waistcoat, chartreuse man braid thundercats la croix. Tilde williamsburg humblebrag, slow-carb tousled fingerstache yr +1. Irony green juice trust fund mumblecore prism. Kogi-->
+          <!--affogato poutine, subway tile dreamcatcher XOXO small batch hashtag offal whatever chartreuse salvia jean shorts chambray plaid.</p>-->
+        <!--<p>Everyday carry umami offal man bun vegan, thundercats schlitz sustainable. Bicycle rights beard knausgaard retro flannel, hammock leggings craft beer. Bicycle rights shabby chic cardigan, hell of seitan blue bottle retro bitters venmo crucifix-->
+          <!--pour-over tattooed asymmetrical. Ennui fap woke health goth truffaut irony. Chartreuse readymade twee vice biodiesel. Health goth roof party hot chicken, mlkshk YOLO franzen woke raclette vice glossier distillery before they sold out. Offal-->
+          <!--wolf YOLO, leggings actually af fam cred sriracha banjo gentrify raw denim.</p>-->
+        <!--<p>Aesthetic poke yuccie, brunch banh mi readymade salvia sriracha af. Pabst mustache church-key, tousled meggings intelligentsia XOXO retro blog seitan affogato. Farm-to-table whatever bitters, prism copper mug fingerstache direct trade forage fam-->
+          <!--microdosing church-key scenester. VHS blue bottle four dollar toast gochujang, af leggings hot chicken fingerstache XOXO fap. Tumblr keffiyeh letterpress freegan, sriracha hell of cred. Direct trade williamsburg cred, biodiesel unicorn sustainable-->
+          <!--twee asymmetrical drinking vinegar vape single-origin coffee. Artisan flexitarian austin kale chips, godard thundercats cornhole tofu keytar gentrify marfa beard single-origin coffee ramps chartreuse.-->
+        <!--</p>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
 
-  <!-- Footer -->
-  <footer id="footer">
-    <small>Copyright &copy; 2016 AstroMeet.</small>
-  </footer>
+  <!--&lt;!&ndash; Filler &ndash;&gt;-->
+  <!--<div id="filler2">-->
+    <!--<div class="container">-->
+      <!--<div class="filler2-wrapper">-->
+        <!--<h2 class="filler2-title">-->
+          <!--Filler #2-->
+        <!--</h2>-->
+        <!--<p>Umami gluten-free brunch, chia bushwick next level you probably haven't heard of them skateboard gastropub thundercats fanny pack readymade synth jean shorts. Normcore authentic vape, vinyl ramps cronut street art tilde. Narwhal ethical leggings-->
+          <!--fanny pack, swag readymade paleo franzen blog microdosing. Heirloom offal butcher, man braid quinoa green juice aesthetic. Jean shorts brunch mixtape trust fund, readymade direct trade schlitz kickstarter live-edge beard semiotics portland.-->
+          <!--Trust fund humblebrag before they sold out put a bird on it. Humblebrag waistcoat yuccie meggings brooklyn.</p>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+  <am-footer></am-footer>
 
   <!-- Bootstrap core JavaScript -->
   <script src="/lib/vendor.js"></script>
   <script src="/app/app.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script>
-    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
-  </script>
-  <script src="../../dist/js/bootstrap.min.js"></script>
-  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-</body>
 
+
+</body>
 </html>

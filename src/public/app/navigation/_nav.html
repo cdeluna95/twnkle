@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-click="navbarCollapsed = !navbarCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span clas="icon-bar"></span>
+                <span clas="icon-bar"></span>
+                <span clas="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">Astromeet</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="matches">Find Matches</a></li>
+                <li><a ui-sref="connections">Connections</a></li>
+                <li><a ui-sref="settings">Account Settings</a></li>
+                <li><a ui-sref="feedback"></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
