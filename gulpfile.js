@@ -143,7 +143,13 @@ gulp.task('build:app:js', ['clean:app:js'], function() {
         .pipe(gulp.dest('dist/public/app'));
 });
 
-gulp.task('build:client', ['build:app:js', 'build:app:html', 'build:app:css']);
+gulp.task('build:app:images', ['clean:app:images'], function() {
+    return gulp
+        .src('src/public/assets/images/*.jpg')
+        .pipe(gulp.dest('dist/public/assets/images'));
+});
+
+gulp.task('build:client', ['build:app:js', 'build:app:html', 'build:app:css', 'build:app:images']);
 gulp.task('build:client:full', ['build:client', 'build:lib']);
 
 /* END BUILDING TASKS */
