@@ -1,0 +1,31 @@
+#about {
+  background-color: #e6ebb7;
+}
+
+#about-header {
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.6)
+    ),
+  url(images/fingers-buddies.jpg);
+  background-size: 100% auto;
+  background-position: 0 -10em;
+  background-attachment: fixed;
+  padding-bottom: 35em;
+}
+
+.about-wrapper {
+  color: #473e3e;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 5em 0 5em 0;
+}
+
+.about-title h1 {
+  font-family: 'Bree Serif', serif;
+  font-size: 80px;
+}
+
+.about-desc p {
+  font-size: 20px;
+}

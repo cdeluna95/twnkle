@@ -1,0 +1,19 @@
+#profile {
+  background: #fff;
+}
+
+.profile-wrapper, .photos-wrapper {
+  color: #473e3e;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 6em 0 0 0;
+}
+
+.profile-title h2, .photos-title h2 {
+  font-family: 'Bree Serif', serif;
+  font-size: 80px;
+}
+
+.profile-desc, .photos-desc {
+  border: 1px dashed #000;
+}

@@ -1,0 +1,24 @@
+#index {
+  height: 100%;
+  background-image: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url(images/people-street.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.index-wrapper {
+  color: #fff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  padding-top: 15em;
+}
+
+.index-title {
+  font-family: 'Bree Serif', serif;
+  font-size: 60px;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+}
