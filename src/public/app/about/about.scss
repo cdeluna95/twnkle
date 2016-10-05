@@ -3,14 +3,11 @@
 }
 
 #about-header {
-  background-image: linear-gradient(
-    rgba(0, 0, 0, 0.1),
-    rgba(0, 0, 0, 0.6)
-    ),
-  url(images/fingers-buddies.jpg);
   background-size: 100% auto;
-  background-position: 0 -10em;
-  background-attachment: fixed;
+  background: linear-gradient(
+                  rgba(0, 0, 0, 0.1),
+                  rgba(0, 0, 0, 0.6));
+  //url(images/fingers-buddies.jpg) fixed 0 -10em;
   padding-bottom: 35em;
 }
 

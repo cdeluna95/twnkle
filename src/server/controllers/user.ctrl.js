@@ -28,8 +28,14 @@ function register(req, res) {
 
 }
 
+function about(req, res) {
+
+}
+
 
 module.exports = {
     login: login,
-    register: register
+    register: register,
+    about: about
+
 };
