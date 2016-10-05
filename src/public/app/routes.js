@@ -15,6 +15,11 @@
                 url: '/home',
                 templateUrl: '/app/home/_home.html',
                 controller: 'HomeCtrl'
+            })
+            .state('about', {
+                url: '/about',
+                templateUrl: '/app/about/_about.html',
+                controller: 'AboutCtrl'
             });
     }
 
