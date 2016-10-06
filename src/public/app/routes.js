@@ -20,6 +20,16 @@
                 url: '/about',
                 templateUrl: '/app/about/_about.html',
                 controller: 'AboutCtrl'
+            })
+            .state('connections', {
+            url: '/connections',
+            templateUrl: '/app/connections/_connections.html',
+            controller: 'AboutCtrl'
+            })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: '/app/profile/_profile.html',
+                controller: 'AboutCtrl'
             });
     }
 

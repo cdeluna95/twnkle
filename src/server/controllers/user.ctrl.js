@@ -31,11 +31,25 @@ function register(req, res) {
 function about(req, res) {
 
 }
+function home(req, res) {
+
+}
+
+function connections(req, res) {
+
+}
+
+function profile(req, res) {
+
+}
 
 
 module.exports = {
     login: login,
     register: register,
-    about: about
+    about: about,
+    home: home,
+    connections: connections,
+    profile: profile
 
 };
