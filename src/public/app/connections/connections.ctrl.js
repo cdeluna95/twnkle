@@ -3,7 +3,7 @@
 
     ConnectionsCtrl.$inject = ['$scope'];
     function ConnectionsCtrl($scope) {
-        $scope.test = 'This is the about page';
+        $scope.test = 'This is the connections page';
     }
 
     angular.module('app').controller('ConnectionsCtrl', ConnectionsCtrl);

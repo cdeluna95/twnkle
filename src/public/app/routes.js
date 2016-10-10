@@ -1,3 +1,8 @@
+/**
+ * @author David, Adrianna, Christan
+ * @date 09/20/2016
+ */
+
 (function() {
     'use strict';
 
