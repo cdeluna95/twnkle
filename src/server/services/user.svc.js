@@ -14,3 +14,9 @@ function register(user) {
 function login(user) {
 
 }
+
+
+module.exports = {
+    register: register,
+    login: login
+};
