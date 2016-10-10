@@ -2,7 +2,7 @@
     'use strict';
 
     SignupCtrl.$inject = ['$scope'];
-    function Signup($scope) {
+    function SignupCtrl($scope) {
         $scope.test = 'This is the signup page';
     }
 

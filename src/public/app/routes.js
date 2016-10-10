@@ -29,7 +29,12 @@
             .state('profile', {
                 url: '/profile',
                 templateUrl: '/app/profile/_profile.html',
-                controller: 'AboutCtrl'
+                controller: 'ProfileCtrl'
+            })
+            .state('signup', {
+                url: '/signup',
+                templateUrl: '/app/signup/_signup.html',
+                controller: 'SignupCtrl'
             });
     }
 

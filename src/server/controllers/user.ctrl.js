@@ -43,6 +43,10 @@ function profile(req, res) {
 
 }
 
+function signup(req, res) {
+
+}
+
 
 module.exports = {
     login: login,
@@ -50,6 +54,7 @@ module.exports = {
     about: about,
     home: home,
     connections: connections,
-    profile: profile
+    profile: profile,
+    signup: signup
 
 };

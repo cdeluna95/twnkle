@@ -1,11 +1,9 @@
 #index {
   height: 100%;
-  background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.2)
-    ),
-    url(images/people-street.jpg);
+  background-image: linear-gradient(
+                  rgba(0, 0, 0, 0.6),
+                  rgba(0, 0, 0, 0.2));
+  //url(/images/people-street.jpg);
   background-size: cover;
   background-repeat: no-repeat;
 }
