@@ -1,3 +1,4 @@
+'use strict';
 /**
  * This is the model file for system users. The user's model is responsible
  * for validating registration information, as well as login information.
@@ -9,37 +10,18 @@
 var util = require('util');
 
 
-/**
- * This function validates a username
- *
- * @param username
- */
-function validateUsername(username) {
+class User {
 
-}
+    constructor(user) {
+        this.firstName = user.firstName;
+        this.lastName = user.lastName;
+        this.username = user.username;
+        this.email = user.email;
+    }
 
-/**
- *
- * @param password
- */
-function validatePassword(password) {
-
-}
-
-/**
- *
- * @param email
- */
-function validateEmail(email) {
-
-}
-
-/**
- *
- * @param user
- */
-function validate(user) {
-    //call to other functions
+    save() {
+        
+    }
 }
 
 module.exports = {
