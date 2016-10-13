@@ -19,10 +19,15 @@
   },
   "homepage": "https://gitlab.com/ggc-dev-project/astromeet#README",
   "dependencies": {
+    "bcrypt": "^0.8.7",
+    "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
     "gulp": "^3.9.1",
-    "morgan": "^1.7.0"
+    "jsonwebtoken": "^7.1.9",
+    "morgan": "^1.7.0",
+    "mysql": "^2.11.1",
+    "validator": "^6.0.0"
   },
   "devDependencies": {
     "del": "^2.2.2",

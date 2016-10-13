@@ -7,7 +7,7 @@
  */
 
 var util = require('util');
-var model = require('../models/user.model');
+var UserSvc = require('../services/user.svc');
 
 
 /**
@@ -16,7 +16,19 @@ var model = require('../models/user.model');
  * @param res
  */
 function login(req, res) {
+    var user = JSON.parse(req.body.user);
+    var svc = new UserSvc();
 
+    svc.login(user).then(function(user) {
+        if(user.length === 0) {
+            return res.status(401).json({ msg: 'Bad username/password combination' });
+        }
+        util.log(util.inspect(user));
+        res.status(200).json({ data: user });
+    }).catch(function(err) {
+        util.log(util.inspect(err));
+        res.status(500).json({ err: err });
+    });
 }
 
 /**
