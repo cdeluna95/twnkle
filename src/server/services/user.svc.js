@@ -27,6 +27,12 @@ var usersvc = (function() {
 
     };
 
+    /**
+     * This function is used to login a user
+     * @param user
+     *
+     * TODO add code to update lastSignin from the database
+     */
     UserSvc.prototype.login = function(user) {
         var self = this;
 
@@ -73,6 +79,32 @@ var usersvc = (function() {
                     reject(err);
                 });
         });
+    };
+
+    /**
+     * This function is used to register a new user on the system.
+     *
+     * @param newUser
+     */
+    UserSvc.prototype.register = function(newUser) {
+
+    };
+
+    /**
+     * This function is used to authenticate a user with a token
+     *
+     * @param token
+     */
+    UserSvc.prototype.authenticate = function(token) {
+        return new Promise(function(resolve, reject) {
+            jwt.verify(token, config.server.secret, function(err, decoded) {
+                if(err) {
+                    reject(err);
+                }
+
+                resolve(decoded);
+            });
+        })
     };
 
     return UserSvc;

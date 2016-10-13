@@ -8,7 +8,7 @@
 
 var util = require('util');
 var UserSvc = require('../services/user.svc');
-
+var svc = new UserSvc();
 
 /**
  *
@@ -17,7 +17,6 @@ var UserSvc = require('../services/user.svc');
  */
 function login(req, res) {
     var user = JSON.parse(req.body.user);
-    var svc = new UserSvc();
 
     svc.login(user).then(function(user) {
         if(user.length === 0) {
@@ -37,11 +36,34 @@ function login(req, res) {
  * @param res
  */
 function register(req, res) {
+    return res.status(400).json({ err: 'Not implemented'});
+}
 
+function authenticate(req, res) {
+    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+    if(!token) {
+        return res
+            .status(403)
+            .json({ err: 'No token provided' });
+    }
+
+    svc.authenticate(token)
+        .then(function(decoded) {
+            return res
+                .status(200)
+                .json({ token: decoded });
+        })
+        .catch(function(err) {
+            return res
+                .status(401)
+                .json({ err: 'Not authorized' });
+        });
 }
 
 
 module.exports = {
     login: login,
-    register: register
+    register: register,
+    authenticate: authenticate
 };
