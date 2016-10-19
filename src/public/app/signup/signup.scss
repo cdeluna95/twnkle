@@ -3,6 +3,13 @@
  * @date 10/10/2016
  */
 
+/* Variables and mixins */
+
+$white = #fff;
+$orange = #db7827;
+
+/* Styles */
+
 #auth {
   height: 100%;
   background-image: 
@@ -16,25 +23,25 @@
 }
 
 .auth-wrapper {
-  color: #fff;
+  color: $white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   padding-top: 10em;
 }
 
 table, th, tr, td {
-  color: #db7827;
-  background-color: #fff;
-  border: 1px solid #db7827;
+  color: $orange;
+  background-color: $white;
+  border: 1px solid $orange;
   box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 20px;
   transition: 0.2s linear;
 }
 
-td:hover {
-  color: #fff;
-  background-color: #db7827;
-  transition: 0.2s linear;
+  &:hover {
+    color: $white;
+    background-color: $orange;
+    transition: 0.2s linear;
 }
 
 .calendar {

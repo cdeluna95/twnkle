@@ -3,8 +3,15 @@
  * @date 09/20/2016
  */
 
+/* Variables and mixins */
+
+$yellow = #e6ebb7;
+$gray = #473e3e;
+
+/* Styles */
+
 #about {
-  background-color: #e6ebb7;
+  background-color: $yellow;
 }
 
 #about-header {
@@ -17,7 +24,7 @@
 }
 
 .about-wrapper {
-  color: #473e3e;
+  color: $gray;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
   padding: 5em 0 5em 0;
