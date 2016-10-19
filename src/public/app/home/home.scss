@@ -25,3 +25,40 @@
   font-size: 60px;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 }
+
+.btn-primary {
+  text-transform: uppercase;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #fff;
+  border-radius: 3%;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px 30px 10px 30px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: #000;
+    background-color: #fff;
+    border-color: #fff;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+.btn-default {
+  text-transform: uppercase;
+  color: #db7827;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #db7827;
+  border-radius: 3%;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  padding: 10px 30px 10px 30px;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    color: #fff;
+    background-color: #db7827;
+    border-color: #db7827;
+    transition: 0.2s ease-in-out;
+  }
+
+}
