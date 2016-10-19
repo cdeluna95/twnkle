@@ -3,6 +3,28 @@
  * @date 09/20/2016
  */
 
+@import 'https://fonts.googleapis.com/css?family=Josefin+Sans|Bree+Serif|Slabo+27px';
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Media queries */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
+  .index-wrapper {
+    padding-top: 12em;
+  }
+  .index-name {
+    font-size: 25px;
+  }
+}
+
 #index {
   height: 100%;
   background-image: linear-gradient(
@@ -60,5 +82,4 @@
     border-color: #db7827;
     transition: 0.2s ease-in-out;
   }
-
 }

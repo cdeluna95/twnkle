@@ -3,11 +3,9 @@
  * @date 09/20/2016
  */
 
-$btn-color: #ff3030;
-
 @import 'https://fonts.googleapis.com/css?family=Josefin+Sans|Bree+Serif|Slabo+27px';
 
-html,body {
+html, body {
   height: 100%;
   margin: 0;
 }
@@ -16,7 +14,7 @@ body {
   font-family: 'Josefin Sans', sans-serif;
 }
 
-/* Media queries*/
+/* Media queries */
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
   .index-wrapper {
