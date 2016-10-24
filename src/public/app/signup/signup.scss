@@ -5,8 +5,8 @@
 
 /* Variables and mixins */
 
-$white = #fff;
-$orange = #db7827;
+$white: #fff;
+$orange: #db7827;
 
 /* Styles */
 
@@ -36,12 +36,12 @@ table, th, tr, td {
   text-align: center;
   padding: 20px;
   transition: 0.2s linear;
-}
 
   &:hover {
     color: $white;
     background-color: $orange;
     transition: 0.2s linear;
+  }
 }
 
 .calendar {
