@@ -92,7 +92,8 @@ gulp.task('build:lib:css', ['clean:lib:css'], function() {
     return gulp
         .src([
             'bower_components/bootstrap/dist/css/bootstrap.min.css',
-            'bower_components/font-awesome/css/font-awesome.min.css'
+            'bower_components/font-awesome/css/font-awesome.min.css',
+            'bower_components/angularjs-datepicker/dist/angular-datepicker.min.css'
         ])
         .pipe(concat('vendor.min.css'))
         .pipe(gulp.dest('dist/lib'));
@@ -102,7 +103,8 @@ gulp.task('build:lib:js', ['clean:lib:js'], function() {
     return gulp
         .src([
             'bower_components/angular/angular.js',
-            'bower_components/angular-ui-router/release/angular-ui-router.js'
+            'bower_components/angular-ui-router/release/angular-ui-router.js',
+            'bower_components/angularjs-datepicker/dist/angular-datepicker.min.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('dist/lib'));
