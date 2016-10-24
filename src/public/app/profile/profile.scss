@@ -5,10 +5,10 @@
 
 /* Variables and mixins */
 
-$gray = #473e3e;
-$black = #000;
-$white = #fff;
-$orange = #db7827;
+$gray: #473e3e;
+$black: #000;
+$white: #fff;
+$orange: #db7827;
 
 @mixin customButton {
   text-transform: uppercase;
@@ -44,7 +44,7 @@ $orange = #db7827;
 .btn-primary {
   color: $white;
   border-color: $white;
-  @customButton;
+  @include customButton;
 
   &:hover {
     color: $black;
@@ -57,10 +57,10 @@ $orange = #db7827;
 .btn-default {
   color: $orange;
   border-color: #orange;
-  @customButton;
+  @include customButton;
 
   &:hover {
-    color: $white
+    color: $white;
     background-color: $orange;
     border-color: $orange;
     transition: 0.2s ease-in-out;

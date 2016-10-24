@@ -7,8 +7,8 @@
 
 /* Variables and mixins */
 
-$white = #fff;
-$orange = #db7827;
+$white: #fff;
+$orange: #db7827;
 
 @mixin customText {
 	color: $white;
@@ -40,7 +40,7 @@ $orange = #db7827;
 		.navbar-brand {
 			font-family: 'Bree Serif', serif;
 			font-size: 30px;
-			@customText;
+			@include customText;
 		}
 		.navbar-nav {
 			display: inline-block;
@@ -50,7 +50,7 @@ $orange = #db7827;
 		.navbar-nav li a {
 			font-family: 'Slabo 27px', serif;
 			font-size: 14px;
-			@customText;
+			@include customText;
 		}
 		.navbar-toggle:hover {
 			background-color: $orange;
