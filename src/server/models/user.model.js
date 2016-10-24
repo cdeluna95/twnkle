@@ -65,6 +65,12 @@ var User = (function() {
         });
     };
 
+    User.prototype.insert = function(newUser) {
+        var self = this;
+        var sql = 'INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, gender, preference)' +
+            'VALUES '
+    };
+
     User.prototype._createWhere = function(vars) {
         var clause = ['WHERE'];
         var keys = Object.keys(vars);

@@ -1,6 +1,6 @@
-var jwt = require('jsonwebtoken');
 var config = require('../config/config');
 var Promise = require('bluebird');
+var jwt = Promise.promisifyAll(require('jsonwebtoken'));
 
 var jwtsvc = (function() {
     function JWTSvc() {
@@ -11,8 +11,11 @@ var jwtsvc = (function() {
 
     };
 
-    JWTSvc.prototype.sign = function () {
-
+    JWTSvc.prototype.sign = function (user) {
+        jwt.sign(user, config.server.secret, { expiresIn: 900 })
+            .then(function(token) {
+                return token;
+            });
     };
 
     return JWTSvc;

@@ -16,6 +16,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var userRoutes = require('./routes/user.routes');
+var apiRoutes = require('./routes/api.routes');
 
 var app = express();
 
@@ -34,5 +35,6 @@ app.use('/assets', express.static(rootPath + '/public/assets'));
 
 app.use('/', routes);
 app.use('/user', userRoutes);
+app.use('/api', apiRoutes);
 
 module.exports = app;
