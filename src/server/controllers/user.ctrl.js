@@ -28,8 +28,33 @@ function register(req, res) {
 
 }
 
+function about(req, res) {
+
+}
+function home(req, res) {
+
+}
+
+function connections(req, res) {
+
+}
+
+function profile(req, res) {
+
+}
+
+function signup(req, res) {
+
+}
+
 
 module.exports = {
     login: login,
-    register: register
+    register: register,
+    about: about,
+    home: home,
+    connections: connections,
+    profile: profile,
+    signup: signup
+
 };

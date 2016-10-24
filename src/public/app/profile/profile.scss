@@ -1,10 +1,11 @@
 /**
- * @author David, Christan, Adrianna
- * @date 09/20/2016
+ * @author Christan
+ * @date 10/3/2016
  */
 
 /* Variables and mixins */
 
+$gray = #473e3e;
 $black = #000;
 $white = #fff;
 $orange = #db7827;
@@ -20,27 +21,24 @@ $orange = #db7827;
 
 /* Styles */
 
-#index {
-  height: 100%;
-  background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.6),
-                  rgba(0, 0, 0, 0.2));
-  //url(/images/people-street.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+#profile {
+  background: $white;
 }
 
-.index-wrapper {
-  color: $white;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+.profile-wrapper, .photos-wrapper {
+  color: $gray;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   text-align: center;
-  padding-top: 15em;
+  padding: 6em 0 0 0;
 }
 
-.index-title {
+.profile-title h2, .photos-title h2 {
   font-family: 'Bree Serif', serif;
-  font-size: 60px;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+  font-size: 80px;
+}
+
+.profile-desc, .photos-desc {
+  border: 1px dashed $black;
 }
 
 .btn-primary {

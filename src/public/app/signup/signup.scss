@@ -1,11 +1,10 @@
 /**
- * @author David, Christan
- * @date 09/20/2016
+ * @author Christan
+ * @date 10/10/2016
  */
 
 /* Variables and mixins */
 
-$black = #000;
 $white = #fff;
 $orange = #db7827;
 
@@ -39,10 +38,10 @@ table, th, tr, td {
   transition: 0.2s linear;
 }
 
-td:hover {
-  color: $white;
-  background-color: $orange;
-  transition: 0.2s linear;
+  &:hover {
+    color: $white;
+    background-color: $orange;
+    transition: 0.2s linear;
 }
 
 .calendar {

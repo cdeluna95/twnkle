@@ -1,2 +1,64 @@
+/**
+ * @author David, Christan
+ * @date 09/20/2016
+ */
+
 @import 'https://fonts.googleapis.com/css?family=Josefin+Sans|Shadows+Into+Light|Architects+Daughter';
 
+/* Variables and mixins */
+
+$white = #fff;
+$orange = #db7827;
+
+@mixin customText {
+	color: $white;
+	text-transform: uppercase;
+	text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+	letter-spacing: 2px;
+	transition: 0.2s linear;
+}
+
+/* Styles */
+
+.navbar {
+  background: rgba(0, 0, 0, 0);
+  padding: 20px 0 20px 0;
+  border: 0;
+}
+
+.navbar-default {
+	.navbar-toggle {
+		.navbar-collapse {
+			border: 0;
+			text-align: center;
+			transition: 0.2s linear;
+		}
+		.icon-bar {
+			background-color: $white;
+			transition: 0.2s linear;
+		}
+		.navbar-brand {
+			font-family: 'Bree Serif', serif;
+			font-size: 30px;
+			@customText;
+		}
+		.navbar-nav {
+			display: inline-block;
+			float: none;
+			vertical-align: top;
+		}
+		.navbar-nav li a {
+			font-family: 'Slabo 27px', serif;
+			font-size: 14px;
+			@customText;
+		}
+		.navbar-toggle:hover {
+			background-color: $orange;
+			transition: 0.2s linear;
+		}
+		.navbar-brand:hover, .navbar-nav > li > a:hover {
+			color: $orange;
+			transition: 0.2s ease-in-out;
+		}
+	}
+}
