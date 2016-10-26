@@ -49,12 +49,18 @@
           </div>
         </div>
             
-        <div class="col-md-8 offset-md-8">
-            <datepicker>
-                <input ng-model="date" type="text"/>
-            </datepicker>
-          <a class="btn btn-primary" href="index.html" role="button">Submit</a>
+        <div class="col-md-4 offset-md-4">
+            <div class="form-group">
+              <label for="bday">Birthday:</label>
+                  <datepicker date-format="MM/dd/yyyy" selector="form-control">
+                      <input ng-model="date" class="form-control" id="bday" type="text"/>
+                  </datepicker>
+            </div>
+            <a class="btn btn-primary" href="index.html" role="button">Submit</a>
         </div>
+
+
+
 
 
             
