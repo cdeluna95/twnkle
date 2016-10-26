@@ -15,6 +15,11 @@
                 url: '/home',
                 templateUrl: '/app/home/_home.html',
                 controller: 'HomeCtrl'
+            })
+            .state('phototest', {
+                url: '/photo-test',
+                templateUrl: '/app/photo-upload/_test.html',
+                controller: 'PhotoTestCtrl'
             });
     }
 

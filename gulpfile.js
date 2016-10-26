@@ -102,7 +102,8 @@ gulp.task('build:lib:js', ['clean:lib:js'], function() {
     return gulp
         .src([
             'bower_components/angular/angular.js',
-            'bower_components/angular-ui-router/release/angular-ui-router.js'
+            'bower_components/angular-ui-router/release/angular-ui-router.js',
+            'bower_components/ng-file-upload/ng-file-upload.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('dist/lib'));
