@@ -27,6 +27,7 @@ $orange: #db7827;
 }
 
 .navbar-default {
+
 	.navbar-toggle {
 		.navbar-collapse {
 			border: 0;
@@ -37,28 +38,29 @@ $orange: #db7827;
 			background-color: $white;
 			transition: 0.2s linear;
 		}
-		.navbar-brand {
-			font-family: 'Bree Serif', serif;
-			font-size: 30px;
-			@include customText;
-		}
-		.navbar-nav {
-			display: inline-block;
-			float: none;
-			vertical-align: top;
-		}
-		.navbar-nav li a {
-			font-family: 'Slabo 27px', serif;
-			font-size: 14px;
-			@include customText;
-		}
-		.navbar-toggle:hover {
-			background-color: $orange;
-			transition: 0.2s linear;
-		}
-		.navbar-brand:hover, .navbar-nav > li > a:hover {
-			color: $orange;
-			transition: 0.2s ease-in-out;
-		}
+	}
+
+	.navbar-brand {
+		font-family: 'Bree Serif', serif;
+		font-size: 30px;
+		@include customText;
+	}
+	.navbar-nav {
+		display: inline-block;
+		float: none;
+		vertical-align: top;
+	}
+	.navbar-nav li a {
+		font-family: 'Slabo 27px', serif;
+		font-size: 14px;
+		@include customText;
+	}
+	.navbar-toggle:hover {
+		background-color: $orange;
+		transition: 0.2s linear;
+	}
+	.navbar-brand:hover, .navbar-nav > li > a:hover {
+		color: $orange;
+		transition: 0.2s ease-in-out;
 	}
 }
