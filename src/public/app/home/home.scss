@@ -3,73 +3,84 @@
  * @date 09/20/2016
  */
 
+/* Fonts */
+
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans|Bree+Serif|Slabo+27px);
+
 /* Variables and mixins */
 
 $black: #000;
 $white: #fff;
 $orange: #db7827;
 
+@mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
+  background: {
+    image: linear-gradient(
+           rgba(0, 0, 0, 0.6),
+           rgba(0, 0, 0, 0.2)),
+           url($img-path);
+    repeat: $repeat;
+    size: $size;
+  }
+}
+
 @mixin customButton {
   text-transform: uppercase;
-  background-color: rgba(0, 0, 0, 0);
   border-radius: 3%;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
-  padding: 10px 30px 10px 30px;
+  padding: 12px 30px 12px 30px;
   transition: 0.2s ease-in-out;
 }
 
 /* Styles */
 
-#index {
+html, body {
   height: 100%;
-  background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.6),
-                  rgba(0, 0, 0, 0.2));
-  //url(/images/people-street.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  // image-url arguments:
-  // $path: path relative to images directory in config.rb
-  // $path-only: if true, will cause only the path to be returned instead of a `url()` function
-  // $cache-buster: When set to `false` no cache buster will be used (i.e. `?313420982`)
-  $header-img: image-url('/assets/images/people-street.jpg', false, false)
+  margin: 0;
+  @include bgImg('/assets/images/people-street.jpg');
 }
 
-.index-wrapper {
+.home-wrapper {
   color: $white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   text-align: center;
   padding-top: 15em;
 }
 
-.index-title {
+.home-title {
   font-family: 'Bree Serif', serif;
   font-size: 60px;
   text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 }
 
-.btn-primary {
+.home-button {
+  padding: 15px 5px 15px 5px;
+}
+
+.btn-white {
   color: $white;
-  border-color: $white;
+  border: 1px solid $white;
   @include customButton;
 
   &:hover {
     color: $black;
     background-color: $white;
     border-color: $white;
+    text-decoration: none;
     transition: 0.2s ease-in-out;
   }
 }
 
-.btn-default {
+.btn-orange {
   color: $orange;
-  border-color: #orange;
+  border: 1px solid $orange;
   @include customButton;
 
   &:hover {
     color: $white;
     background-color: $orange;
     border-color: $orange;
+    text-decoration: none;
     transition: 0.2s ease-in-out;
   }
 }
