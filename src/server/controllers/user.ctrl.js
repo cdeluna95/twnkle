@@ -36,7 +36,14 @@ function login(req, res) {
  * @param res
  */
 function register(req, res) {
-    return res.status(400).json({ err: 'Not implemented'});
+    var newUser = req.body.newUser;
+    svc.register(newUser)
+        .then(function( ){
+
+        })
+        .catch(function(err) {
+            res.status(401).json({ err: err.toString() });
+        });
 }
 
 function authenticate(req, res) {

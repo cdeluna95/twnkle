@@ -67,6 +67,9 @@ var User = (function() {
 
     User.prototype.insert = function(newUser) {
         var self = this;
+
+
+
         var sql = 'INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, gender, preference)' +
             'VALUES '
     };
@@ -84,6 +87,10 @@ var User = (function() {
         }
         clause.push('active=1');
         return clause.join(" ");
+    };
+
+    User.prototype._validate = function(user) {
+
     };
 
     return User;

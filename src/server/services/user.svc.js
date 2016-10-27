@@ -19,9 +19,6 @@ var usersvc = (function() {
 
     }
 
-    UserSvc.prototype.createUser = function() {
-
-    };
 
     UserSvc.prototype.getUser = function(user) {
 
@@ -87,7 +84,7 @@ var usersvc = (function() {
      * @param newUser
      */
     UserSvc.prototype.register = function(newUser) {
-
+        User.insert(newUser)
     };
 
     /**
