@@ -1,0 +1,5 @@
+
+
+describe('Footer Directive', function() {
+
+});
