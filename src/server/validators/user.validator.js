@@ -1,38 +1,38 @@
 var util = require('util');
 var validator = require('validator');
 
-function validateFirstName(fn) {
+var validateFirstName = function(fn) {
     if(typeof fn !== 'string')
         return "first name must be a string";
 
-}
+};
 
-function validateLastName(ln) {
+var validateLastName = function(ln) {
     if(typeof ln !== 'string')
         return "last name must be a string";
-}
+};
 
-function validateEmail(email) {
+var validateEmail = function(email) {
     if(!validator.isEmail(email)) {
         return "email address is not valid";
     }
-}
+};
 
-function validateDOB(dob) {
+var validateDOB = function(dob) {
     if(!validator.isDate(dob)) {
         return "date of birth is not valid";
     }
-}
+};
 
-function validatePassword(pw) {
+var validatePassword = function(pw) {
     if(pw.length < 8 || pw.length > 20) {
         return "password must be between 8 to 20 characters";
     }
 
     return true;
-}
+};
 
-function validateGender(gender) {
+var validateGender = function(gender) {
     if(typeof gender !== 'string') {
         return "gender must be a string";
     }
@@ -40,9 +40,9 @@ function validateGender(gender) {
     if(gender !== 'male' || gender !== 'female') {
         return "please select a gender";
     }
-}
+};
 
-function validateSexualPreference(preference) {
+var validateSexualPreference = function(preference) {
     if(typeof preference !== 'array') {
         return "something went wrong";
     }
@@ -54,11 +54,11 @@ function validateSexualPreference(preference) {
     }
 
 
-}
+};
 
-function validate(user) {
+var validate = function(user) {
 
-}
+};
 
 module.exports = exports = {
     validate: validate
