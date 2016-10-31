@@ -23,19 +23,19 @@ $gray: #473e3e;
 
 /* Styles */
 
-body {
-  height: 100%;
-  margin: 0;
-}
-
 #about {
-  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: $yellow;
 }
 
 #about-header {
-  padding-bottom: 35em;
-  @include headerImg('/assets/images/fingers-buddies.jpg');
+  height: 70%;
+  width: 100%;
+  @include headerImg('/assets/images/ggc-about.jpg');
 }
 
 .about-wrapper {

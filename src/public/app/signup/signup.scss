@@ -8,18 +8,26 @@
 $white: #fff;
 $orange: #db7827;
 
+@mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
+  background: {
+    image: linear-gradient(
+                    rgba(0, 0, 0, 0.6),
+                    rgba(0, 0, 0, 0.2)),
+    url($img-path);
+    repeat: $repeat;
+    size: $size;
+  }
+}
+
 /* Styles */
 
 #auth {
   height: 100%;
-  background-image: 
-    linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.2)
-    );
-    //url(images/people-street.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  @include bgImg('/assets/images/home-bg.jpg');
 }
 
 .auth-wrapper {

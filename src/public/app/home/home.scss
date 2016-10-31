@@ -7,13 +7,16 @@
 
 $black: #000;
 $white: #fff;
-$orange: #db7827;
+$green: #097a5a;
+$darkgreen: #046b4e;
+$yellow: #9dad37;
+$darkyellow: #8e9e2e;
 
 @mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
   background: {
     image: linear-gradient(
-           rgba(0, 0, 0, 0.6),
-           rgba(0, 0, 0, 0.2)),
+           rgba(0, 0, 0, 0.4),
+           rgba(0, 0, 0, 0)),
            url($img-path);
     repeat: $repeat;
     size: $size;
@@ -21,64 +24,81 @@ $orange: #db7827;
 }
 
 @mixin customButton {
+  letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 3%;
-  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
-  padding: 12px 30px 12px 30px;
+  border-radius: 5px;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+  padding: 1.5em 4em 1.5em 4em;
   transition: 0.2s ease-in-out;
 }
 
 /* Styles */
 
 #home {
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+}
+
+.home {
   height: 100%;
   width: 100%;
   position: fixed;
   top: 0;
   right: 0;
-  @include bgImg('/assets/images/people-street.jpg');
+  @include bgImg('/assets/images/home-bg.jpg');
 }
 
 .home-wrapper {
-  color: $white;
-  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  padding-top: 15em;
+  position: absolute;
+  padding-top: 12%;
+  left: 5%;
 }
 
-.home-title {
-  font-family: 'Bree Serif', serif;
-  font-size: 60px;
-  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+.home-slogan {
+  background: rgba(71, 194, 58, 0.9);
+  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
+  padding: 2em 8em 4em;
+}
+
+.home-slogan h2 {
+  color: $white;
+  font-size: 70px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  letter-spacing: 15px;
 }
 
 .home-button {
-  padding: 15px 5px 15px 5px;
+  position: absolute;
+  top: 98%;
+  left: 10%;
 }
 
-.btn-white {
+.home-button a {
+  margin: 0 5px 0 5px;
+}
+
+.btn-green {
   color: $white;
-  border: 1px solid $white;
+  background-color: $darkgreen;
   @include customButton;
 
   &:hover {
-    color: $black;
-    background-color: $white;
-    border-color: $white;
+    color: $white;
+    background-color: $green;
     text-decoration: none;
     transition: 0.2s ease-in-out;
   }
 }
 
-.btn-orange {
-  color: $orange;
-  border: 1px solid $orange;
+.btn-yellow {
+  color: $white;
+  background-color: $yellow;
   @include customButton;
 
   &:hover {
     color: $white;
-    background-color: $orange;
-    border-color: $orange;
+    background-color: $darkyellow;
     text-decoration: none;
     transition: 0.2s ease-in-out;
   }
