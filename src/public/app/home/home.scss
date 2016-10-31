@@ -3,10 +3,6 @@
  * @date 09/20/2016
  */
 
-/* Fonts */
-
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans|Bree+Serif|Slabo+27px);
-
 /* Variables and mixins */
 
 $black: #000;
@@ -34,9 +30,12 @@ $orange: #db7827;
 
 /* Styles */
 
-html, body {
+#home {
   height: 100%;
-  margin: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
   @include bgImg('/assets/images/people-street.jpg');
 }
 

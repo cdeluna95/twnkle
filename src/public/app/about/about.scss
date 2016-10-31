@@ -8,19 +8,34 @@
 $yellow: #e6ebb7;
 $gray: #473e3e;
 
+@mixin headerImg($img-path, $repeat: no-repeat, $size: 100% auto, $attachment: fixed, $position: 0 -10em) {
+  background: {
+    image: linear-gradient(
+                    rgba(0, 0, 0, 0.1),
+                    rgba(0, 0, 0, 0.6)),
+    url($img-path);
+    repeat: $repeat;
+    size: $size;
+    attachment: $attachment;
+    position: $position;
+  }
+}
+
 /* Styles */
 
+body {
+  height: 100%;
+  margin: 0;
+}
+
 #about {
+  background-size: cover;
   background-color: $yellow;
 }
 
 #about-header {
-  background-size: 100% auto;
-  background: linear-gradient(
-                  rgba(0, 0, 0, 0.1),
-                  rgba(0, 0, 0, 0.6));
-  //url(fingers-buddies.jpg) fixed 0 -10em;
   padding-bottom: 35em;
+  @include headerImg('/assets/images/fingers-buddies.jpg');
 }
 
 .about-wrapper {
