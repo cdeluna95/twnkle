@@ -12,8 +12,8 @@ $orange: #db7827;
 @mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
   background: {
     image: linear-gradient(
-                    rgba(0, 0, 0, 0.6),
-                    rgba(0, 0, 0, 0.2)),
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0)),
     url($img-path);
     repeat: $repeat;
     size: $size;
@@ -23,6 +23,11 @@ $orange: #db7827;
 /* Styles */
 
 #auth {
+  font-family: 'Josefin Sans', sans-serif;
+  position: relative;
+}
+
+.auth {
   height: 100%;
   width: 100%;
   position: fixed;
@@ -35,26 +40,4 @@ $orange: #db7827;
   color: $white;
   text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
   padding-top: 10em;
-}
-
-table, th, tr, td {
-  color: $orange;
-  background-color: $white;
-  border: 1px solid $orange;
-  box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 20px;
-  transition: 0.2s linear;
-}
-
-td:hover {
-  color: $white;
-  background-color: $orange;
-  transition: 0.2s linear;
-}
-
-.calendar {
-  width: 100%;
-  height: 100px;
-  margin: 5em 0 2em 0;
 }

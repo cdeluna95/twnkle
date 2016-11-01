@@ -3,24 +3,27 @@
  * @date 09/20/2016
  */
 
-@import url(https://fonts.googleapis.com/css?family=Josefin+Sans|Bree+Serif|Slabo+27px);
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans|Slabo+27px|Raleway:300);
 
 html, body {
   height: 100%;
   margin: 0;
 }
 
-body {
-  font-family: 'Josefin Sans', sans-serif;
-}
-
 /* Media queries */
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) {
-  .index-wrapper {
-    padding-top: 12em;
-  }
-  .index-name {
-    font-size: 25px;
-  }
+/* Smartphones */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  // TODO
+}
+
+/* Tablets */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  // TODO
 }

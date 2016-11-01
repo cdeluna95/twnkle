@@ -11,8 +11,8 @@ $orange: #db7827;
 @mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
   background: {
     image: linear-gradient(
-                    rgba(0, 0, 0, 0.6),
-                    rgba(0, 0, 0, 0.2)),
+                    rgba(0, 0, 0, 0.4),
+                    rgba(0, 0, 0, 0)),
     url($img-path);
     repeat: $repeat;
     size: $size;
