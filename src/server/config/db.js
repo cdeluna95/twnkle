@@ -1,6 +1,6 @@
 var util = require('util');
 var mysql = require('mysql');
-var Promise = require('bluebird');
+
 
 var db = (function() {
     function DB() {
@@ -19,16 +19,13 @@ var db = (function() {
         });
     }
 
-    DB.prototype.getConnection = function() {
-        var self = this;
-        return new Promise(function(resolve, reject) {
-            self.pool.getConnection(function(err, connection) {
-                if(err) {
-                    reject(err);
-                }
+    DB.prototype.getConnection = function(cb) {
+        this.pool.getConnection(function(err, connection) {
+            if(err) {
+                return cb(err, null);
+            }
 
-                resolve(connection);
-            })
+            cb(null, connection);
         });
     };
 
