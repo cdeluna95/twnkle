@@ -1,3 +1,8 @@
+/**
+ * @author David, Adrianna, Christan
+ * @date 09/20/2016
+ */
+
 (function() {
     'use strict';
 
@@ -17,14 +22,24 @@
                 controller: 'HomeCtrl'
             })
             .state('about', {
-                url: '/home',
+                url: '/about',
                 templateUrl: '/app/about/_about.html',
                 controller: 'AboutCtrl'
             })
-            .state('phototest', {
-                url: '/photo-test',
-                templateUrl: '/app/photo-upload/_test.html',
-                controller: 'PhotoTestCtrl'
+            .state('connections', {
+                url: '/connections',
+                templateUrl: '/app/connections/_connections.html',
+                controller: 'AboutCtrl'
+            })
+            .state('profile', {
+                url: '/profile',
+                templateUrl: '/app/profile/_profile.html',
+                controller: 'ProfileCtrl'
+            })
+            .state('signup', {
+                url: '/signup',
+                templateUrl: '/app/signup/_signup.html',
+                controller: 'SignupCtrl'
             });
     }
 
