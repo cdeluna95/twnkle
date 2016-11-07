@@ -1,0 +1,40 @@
+/**
+ * @author Christan, Adrianna
+ * @date 09/20/2016
+ */
+
+/* Variables and mixins */
+
+$yellow: #e6ebb7;
+$gray: #473e3e;
+
+/* Styles */
+
+#about {
+  background-color: $yellow;
+}
+
+#about-header {
+  background-size: 100% auto;
+  background: linear-gradient(
+                  rgba(0, 0, 0, 0.1),
+                  rgba(0, 0, 0, 0.6));
+  //url(fingers-buddies.jpg) fixed 0 -10em;
+  padding-bottom: 35em;
+}
+
+.about-wrapper {
+  color: $gray;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 5em 0 5em 0;
+}
+
+.about-title h1 {
+  font-family: 'Bree Serif', serif;
+  font-size: 80px;
+}
+
+.about-desc p {
+  font-size: 20px;
+}
