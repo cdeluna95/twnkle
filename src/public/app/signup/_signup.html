@@ -1,5 +1,5 @@
 <!--
- - @author Christan
+ - @author Christan, Adrianna
  - @date 10/10/2016
  -->
 
@@ -49,24 +49,35 @@
           </div>
         </div>
             
-        <div class="col-md-8 offset-md-8">
-          <table class="calendar">
-            <th colspan="4">
-              Calendar
-            </th>
-            <tr>
-              <td>Jan</td><td>Feb</td><td>Mar</td><td>Apr</td>
-            </tr>
-            <tr>
-              <td>May</td><td>Jun</td><td>Jul</td><td>Aug</td>
-            </tr>
-            <tr>
-              <td>Sept</td><td>Oct</td><td>Nov</td><td>Dec</td>
-            </tr>
-          </table>
-          <a class="btn btn-primary" href="index.html" role="button">Submit</a>
+        <div class="col-md-4 offset-md-4">
+
+            <div class="form-group">
+                <label for="gender">
+                    Gender:
+                </label>
+
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="gender" value="option1"> Female
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="gender" value="option2"> Male
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" id="gender" value="option3"> Other
+                </label>
+            </div>
+
+            <div class="form-group">
+              <label for="bday">Birthday:</label>
+                  <datepicker date-format="MM/dd/yyyy" selector="form-control">
+                      <input ng-model="date" class="form-control" id="bday" type="text"/>
+                  </datepicker>
+            </div>
+
+
+            <a class="btn btn-primary" href="index.html" role="button">Submit</a>
         </div>
-            
+
       </div>
     </div>
   </div>
