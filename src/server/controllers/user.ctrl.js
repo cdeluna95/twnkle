@@ -15,7 +15,7 @@ var svc = new UserSvc();
  * @param req
  * @param res
  */
-function login(req, res) {
+var login = function(req, res) {
     var user = req.body.user;
 
     svc.login(user, function(err, result) {
@@ -25,14 +25,14 @@ function login(req, res) {
 
         res.status(200).json({ data: result.token });
     });
-}
+};
 
 /**
  *
  * @param req
  * @param res
  */
-function register(req, res) {
+var register = function(req, res) {
     var newUser = req.body.newUser;
 
     svc.register(newUser, function(err, result) {
@@ -42,9 +42,9 @@ function register(req, res) {
 
         res.status(200).json({ result: result });
     });
-}
+};
 
-function authenticate(req, res) {
+var authenticate = function(req, res) {
     var token = req.body.token || req.query.token || req.headers['x-access-token'];
 
     if(!token) {
@@ -53,18 +53,18 @@ function authenticate(req, res) {
             .json({ err: 'No token provided' });
     }
 
-    svc.authenticate(token)
-        .then(function(decoded) {
-            return res
-                .status(200)
-                .json({ token: decoded });
-        })
-        .catch(function(err) {
+    svc.authenticate(token, function(err, decoded) {
+        if(err) {
             return res
                 .status(401)
                 .json({ err: 'Not authorized' });
-        });
-}
+        }
+
+        res
+            .status(200)
+            .json({ success: true });
+    });
+};
 
 
 module.exports = {

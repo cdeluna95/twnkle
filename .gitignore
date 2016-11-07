@@ -3,3 +3,5 @@ node_modules/
 dist/
 /bower_components/
 /sandbox/
+test.js
+tests/mocks/

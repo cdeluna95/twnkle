@@ -63,6 +63,10 @@ var usersvc = (function() {
      *
      * @param newUser
      * @param cb
+     *
+     * TODO refactor this to use the async package instead of callback hell
+     * TODO add in sending email verification
+     * TODO add in profile analysis for matching
      */
     UserSvc.prototype.register = function(newUser, cb) {
         db.getConnection(function(err, connection) {
