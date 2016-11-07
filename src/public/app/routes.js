@@ -27,9 +27,9 @@
                 controller: 'AboutCtrl'
             })
             .state('connections', {
-            url: '/connections',
-            templateUrl: '/app/connections/_connections.html',
-            controller: 'AboutCtrl'
+                url: '/connections',
+                templateUrl: '/app/connections/_connections.html',
+                controller: 'AboutCtrl'
             })
             .state('profile', {
                 url: '/profile',
