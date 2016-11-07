@@ -16,17 +16,14 @@ var svc = new UserSvc();
  * @param res
  */
 function login(req, res) {
-    var user = JSON.parse(req.body.user);
+    var user = req.body.user;
 
-    svc.login(user).then(function(user) {
-        if(user.length === 0) {
-            return res.status(401).json({ msg: 'Bad username/password combination' });
+    svc.login(user, function(err, result) {
+        if(err) {
+            return res.status(401).json({ msg: 'There was a login error'});
         }
-        util.log(util.inspect(user));
-        res.status(200).json({ data: user });
-    }).catch(function(err) {
-        util.log(util.inspect(err));
-        res.status(500).json({ err: err });
+
+        res.status(200).json({ data: result.token });
     });
 }
 
@@ -37,13 +34,14 @@ function login(req, res) {
  */
 function register(req, res) {
     var newUser = req.body.newUser;
-    svc.register(newUser)
-        .then(function( ){
 
-        })
-        .catch(function(err) {
-            res.status(401).json({ err: err.toString() });
-        });
+    svc.register(newUser, function(err, result) {
+        if(err) {
+            return res.status(401).json({ err: err.message });
+        }
+
+        res.status(200).json({ result: result });
+    });
 }
 
 function authenticate(req, res) {

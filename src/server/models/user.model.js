@@ -43,26 +43,39 @@ var User = (function() {
 
     };
 
-    User.prototype.find = function(user) {
+    User.prototype.find = function(user, cb) {
         var self = this;
         var sql = 'SELECT * FROM users ' + this._createWhere(user);
 
-        return new Promise(function(resolve, reject) {
-            self.db.getConnection()
-                .then(function(connection) {
-                    util.log(sql);
-                    connection.query(sql, function(err, results) {
-                        if(err) {
-                            reject(err);
-                        }
-                        connection.release();
-                        resolve(results);
-                    });
-                })
-                .catch(function(err) {
-                    reject(err);
-                });
+        self.db.getConnection(function(err, connection) {
+             if(err) {
+                 return cb(err, null);
+             }
+
+             connection.query(sql, function(err, results) {
+                 if(err) {
+                     cb(err, null);
+                 }
+                 connection.release();
+                 cb(null, results);
+             });
         });
+        // return new Promise(function(resolve, reject) {
+        //     self.db.getConnection()
+        //         .then(function(connection) {
+        //             util.log(sql);
+        //             connection.query(sql, function(err, results) {
+        //                 if(err) {
+        //                     reject(err);
+        //                 }
+        //                 connection.release();
+        //                 resolve(results);
+        //             });
+        //         })
+        //         .catch(function(err) {
+        //             reject(err);
+        //         });
+        // });
     };
 
     User.prototype.insert = function(newUser) {
