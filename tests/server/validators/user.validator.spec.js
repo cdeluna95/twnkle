@@ -1,7 +1,6 @@
 var assert = require('chai').assert;
-var it = require('mocha').it;
 var userValidator = require('../../../src/server/validators/user.validator');
-var describe = require('mocha').describe;
+
 
 describe('user validator', function() {
 
