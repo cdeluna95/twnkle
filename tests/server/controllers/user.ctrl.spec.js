@@ -4,7 +4,7 @@ var assert = require('chai').assert;
 var sinon = require('sinon');
 var httpMocks = require('node-mocks-http');
 
-var userCtrl = require('../../../src/server/controllers/user.ctrl');
+// var userCtrl = require('../../../src/server/controllers/user.ctrl');
 
 describe('User Controller', function() {
 
