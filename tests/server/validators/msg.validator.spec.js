@@ -66,46 +66,109 @@ describe('Message Validator', function() {
 
     describe('Message receiver validation', function() {
         it('should reject a null receiver', function() {
+            testMsg.receiver = null;
+            var expected = "Message receiver required";
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
-        it('should rejct an undefined receiver', function() {
+        it('should reject an undefined receiver', function() {
+            testMsg.receiver = undefined;
+            var expected = 'Message receiver required';
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
         it('should reject a receiver that is not a string', function() {
+            testMsg.receiver = 1;
+            var expected = 'Message receiver must be a string';
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
         it('should reject an empty receiver', function() {
+            testMsg.receiver = '';
+            var expected = 'Message receiver required';
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
         it('should accept a valid receiver', function() {
-
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs, null, 'No errors should have been returned');
+                assert.deepEqual(msg, testMsg);
+            });
         });
     });
 
 
     describe('Message body validation', function() {
         it('should reject a null body', function() {
+            testMsg.body = null;
+            var expected = 'Message body required';
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
         it('should reject an undefined body', function() {
+            testMsg.body = undefined;
+            var expected = 'Message body required';
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
         it('should reject a body that is not a string', function() {
+            testMsg.body = 1;
+            var expected = 'Message body must be a string';
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
         it('should reject a body that is an empty string', function() {
+            testMsg.body = '';
+            var expected = 'Message body required';
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs.length, 1, 'Only 1 error should be returned');
+                assert.equal(errs[0], expected);
+                assert.equal(msg, null, 'Msg object should be null');
+            });
         });
 
         it('should accept a valid message body', function() {
 
+            msgValidator.validate(testMsg, function(errs, msg) {
+                assert.equal(errs, null, 'No errors should have been returned');
+                assert.deepEqual(testMsg, msg);
+            });
         });
     });
 });
