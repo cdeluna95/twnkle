@@ -55,3 +55,12 @@ CREATE TABLE userPicture
     pictureSource VARCHAR(100) NOT NULL
     
 );
+
+CREATE TABLE user_profile
+(
+    profileID INT PRIMARY KEY AUTO_INCREMENT,
+    userID INT NOT NULL,
+    aboutMe VARCHAR(1000),
+    lookingFor VARCHAR(500),
+    CONSTRAINT user_profile_users_userId_fk FOREIGN KEY (userID) REFERENCES users (userId)
+);
