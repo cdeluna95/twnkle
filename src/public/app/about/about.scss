@@ -3,10 +3,13 @@
  * @date 09/20/2016
  */
 
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
 /* Variables and mixins */
 
-$yellow: #e6ebb7;
 $gray: #473e3e;
+$raleway: 'Raleway', sans-serif;
+$center: center;
 
 @mixin headerImg($img-path, $repeat: no-repeat, $size: 100% auto, $attachment: fixed, $position: 0 -10em) {
   background: {
@@ -29,7 +32,6 @@ $gray: #473e3e;
   position: absolute;
   top: 0;
   right: 0;
-  background-color: $yellow;
 }
 
 #about-header {
@@ -38,18 +40,23 @@ $gray: #473e3e;
   @include headerImg('/assets/images/ggc-about.jpg');
 }
 
-.about-wrapper {
-  color: $gray;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 5em 0 5em 0;
+.about-title {
+  font-family: $raleway;
+  background-color: #fff;
+  text-align: $center;
 }
 
-.about-title h1 {
-  font-family: 'Bree Serif', serif;
-  font-size: 80px;
+.about-content-wrapper {
+  font-family: $raleway;
+  text-align: $center;
 }
 
-.about-desc p {
-  font-size: 20px;
+.about-members img {
+  height: 100%;
+  width: 200px;
+  margin-top: 3em;
+}
+
+.about-subtitle {
+  margin-top: 3em;
 }
