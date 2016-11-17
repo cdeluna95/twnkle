@@ -41,9 +41,11 @@ $center: center;
 }
 
 .about-title {
+  font-size: 30px;
   font-family: $raleway;
   background-color: #fff;
   text-align: $center;
+  position: absolute;
 }
 
 .about-content-wrapper {
