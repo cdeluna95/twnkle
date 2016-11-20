@@ -15,8 +15,8 @@ $darkyellow: #8e9e2e;
 @mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
   background: {
     image: linear-gradient(
-           rgba(0, 0, 0, 0.4),
-           rgba(0, 0, 0, 0)),
+             rgba(0, 0, 0, 0.4),
+             rgba(0, 0, 0, 0)),
            url($img-path);
     repeat: $repeat;
     size: $size;
@@ -104,4 +104,8 @@ $darkyellow: #8e9e2e;
     text-decoration: none;
     transition: 0.2s ease-in-out;
   }
+}
+
+#content {
+  background: #fff;
 }
