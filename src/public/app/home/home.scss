@@ -21,7 +21,7 @@ $transition: 0.2s ease-in-out;
 
 /* Mixins */
 
-@mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
+@mixin bgImg($img-path, $repeat: no-repeat, $size: cover, $attachment: fixed) {
   background: {
     image: linear-gradient(
              rgba($black, 0.4),
@@ -29,6 +29,7 @@ $transition: 0.2s ease-in-out;
            url($img-path);
     repeat: $repeat;
     size: $size;
+    attachment: $attachment;
   }
 }
 
@@ -98,7 +99,7 @@ $transition: 0.2s ease-in-out;
 
   .landing-wrapper {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 5%;
 
     .landing-slogan {
@@ -134,7 +135,6 @@ $transition: 0.2s ease-in-out;
     text-align: center;
 
     h2 {
-      color: $darkgreen;
       font-size: 50px;
       font-weight: 600;
       text-transform: uppercase;
@@ -151,16 +151,15 @@ $transition: 0.2s ease-in-out;
   }
 
   .intro-row {
-    margin: 8em 0 8em 0;
+    margin-top: 8em;
     text-align: center;
 
     i {
-      color: $darkgreen;
+      color: $green;
       font-size: 70px;
     }
 
     h3 {
-      color: $darkgreen;
       font-size: 40px;
       font-weight: 600;
     }
@@ -168,5 +167,9 @@ $transition: 0.2s ease-in-out;
     p {
       font-size: 18px;
     }
+  }
+
+  #feature {
+    margin-top: 8em;
   }
 }

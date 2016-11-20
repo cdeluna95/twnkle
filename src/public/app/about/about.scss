@@ -14,7 +14,7 @@ $black: #000;
 $gray: #473e3e;
 $darkgreen: #046b4e;
 $raleway: 'Raleway', sans-serif;
-$shadow: 2px 2px 3px rgba($black, 0.2);
+$shadow: 3px 3px 5px rgba($black, 0.1);
 $transition: 0.2s ease;
 
 /* Mixins */
@@ -94,6 +94,7 @@ $transition: 0.2s ease;
 
     h2 {
       font-size: 3vw;
+      font-weight: 600;
       text-shadow: $shadow;
       @include titleStyle;
     }
