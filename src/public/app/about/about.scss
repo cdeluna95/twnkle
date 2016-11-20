@@ -22,8 +22,8 @@ $transition: 0.2s ease;
 @mixin headerImg($img-path, $repeat: no-repeat, $size: 100% 100%, $attachment: fixed, $position: 0 0) {
   background: {
     image: linear-gradient(
-             rgba(0, 0, 0, 0.2),
-             rgba(0, 0, 0, 0)),
+             rgba($black, 0.2),
+             rgba($black, 0)),
            url($img-path);
     repeat: $repeat;
     size: $size;
@@ -39,32 +39,32 @@ $transition: 0.2s ease;
   margin: 0 auto;
 }
 
-/* Main */
+/* About */
 
-#main {
+#about {
   font-family: $raleway;
 
-  /* About */
+  /* Header */
 
-  #about {
+  #header {
     width: 100%;
     position: absolute;
     top: 0;
     right: 0;
   }
 
-  #about-header {
+  #header-img {
     padding-bottom: 50rem;
     @include headerImg('/assets/images/ggc-b.jpg');
   }
 
-  .about-wrapper {
+  .header-wrapper {
     width: 50%;
     position: absolute;
     top: 25rem;
     left: 25%;
 
-    .about-title {
+    .header-title {
 
       h1 {
         font-size: 3vw;
@@ -76,15 +76,15 @@ $transition: 0.2s ease;
       h2 {
         color: $white;
         font-size: 1.5vw;
-        background-color: rgba($black, 0.6);
+        background-color: rgba($black, 0.5);
         padding: 10px;
-        box-shadow: 2px 2px 10px rgba($black, 0.6);
+        box-shadow: 2px 2px 10px rgba($black, 0.4);
         @include titleStyle;
       }
     }
   }
 
-  /* About Content */
+  /* Content */
 
   #content {
     margin-top: 5em;
