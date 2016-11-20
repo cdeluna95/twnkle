@@ -41,6 +41,10 @@ $transition: 0.2s ease-in-out;
   }
 }
 
+@mixin pageMargin($margin) {
+  margin: $margin;
+}
+
 @mixin titleStyle {
   font-weight: 600;
   text-shadow: $shadow;
@@ -153,7 +157,7 @@ $transition: 0.2s ease-in-out;
       box-shadow: 4px 8px 10px rgba($black, 0.2);
       padding: 2em 8em 4em;
 
-      h2 {
+      h1 {
         color: $white;
         font-size: 70px;
         text-transform: uppercase;
@@ -176,7 +180,7 @@ $transition: 0.2s ease-in-out;
   /* Introduction */
 
   #intro {
-    margin-top: 8em;
+    @include pageMargin(8em 0 8em 0);
   }
 
   .intro-desc {
@@ -223,7 +227,6 @@ $transition: 0.2s ease-in-out;
     width: 100%;
     position: absolute;
     right: 0;
-    margin-top: 8em;
   }
 
   #astro-img {
@@ -234,7 +237,7 @@ $transition: 0.2s ease-in-out;
   .astro-wrapper {
     width: 50%;
     position: absolute;
-    top: 10%;
+    top: 7.5%;
     left: 25%;
 
     .astro-desc {
@@ -259,12 +262,39 @@ $transition: 0.2s ease-in-out;
     .astro-button {
       margin-top: 8em;
       text-align: center;
+
+      a {
+        margin: 0 10px 0 10px;
+      }
     }
   }
 
   /* Features */
 
   #feature {
-    margin-top: 8em;
+
+    .feature-desc {
+      text-align: center;
+
+      h3 {
+        font-size: 40px;
+        font-weight: 600;
+      }
+
+      .matches,
+      .connections,
+      .profile {
+        @include pageMargin(5em 0 5em 0);
+
+        img {
+          box-shadow: 3px 3px 3px rgba($black, 0.2);
+          transition: $transition;
+
+          &:hover {
+            filter: grayscale(1);
+          }
+        }
+      }
+    }
   }
 }
