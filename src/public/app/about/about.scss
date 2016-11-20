@@ -3,10 +3,6 @@
  * @date 09/20/2016
  */
 
-/* Fonts */
-
-@import url(https://fonts.googleapis.com/css?family=Raleway:300);
-
 /* Variables */
 
 $white: #fff;
@@ -19,16 +15,14 @@ $transition: 0.2s ease;
 
 /* Mixins */
 
-@mixin headerImg($img-path, $repeat: no-repeat, $size: 100% 100%, $attachment: fixed, $position: 0 0) {
+@mixin headerImg($img-path, $repeat: no-repeat, $attachment: fixed) {
   background: {
     image: linear-gradient(
              rgba($black, 0.2),
              rgba($black, 0)),
            url($img-path);
     repeat: $repeat;
-    size: $size;
     attachment: $attachment;
-    position: $position;
   }
 }
 
@@ -68,7 +62,7 @@ $transition: 0.2s ease;
 
       h1 {
         font-size: 3vw;
-        background-color: $white;
+        background: $white;
         padding: 20px;
         @include titleStyle;
       }
@@ -76,7 +70,7 @@ $transition: 0.2s ease;
       h2 {
         color: $white;
         font-size: 1.5vw;
-        background-color: rgba($black, 0.5);
+        background: rgba($black, 0.5);
         padding: 10px;
         box-shadow: 2px 2px 10px rgba($black, 0.4);
         @include titleStyle;
