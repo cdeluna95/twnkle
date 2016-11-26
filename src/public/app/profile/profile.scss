@@ -40,6 +40,7 @@ $transition: 0.2s ease-in-out;
 /* Profile */
 
 #profile {
+  font-family: $raleway;
 
   /* Profile Header */
 
@@ -59,7 +60,6 @@ $transition: 0.2s ease-in-out;
       }
 
       .profile-desc {
-        font-family: $raleway;
 
         h2 {
           font-weight: 600;
