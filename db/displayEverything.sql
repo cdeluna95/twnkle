@@ -1,4 +1,4 @@
 select *
 FROM dual;
 
-// DB setup 
+// DB setup

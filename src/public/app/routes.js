@@ -16,15 +16,20 @@
                 templateUrl: '/app/login/_login.html',
                 controller: 'LoginCtrl'
             })
+            .state('signup', {
+                url: '/signup',
+                templateUrl: '/app/signup/_signup.html',
+                controller: 'SignupCtrl'
+            })
             .state('home', {
                 url: '/home',
                 templateUrl: '/app/home/_home.html',
                 controller: 'HomeCtrl'
             })
-            .state('about', {
-                url: '/about',
-                templateUrl: '/app/about/_about.html',
-                controller: 'AboutCtrl'
+            .state('matches', {
+                url: '/matches',
+                templateUrl: '/app/matches/_matches.html',
+                controller: 'MatchesCtrl'
             })
             .state('connections', {
                 url: '/connections',
@@ -36,10 +41,10 @@
                 templateUrl: '/app/profile/_profile.html',
                 controller: 'ProfileCtrl'
             })
-            .state('signup', {
-                url: '/signup',
-                templateUrl: '/app/signup/_signup.html',
-                controller: 'SignupCtrl'
+            .state('about', {
+                url: '/about',
+                templateUrl: '/app/about/_about.html',
+                controller: 'AboutCtrl'
             });
     }
 

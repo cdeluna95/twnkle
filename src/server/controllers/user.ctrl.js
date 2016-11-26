@@ -2,7 +2,7 @@
  * This is the user controller. This file is responsible for handling the request routing
  * and calling the appropriate services.
  *
- * @author David Edwards
+ * @author David, Adrianna, Christan
  * @date 09/20/2016
  */
 
@@ -19,19 +19,19 @@ function login(req, res) {
 
 }
 
-/**
- *
- * @param req
- * @param res
- */
+function signup(req, res) {
+
+}
+
 function register(req, res) {
 
 }
 
-function about(req, res) {
+function home(req, res) {
 
 }
-function home(req, res) {
+
+function matches(req, res) {
 
 }
 
@@ -43,18 +43,17 @@ function profile(req, res) {
 
 }
 
-function signup(req, res) {
+function about(req, res) {
 
 }
 
-
 module.exports = {
     login: login,
+    signup: signup,
     register: register,
-    about: about,
     home: home,
+    matches: matches,
     connections: connections,
     profile: profile,
-    signup: signup
-
+    about: about;
 };

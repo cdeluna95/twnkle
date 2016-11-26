@@ -11,4 +11,3 @@ CREATE TABLE users(
     active TINYINT(1) DEFAULT 1,
     lastSignin DATE
 );
-

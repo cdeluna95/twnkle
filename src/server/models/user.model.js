@@ -39,7 +39,7 @@ function validateEmail(email) {
  * @param user
  */
 function validate(user) {
-    //call to other functions
+    // call to other functions
 }
 
 module.exports = {
