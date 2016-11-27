@@ -44,13 +44,13 @@ $transition: 0.2s ease-in-out;
 
   /* Profile Header */
 
-  #profile-header {
+  #user {
     @include pageMargin(10em 0 0 0);
 
-    .profile-wrapper {
+    .user-wrapper {
       text-align: center;
 
-      .profile-img {
+      .user-img {
         float: right;
 
         img {
@@ -59,7 +59,7 @@ $transition: 0.2s ease-in-out;
         }
       }
 
-      .profile-desc {
+      .user-desc {
 
         h2 {
           font-weight: 600;
