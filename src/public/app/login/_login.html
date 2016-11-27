@@ -8,14 +8,15 @@
     <!-- Authentication -->
     <div id="auth">
         <div id="auth-img"></div>
+        <span class="auth-clip">
+            ∎
+        </span>
         <div class="auth-wrapper">
             <div class="auth-desc">
-                <span class="auth-clip">
-                    ∎
-                </span>
                 <div class="auth-title">
                     <h2>Login</h2>
                 </div>
+
                 <form novalidate ng-submit="login(user)">
                     <div class="form-group">
                         <input type="email" class="form-control" ng-model="user.email" placeholder="Email address">
@@ -29,6 +30,7 @@
                     <!--<label><input type="checkbox" class="checkbox" ng-model="user.remember"> Remember me</label>-->
                     <!--</div>-->
                 </form>
+
             </div>
         </div>
     </div>
