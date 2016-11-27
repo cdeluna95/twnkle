@@ -5,12 +5,12 @@
 
 /* Variables and mixins */
 
-$black: #000;
 $white: #fff;
-$orange: #db7827;
+$black: #000;
+$green: #097a5a;
 
 @mixin customText {
-	color: $white;
+	color: $green;
 	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 	letter-spacing: 2px;
 	transition: 0.2s ease-in-out;
@@ -19,8 +19,10 @@ $orange: #db7827;
 /* Styles */
 
 .navbar {
-	padding: 20px 0 20px 0;
 	border: 0;
+	background: $white;
+	box-shadow: 0 5px 20px rgba($black, 0.2);
+	padding: 20px 0 20px 0;
 }
 
 .navbar-default .navbar-toggle, .navbar-collapse {
@@ -35,10 +37,8 @@ $orange: #db7827;
 }
 
 .navbar-default .navbar-brand {
-	font-family: 'Raleway', sans-serif;
-	font-size: 30px;
-	text-transform: lowercase;
-	@include customText;
+	position: absolute;
+	top: 8%;
 }
 
 .navbar-default .navbar-nav {
@@ -55,12 +55,12 @@ $orange: #db7827;
 }
 
 .navbar-default .navbar-toggle:hover {
-	background-color: $orange;
+	background-color: $green;
 	transition: 0.2s ease-in-out;
 }
 
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-nav > li > a:hover {
-	color: $orange;
+	color: $green;
 	transition: 0.2s ease-in-out;
 }

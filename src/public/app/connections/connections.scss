@@ -3,16 +3,48 @@
  * @date 10/3/2016
  */
 
-/* Variables and mixins */
+/* Variables */
 
-$yellow: #e6ebb7;
+/* Mixins */
 
-/* Styles */
+/* Contacts */
 
 #connections {
-  background-color: $yellow;
-}
+  margin-top: 10em;
 
-.connections-wrapper {
-  padding: 10em 0 5em 0;
+  #contacts {
+    padding-left: 0;
+    transition: all 0.5s ease;
+
+    #toggled {
+      padding-left: 250px;
+    }
+
+    .contacts-wrapper {
+      z-index: 9999;
+      position: fixed;
+      left: 250px;
+      width: 0;
+      height: 100%;
+      margin-left: -250px;
+      overflow-y: auto;
+      background: #fff;
+      transition: all 0.5s ease;
+    }
+  }
+
+  #contacts.toggled .contacts-wrapper {
+    width: 250px;
+  }
+
+  #chat {
+    width: 100%;
+    position: absolute;
+    padding: 15px;
+  }
+
+  #contacts.toggled .contacts-wrapper {
+    position: absolute;
+    margin-right: -250px;
+  }
 }
