@@ -3,50 +3,157 @@
  * @date 09/20/2016
  */
 
-/* Variables and mixins */
+/* Variables */
 
 $black: #000;
 $white: #fff;
+$green: #097a5a;
+$darkgreen: #046b4e;
+$yellow: #9dad37;
+$darkyellow: #8e9e2e;
+$josefin: 'Josefin Sans', sans-serif;
+$transition: 0.2s ease-in-out;
 
-@mixin bgImg($img-path, $repeat: no-repeat, $size: cover) {
+/* Mixins */
+
+@mixin authImg($img-path, $repeat: no-repeat, $size: cover, $attachment: fixed) {
   background: {
     image: linear-gradient(
-                    rgba(0, 0, 0, 0.5),
-                    rgba(0, 0, 0, 0.5)),
+                    rgba($black, 0.5),
+                    rgba($black, 0.5)),
     url($img-path);
     repeat: $repeat;
     size: $size;
+    attachment: $attachment;
   }
 }
 
-/* Styles */
+@mixin centerAbsolute($top) {
+  margin: 0 auto;
+  overflow: auto;
+  text-align: center;
+  position: absolute;
+  top: $top;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@mixin formControl {
+  color: $black;
+  font-size: 14px;
+  border: 1px solid rgba($black, 0.1);
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px rgba($black, 0.1);
+  outline: none;
+  height: 3em;
+}
+
+@mixin buttonLogin {
+  font-weight: 600;
+  text-transform: uppercase;
+  background: $darkgreen;
+  border: 0;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rgba($black, 0.2);
+  outline: none;
+  padding: 0.5em 7.6em 0.5em;
+}
+
+@mixin buttonSignup {
+  color: $white;
+  font-weight: 600;
+  text-shadow: none;
+  text-transform: uppercase;
+  background: $yellow;
+  border-radius: 2px;
+  box-shadow: 1px 1px 2px rgba($black, 0.2);
+  padding: 0.6em 6.5em 0.6em;
+}
+
+/* Login */
 
 #login {
-  font-family: 'Josefin Sans', sans-serif;
-  position: relative;
-}
+  font-family: $josefin;
 
-.login {
-  height: 100%;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  right: 0;
-  @include bgImg('/assets/images/home-bg.jpg');
-}
+  /* Authentication */
 
-.login-wrapper {
-  position: absolute;
-  padding-top: 10%;
-  left: 35%;
-}
+  #auth {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
-.login-desc {
-  background: $white;
-  box-shadow: 4px 8px 10px rgba(0, 0, 0, 0.2);
-  padding: 5em 8em 8em;
-}
+  #auth-img {
+    padding-bottom: 55em;
+    @include authImg('/assets/images/home-bg.jpg');
+  }
 
-.email, .password {
-  padding: 1em;
+  .auth-wrapper {
+    width: 25em;
+    @include centerAbsolute(10%);
+
+    .auth-desc {
+      background: $white;
+      border-radius: 3px;
+      box-shadow: 0 0 5px rgba($black, 0.6);
+      padding: 0 4em 4em;
+
+      .auth-clip {
+        color: $green;
+        font-size: 30px;
+        background: $white;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        @include centerAbsolute(17.5%);
+      }
+
+      .auth-title {
+        color: $darkgreen;
+        font-weight: 600;
+        text-transform: uppercase;
+        text-shadow: none;
+        padding: 3em 0 1em 0;
+      }
+
+      .form-group {
+
+        .form-control {
+          @include formControl;
+
+          &:hover {
+            box-shadow: 2px 2px 2px rgba($black, 0.2);
+          }
+        }
+
+        .form-control::-webkit-input-placeholder {
+          color: rgba($black, 0.4);
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+
+      .btn-login {
+        margin-bottom: 1em;
+        transition: $transition;
+        @include buttonLogin;
+
+        &:hover {
+          background: $green;
+        }
+      }
+
+      .btn-signup {
+        transition: $transition;
+        @include buttonSignup;
+
+        &:hover {
+          text-decoration: none;
+          background: $darkyellow;
+        }
+      }
+    }
+  }
 }
