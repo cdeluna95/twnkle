@@ -4,81 +4,54 @@
  -->
 
 <div id="auth">
-  <div class="container">
     <div class="auth-wrapper">
-      <div class="auth-desc">
-        <div class="col-md-4">
-      		<div class="form-group">
-      			
-    			  <!-- First Name -->
-            <div class="form-group">
-              <label for="first name">First name:</label>
-              <input type="first name" class="form-control" id="first name" placeholder="Enter first name">
-            </div>
-              
-            <!-- Last name -->
-            <div class="form-group">
-              <label for="last name">Last name:</label>
-              <input type="last name" class="form-control" id="last name" placeholder="Enter your last name">
-            </div>
-                
-            <!-- Email address-->
-            <div class="form-group">
-              <label for="email">Email address:</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter your email address">
-            </div>
-                
-            <!-- Phone number-->
-            <div class="form-group">
-              <label for="phone">Phone number:</label>
-              <input type="phone" class="form-control" id="phone" placeholder="Enter your phone number">
-            </div>
-                
-            <!-- Password -->
-            <div class="form-group">
-              <label for="pwd">Password:</label>
-              <input type="password" class="form-control" id="pwd" placeholder="Enter your password">
-            </div>
-                
-            <!-- Password confirmation -->
-            <div class="form-group">
-              <label for="pwd">Password confirmation:</label>
-              <input type="password" class="form-control" id="pwd" placeholder="Confirm your password">
-            </div>
-                
-          </div>
+        <div class="auth-desc">
+            <form ng-submit="register(newUser)" novalidate>
+                <div class="col-md-3">
+                    <!-- First Name -->
+                    <div class="form-group">
+                        <label for="new-firstname">First Name</label>
+                        <input class="form-control" type="text" ng-model="newUser.firstName" id="new-firstname" placeholder="First Name"/>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="form-group">
+                        <label for="new-lastname">Last Name</label>
+                        <input class="form-control" type="text" ng-model="newUser.lastName" id="new-lastname" placeholder="Last Name" />
+                    </div>
+
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label for="new-email">Email Address</label>
+                        <input class="form-control" type="text" ng-model="newUser.email" id="new-email" placeholder="Email" />
+                    </div>
+
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label for="new-pass">Password</label>
+                        <input class="form-control" type="password" ng-model="newUser.password" id="new-pass" placeholder="Password" />
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="new-confirm-pass">Confirm Password</label>
+                        <input class="form-control" type="password" ng-model="newUser.confirmPassword" id="new-confirm-pass" placeholder="Confirm Password" />
+                    </div>
+
+                </div>
+
+                <div class="col-md-4 offset-md-4">
+                    <div class="form-group">
+                        <label for="bday">Birthday:</label>
+                        <datepicker date-format="MM/dd/yyyy" selector="form-control">
+                            <input ng-model="date" class="form-control" id="bday" type="text"/>
+                        </datepicker>
+                    </div>
+
+                    <input type="submit" class="btn btn btn-primary" value="Sign Up"/>
+                </div>
+            </form>
+
         </div>
-            
-        <div class="col-md-4 offset-md-4">
-
-            <div class="form-group">
-                <label for="gender">
-                    Gender:
-                </label>
-
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="gender" value="option1"> Female
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="gender" value="option2"> Male
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="inlineRadioOptions" id="gender" value="option3"> Other
-                </label>
-            </div>
-
-            <div class="form-group">
-              <label for="bday">Birthday:</label>
-                  <datepicker date-format="MM/dd/yyyy" selector="form-control">
-                      <input ng-model="date" class="form-control" id="bday" type="text"/>
-                  </datepicker>
-            </div>
-
-
-            <a class="btn btn-primary" href="index.html" role="button">Submit</a>
-        </div>
-
-      </div>
     </div>
-  </div>
 </div>
