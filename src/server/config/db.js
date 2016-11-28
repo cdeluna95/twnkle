@@ -1,6 +1,6 @@
 var util = require('util');
 var mysql = require('mysql');
-
+var config = require('./config');
 
 var db = (function() {
     function DB() {
@@ -32,10 +32,10 @@ var db = (function() {
     DB.prototype._getConnectionPool = function() {
         return mysql.createPool({
             connectionLimit: 10,
-            host: 'localhost',
-            user: 'app',
-            password: 'astropass',
-            database: 'astroapp'
+            host: config.db.hostname || 'localhost',
+            user: config.db.user || 'app',
+            password: '',
+            database: 'astromeet'
         });
     };
 
