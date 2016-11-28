@@ -119,6 +119,18 @@ $float: float 0.8s infinite ease;
   }
 }
 
+/* Animations */
+
+@keyframes float {
+  0% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  } 50% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    }
+}
+
 /* Home */
 
 #home {
@@ -311,14 +323,4 @@ $float: float 0.8s infinite ease;
       }
     }
   }
-}
-
-@keyframes float {
-  0% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  } 50% {
-        -webkit-transform: translateY(-20px);
-        transform: translateY(-20px);
-      }
 }

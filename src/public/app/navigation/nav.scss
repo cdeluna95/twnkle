@@ -27,6 +27,16 @@ $zoom: zoom 0.8s infinite ease-in-out;
 	transition: $transition;
 }
 
+/* Animations */
+
+@keyframes zoom {
+	0% {
+		transform: scale(1);
+	} 50% {
+		  transform: scale(1.2);
+	  }
+}
+
 /* Navigation Bar */
 
 .navbar {
@@ -51,7 +61,7 @@ $zoom: zoom 0.8s infinite ease-in-out;
 		}
 
 		&:active {
-			text-shadow: 3px 3px 6px rgba($black, 0.3);
+			color: $darkgreen;
 		}
 	}
 
@@ -106,17 +116,9 @@ $zoom: zoom 0.8s infinite ease-in-out;
 				}
 
 				&:active {
-					text-shadow: 3px 3px 6px rgba($black, 0.3);
+					color: $green;
 				}
 			}
 		}
 	}
-}
-
-@keyframes zoom {
-	0% {
-		transform: scale(1);
-	} 50% {
-			  transform: scale(1.2);
-		  }
 }
