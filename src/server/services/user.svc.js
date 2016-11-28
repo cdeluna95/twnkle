@@ -13,6 +13,7 @@ var jwt = require('jsonwebtoken');
 var User = require('../models/user.model');
 var config = require('../config/config');
 var db = require('../config/db');
+var userValidator = require('../validators/user.validator');
 
 var usersvc = (function() {
     function UserSvc() {
@@ -69,12 +70,17 @@ var usersvc = (function() {
      * TODO add in profile analysis for matching
      */
     UserSvc.prototype.register = function(newUser, cb) {
+        if(typeof newUser === 'string')
+            newUser = JSON.parse(newUser);
+        
+        util.log(util.inspect(newUser));
+        
         db.getConnection(function(err, connection) {
             if(err) {
                 return cb(err, null);
             }
 
-            //check if the password matches the confirmation password
+            //validate user properties
 
             //check if the email address is already in use
             var sql = "SELECT email from users where email=?";
@@ -102,16 +108,26 @@ var usersvc = (function() {
 
                     //hash the password
                     bcrypt.genSalt(10, function(err, salt) {
+                        if(err) {
+                            return cb(err, null);
+                        }
+                        
                         bcrypt.hash(newUser.password, salt, function(err, hash) {
+                            if(err) {
+                                return cb(err, null);
+                            }
+                            
                             //insert the user into the database
                             var insertSql = "INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, gender, preference)" +
                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                            var data = [newUser.firstName, newUser.lastName, newUser.username, hash, newUser.email, newUser.dob, newUser.gender, newUser.preference];
+                            var data = [newUser.firstName, newUser.lastName, newUser.username, hash, newUser.email, newUser.dob, newUser.gender, newUser.sexualPreference];
                             connection.query(insertSql, data, function(err, result) {
                                 if(err) {
                                     return cb(err, null);
                                 }
-
+                                
+                                //send confirmation email
+                                
                                 connection.release();
                                 return cb(null, { success: true });
                             });
