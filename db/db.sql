@@ -1,3 +1,4 @@
+drop table user_profile;
 drop table userPicture;
 drop table message;
 drop table matches;
@@ -15,8 +16,10 @@ CREATE TABLE users
     hashedPassword VARCHAR(256) NOT NULL,
     email VARCHAR(255) NOT NULL,
     dob DATE NOT NULL,
+    easternSign INT NOT NULL,
+    westernSign INT NOT NULL,
     gender VARCHAR(20) NOT NULL,
-    preference ENUM('MALE', 'FEMALE', 'BI') NOT NULL,
+    preference ENUM('MALE', 'FEMALE', 'OTHER') NOT NULL,
     active TINYINT(4) DEFAULT '1',
     lastActive DATETIME
 );
