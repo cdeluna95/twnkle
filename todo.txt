@@ -1,0 +1,5 @@
+- implement environment file loading
+- implement sign calculation on registration
+- implement "scoring" for matching algorithm
+- implement email sending on registration
+- add in more robust error handling
