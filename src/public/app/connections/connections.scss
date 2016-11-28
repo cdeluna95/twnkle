@@ -5,31 +5,42 @@
 
 /* Variables */
 
+$white: #fff;
+$black: #000;
+$green: #097a5a;
+$raleway: 'Raleway', sans-serif;
+$transition: 0.2s ease-in-out;
+
 /* Mixins */
+
+@mixin pageMargin($margin) {
+  margin: $margin;
+}
+
+@mixin wrapperPosition {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  left: 250px;
+  margin-left: -250px;
+  overflow-y: auto;
+  z-index: 9999;
+}
 
 /* Contacts */
 
 #connections {
-  margin-top: 10em;
+  font-family: $raleway;
 
   #contacts {
     padding-left: 0;
     transition: all 0.5s ease;
-
-    #toggled {
-      padding-left: 250px;
-    }
+    @include pageMargin(10em);
 
     .contacts-wrapper {
-      z-index: 9999;
-      position: fixed;
-      left: 250px;
-      width: 0;
-      height: 100%;
-      margin-left: -250px;
-      overflow-y: auto;
-      background: #fff;
-      transition: all 0.5s ease;
+      background: $white;
+      transition: $transition;
+      @include wrapperPosition;
     }
   }
 

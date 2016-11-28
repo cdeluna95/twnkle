@@ -7,10 +7,7 @@
 
 $white: #fff;
 $black: #000;
-$gray: #473e3e;
-$darkgreen: #046b4e;
 $raleway: 'Raleway', sans-serif;
-$shadow: 3px 3px 5px rgba($black, 0.1);
 $transition: 0.2s ease;
 
 /* Mixins */
@@ -27,7 +24,7 @@ $transition: 0.2s ease;
 }
 
 @mixin titleStyle {
-  text-shadow: $shadow;
+  text-shadow: 3px 3px 5px rgba($black, 0.1);
   text-transform: uppercase;
   text-align: center;
   margin: 0 auto;
@@ -89,7 +86,7 @@ $transition: 0.2s ease;
     h2 {
       font-size: 3vw;
       font-weight: 600;
-      text-shadow: $shadow;
+      text-shadow: 3px 3px 5px rgba($black, 0.1);
       @include titleStyle;
     }
   }

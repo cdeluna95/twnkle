@@ -11,7 +11,7 @@ $green: #097a5a;
 
 @mixin customText {
 	color: $green;
-	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+	text-shadow: 2px 2px 5px rgba($black, 0.1);
 	letter-spacing: 2px;
 	transition: 0.2s ease-in-out;
 }

@@ -5,13 +5,12 @@
 
 /* Variables */
 
-$black: #000;
 $white: #fff;
+$black: #000;
 $green: #097a5a;
 $darkgreen: #046b4e;
 $yellow: #9dad37;
 $darkyellow: #8e9e2e;
-$shadow: 3px 3px 5px rgba($black, 0.1);
 $josefin: 'Josefin Sans', sans-serif;
 $raleway: 'Raleway', sans-serif;
 $transition: 0.2s ease-in-out;
@@ -47,7 +46,7 @@ $transition: 0.2s ease-in-out;
 
 @mixin titleStyle {
   font-weight: 600;
-  text-shadow: $shadow;
+  text-shadow: 3px 3px 5px rgba($black, 0.1);
   text-transform: uppercase;
   text-align: center;
   margin: 0 auto;
