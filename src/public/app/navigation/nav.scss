@@ -17,12 +17,12 @@ $zoom: zoom 0.8s infinite ease-in-out;
 /* Mixins */
 
 @mixin customText($font-size) {
-	color: rgba($black, 0.6);
+	color: rgba($black, 0.5);
 	font-size: $font-size;
 	font-family: $slabo;
 	text-transform: uppercase;
 	text-decoration: none;
-	text-shadow: 2px 2px 3px rgba($black, 0.2);
+	text-shadow: 1px 1px 1px rgba($black, 0.1);
 	letter-spacing: 2px;
 	transition: $transition;
 }
@@ -85,7 +85,7 @@ $zoom: zoom 0.8s infinite ease-in-out;
 
 				&:before {
 					content: "";
-					background-color: $lightgreen;
+					background: $lightgreen;
 					position: absolute;
 					height: 1px;
 					width: 100%;

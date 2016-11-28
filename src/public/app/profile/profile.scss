@@ -10,6 +10,8 @@ $black: #000;
 $gray: #473e3e;
 $green: #097a5a;
 $darkgreen: #046b4e;
+$yellow: #9dad37;
+$darkyellow: #8e9e2e;
 $raleway: 'Raleway', sans-serif;
 $transition: 0.2s ease-in-out;
 
@@ -21,19 +23,19 @@ $transition: 0.2s ease-in-out;
 
 @mixin backgroundTile {
   box-sizing: border-box;
-  background-color: $white;
+  background: $white;
   border-radius: 2px;
   box-shadow: 2px 2px 5px 2px rgba($gray, 0.2);
   padding: 0.6em 0.6em;
 }
 
-@mixin customButton {
+@mixin customButton($bgcolor) {
   color: $white;
   text-transform: uppercase;
-  background-color: $darkgreen;
+  background: $bgcolor;
   border-radius: 3px;
   box-shadow: 1px 1px 3px rgba($black, 0.2);
-  padding: 5px 20px 5px 20px;
+  padding: 5px 15px 5px 15px;
   transition: $transition;
 }
 
@@ -71,12 +73,21 @@ $transition: 0.2s ease-in-out;
           margin-bottom: 15px;
         }
 
-        .btn-profile {
-          @include customButton;
+        .btn-photo {
+          @include customButton($darkgreen);
 
           &:hover {
             text-decoration: none;
-            background-color: $green;
+            background: $green;
+          }
+        }
+
+        .btn-profile {
+          @include customButton($yellow);
+
+          &:hover {
+            text-decoration: none;
+            background: $darkyellow;
           }
         }
       }
