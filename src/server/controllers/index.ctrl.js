@@ -5,18 +5,18 @@
  * @date 09/20/2016
  */
 
-var util = require('util');
-var path = require('path');
+var util = require( 'util' );
+var path = require( 'path' );
 
-var indexPath = path.join(__dirname, '../views', 'index.html');
+var indexPath = path.join( __dirname, '../views', 'index.html' );
 
 /**
  *
  * @param req
  * @param res
  */
-function getIndex(req, res) {
-    res.sendFile(indexPath)
+function getIndex( req, res ) {
+    res.sendFile( indexPath )
 }
 
 module.exports = {

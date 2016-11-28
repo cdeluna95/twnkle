@@ -1,16 +1,16 @@
-var nodemailer = require('nodemailer');
+var nodemailer = require( 'nodemailer' );
 
 var getTransport = function() {
-    return nodemailer.createTransport('smtps://dnrtwinkle@gmail.com:Dr.TacksooIm@smtp.gmail.com');
+    return nodemailer.createTransport( 'smtps://dnrtwinkle@gmail.com:Dr.TacksooIm@smtp.gmail.com' );
 };
 
-var sendMail = function(transporter, mailOptions) {
-    transporter.sendMail(mailOptions, function(err, info) {
+var sendMail = function( transporter, mailOptions ) {
+    transporter.sendMail( mailOptions, function( err, info ) {
 
-    })
+    } )
 };
 
-var sendVerificationEmail = function(token, cb) {
+var sendVerificationEmail = function( token, cb ) {
     var transport = getTransport();
 
     var mailOptions = {
@@ -20,11 +20,11 @@ var sendVerificationEmail = function(token, cb) {
         test: 'Please click the link below'
     };
 
-    sendMail(transport, mailOptions, function(err, info) {
-        if(err) {
+    sendMail( transport, mailOptions, function( err, info ) {
+        if( err ) {
 
         }
-    });
+    } );
 };
 
 module.exports = {

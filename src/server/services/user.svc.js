@@ -6,14 +6,14 @@
  * @since 10/3/2016
  */
 
-var bcrypt = require('bcrypt');
-var util = require('util');
-var jwt = require('jsonwebtoken');
+var bcrypt = require( 'bcrypt' );
+var util   = require( 'util' );
+var jwt    = require( 'jsonwebtoken' );
 
-var User = require('../models/user.model');
-var config = require('../config/config');
-var db = require('../config/db');
-var userValidator = require('../validators/user.validator');
+var User          = require( '../models/user.model' );
+var config        = require( '../config/config' );
+var db            = require( '../config/db' );
+var userValidator = require( '../validators/user.validator' );
 
 var usersvc = (function() {
     function UserSvc() {
@@ -21,7 +21,7 @@ var usersvc = (function() {
     }
 
 
-    UserSvc.prototype.getUser = function(user) {
+    UserSvc.prototype.getUser = function( user ) {
 
     };
 
@@ -31,32 +31,32 @@ var usersvc = (function() {
      * @param cb
      * TODO add code to update lastSignin from the database
      */
-    UserSvc.prototype.login = function(user, cb) {
-        User.find({ username: user.username }, function(err, results) {
-            if(results.length === 0) {
-                return cb(err, null);
+    UserSvc.prototype.login = function( user, cb ) {
+        User.find( { username: user.username }, function( err, results ) {
+            if( results.length === 0 ) {
+                return cb( err, null );
             }
 
             var resUser = results[0];
 
-            bcrypt.compare(user.password, resUser.hashedPassword, function(err, result) {
-                if(err) {
-                    return cb(err, null);
+            bcrypt.compare( user.password, resUser.hashedPassword, function( err, result ) {
+                if( err ) {
+                    return cb( err, null );
                 }
 
-                if(result) {
+                if( result ) {
                     var ret = {
                         userId: resUser.userId
                     };
 
-                    jwt.sign(ret, config.server.secret, { expiresIn: 900 }, function(err, token) {
-                        cb(null, {
+                    jwt.sign( ret, config.server.secret, { expiresIn: 900 }, function( err, token ) {
+                        cb( null, {
                             token: token
-                        });
-                    });
+                        } );
+                    } );
                 }
-            });
-        });
+            } );
+        } );
     };
 
     /**
@@ -69,73 +69,73 @@ var usersvc = (function() {
      * TODO add in sending email verification
      * TODO add in profile analysis for matching
      */
-    UserSvc.prototype.register = function(newUser, cb) {
-        if(typeof newUser === 'string')
-            newUser = JSON.parse(newUser);
-        
-        util.log(util.inspect(newUser));
-        
-        db.getConnection(function(err, connection) {
-            if(err) {
-                return cb(err, null);
+    UserSvc.prototype.register = function( newUser, cb ) {
+        if( typeof newUser === 'string' )
+            newUser = JSON.parse( newUser );
+
+        util.log( util.inspect( newUser ) );
+
+        db.getConnection( function( err, connection ) {
+            if( err ) {
+                return cb( err, null );
             }
 
             //validate user properties
 
             //check if the email address is already in use
             var sql = "SELECT email from users where email=?";
-            connection.query(sql, [newUser.email], function(err, result) {
-                if(err) {
-                    return cb(err, null);
+            connection.query( sql, [newUser.email], function( err, result ) {
+                if( err ) {
+                    return cb( err, null );
                 }
 
-                if(result.length > 0) {
-                    return cb(new Error('email address already in use'), null);
+                if( result.length > 0 ) {
+                    return cb( new Error( 'email address already in use' ), null );
                 }
 
                 //check if the username is already in use
                 var usernameSql = "SELECT username from users where username=?";
-                connection.query(usernameSql, [newUser.username], function(err, result) {
-                    if(err) {
-                        return cb(err, null);
+                connection.query( usernameSql, [newUser.username], function( err, result ) {
+                    if( err ) {
+                        return cb( err, null );
                     }
 
-                    if(result.length > 0) {
-                        return cb(new Error('username is taken'), null);
+                    if( result.length > 0 ) {
+                        return cb( new Error( 'username is taken' ), null );
                     }
 
                     //process a user and apply analysis for matching
 
                     //hash the password
-                    bcrypt.genSalt(10, function(err, salt) {
-                        if(err) {
-                            return cb(err, null);
+                    bcrypt.genSalt( 10, function( err, salt ) {
+                        if( err ) {
+                            return cb( err, null );
                         }
-                        
-                        bcrypt.hash(newUser.password, salt, function(err, hash) {
-                            if(err) {
-                                return cb(err, null);
+
+                        bcrypt.hash( newUser.password, salt, function( err, hash ) {
+                            if( err ) {
+                                return cb( err, null );
                             }
-                            
+
                             //insert the user into the database
                             var insertSql = "INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, gender, preference)" +
                                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                            var data = [newUser.firstName, newUser.lastName, newUser.username, hash, newUser.email, newUser.dob, newUser.gender, newUser.sexualPreference];
-                            connection.query(insertSql, data, function(err, result) {
-                                if(err) {
-                                    return cb(err, null);
+                            var data      = [newUser.firstName, newUser.lastName, newUser.username, hash, newUser.email, newUser.dob, newUser.gender, newUser.sexualPreference];
+                            connection.query( insertSql, data, function( err, result ) {
+                                if( err ) {
+                                    return cb( err, null );
                                 }
-                                
+
                                 //send confirmation email
-                                
+
                                 connection.release();
-                                return cb(null, { success: true });
-                            });
-                        });
-                    });
-                });
-            });
-        });
+                                return cb( null, { success: true } );
+                            } );
+                        } );
+                    } );
+                } );
+            } );
+        } );
     };
 
     /**
@@ -144,14 +144,14 @@ var usersvc = (function() {
      * @param token
      * @param cb
      */
-    UserSvc.prototype.authenticate = function(token, cb) {
-        jwt.verify(token, config.server.secret, function(err, decoded) {
-            if(err) {
-                return cb(err, null);
+    UserSvc.prototype.authenticate = function( token, cb ) {
+        jwt.verify( token, config.server.secret, function( err, decoded ) {
+            if( err ) {
+                return cb( err, null );
             }
 
-            cb(null, decoded);
-        });
+            cb( null, decoded );
+        } );
     };
 
     return UserSvc;

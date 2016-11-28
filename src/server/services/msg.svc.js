@@ -1,5 +1,5 @@
-var util = require('util');
-var db = require('../config/db');
+var util = require( 'util' );
+var db   = require( '../config/db' );
 
 
 

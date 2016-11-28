@@ -1,42 +1,42 @@
-var util = require('util');
-var mysql = require('mysql');
-var config = require('./config');
+var util   = require( 'util' );
+var mysql  = require( 'mysql' );
+var config = require( './config' );
 
 var db = (function() {
     function DB() {
         this.pool = this._getConnectionPool();
-        var self = this;
-        process.on('exit', function() {
-            util.log('closing db connection pool');
-            self.pool.end(function(err) {
-                if(err) {
-                    util.log('connection pool not closed properly');
+        var self  = this;
+        process.on( 'exit', function() {
+            util.log( 'closing db connection pool' );
+            self.pool.end( function( err ) {
+                if( err ) {
+                    util.log( 'connection pool not closed properly' );
                     return;
                 }
 
-                util.log('connection pool closed');
-            });
-        });
+                util.log( 'connection pool closed' );
+            } );
+        } );
     }
 
-    DB.prototype.getConnection = function(cb) {
-        this.pool.getConnection(function(err, connection) {
-            if(err) {
-                return cb(err, null);
+    DB.prototype.getConnection = function( cb ) {
+        this.pool.getConnection( function( err, connection ) {
+            if( err ) {
+                return cb( err, null );
             }
 
-            cb(null, connection);
-        });
+            cb( null, connection );
+        } );
     };
 
     DB.prototype._getConnectionPool = function() {
-        return mysql.createPool({
-            connectionLimit: 10,
-            host: config.db.hostname || 'localhost',
-            user: config.db.user || 'app',
-            password: '',
-            database: 'astromeet'
-        });
+        return mysql.createPool( {
+                                     connectionLimit: 10,
+                                     host: config.db.hostname || 'localhost',
+                                     user: config.db.user || 'app',
+                                     password: '',
+                                     database: 'astromeet'
+                                 } );
     };
 
     return DB;

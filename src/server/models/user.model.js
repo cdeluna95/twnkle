@@ -7,59 +7,59 @@
  * @date 09/20/2016
  */
 
-var util = require('util');
-var Promise = require('bluebird');
-var db = require('../config/db');
+var util    = require( 'util' );
+var Promise = require( 'bluebird' );
+var db      = require( '../config/db' );
 
 var User = (function() {
     function User() {
         this.db = db;
     }
 
-    User.prototype.findById = function(id) {
+    User.prototype.findById = function( id ) {
         var self = this;
-        var obj = {
+        var obj  = {
             userId: id,
             active: 1
         };
 
-        var sql = 'SELECT * FROM users ' + this._createWhere(obj);
-        return new Promise(function(resolve, reject) {
+        var sql = 'SELECT * FROM users ' + this._createWhere( obj );
+        return new Promise( function( resolve, reject ) {
             self.db.getConnection()
-                .then(function(connection) {
-                    connection.query(sql, function(err, results) {
-                        if(err) {
-                            reject(err);
+                .then( function( connection ) {
+                    connection.query( sql, function( err, results ) {
+                        if( err ) {
+                            reject( err );
                         }
 
-                        resolve(results);
+                        resolve( results );
                         connection.release();
-                    });
-                })
-                .catch(function(err) {
-                    reject(err);
-                });
-        });
+                    } );
+                } )
+                .catch( function( err ) {
+                    reject( err );
+                } );
+        } );
 
     };
 
-    User.prototype.find = function(user, cb) {
+    User.prototype.find = function( user, cb ) {
         var self = this;
-        var sql = 'SELECT * FROM users ' + this._createWhere(user);
+        var sql  = 'SELECT * FROM users ' + this._createWhere( user );
 
-        self.db.getConnection(function(err, connection) {
-             if(err) {
-                 return cb(err, null);
-             }
+        self.db.getConnection( function( err, connection ) {
+            if( err ) {
+                return cb( err, null );
+            }
 
-             connection.query(sql, function(err, results) {
-                 if(err) {
-                     cb(err, null);
-                 }
-                 connection.release();
-                 cb(null, results);
-             });
-        });
+            connection.query( sql, function( err, results ) {
+                if( err ) {
+                    cb( err, null );
+                }
+                connection.release();
+                cb( null, results );
+            } );
+        } );
         // return new Promise(function(resolve, reject) {
         //     self.db.getConnection()
         //         .then(function(connection) {
@@ -78,31 +78,30 @@ var User = (function() {
         // });
     };
 
-    User.prototype.insert = function(newUser) {
+    User.prototype.insert = function( newUser ) {
         var self = this;
-
 
 
         var sql = 'INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, gender, preference)' +
             'VALUES '
     };
 
-    User.prototype._createWhere = function(vars) {
+    User.prototype._createWhere = function( vars ) {
         var clause = ['WHERE'];
-        var keys = Object.keys(vars);
+        var keys   = Object.keys( vars );
 
         for(var i = 0; i < keys.length; i++) {
-            if(typeof vars[keys[i]] === 'string') {
-                clause.push(keys[i] + "='" + vars[keys[i]] + "' AND");
+            if( typeof vars[keys[i]] === 'string' ) {
+                clause.push( keys[i] + "='" + vars[keys[i]] + "' AND" );
             } else {
-                clause.push(keys[i] + '=' + vars[keys[i]] + " AND");
+                clause.push( keys[i] + '=' + vars[keys[i]] + " AND" );
             }
         }
-        clause.push('active=1');
-        return clause.join(" ");
+        clause.push( 'active=1' );
+        return clause.join( " " );
     };
 
-    User.prototype._validate = function(user) {
+    User.prototype._validate = function( user ) {
 
     };
 

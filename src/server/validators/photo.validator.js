@@ -1,14 +1,14 @@
-var util = require('util');
+var util = require( 'util' );
 
-function validateExtension(photoPath) {
-
-}
-
-function validatePhotoSize(photo) {
+function validateExtension( photoPath ) {
 
 }
 
-function validate(photo) {
+function validatePhotoSize( photo ) {
+
+}
+
+function validate( photo ) {
 
 }
 
