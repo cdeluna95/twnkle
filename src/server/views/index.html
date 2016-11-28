@@ -2,7 +2,10 @@
 
     If you are messing with this file, you probably shouldn't be. This file shouldn't change too much.
 
+    @Christan: Sorry, had to change it! Added SEO, Bootstrap.js, jQuery, Font Awesome, and etc.
+
 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,7 +55,7 @@
 
     <!-- Content -->
     <div class="container">
-        <div ui-view></div>
+      <div ui-view></div>
     </div>
 
     <!-- Footer -->
@@ -63,5 +66,30 @@
     <script src="/js/jquery.js"></script>
     <script src="/lib/vendor.js"></script>
     <script src="/app/app.js"></script>
+    <script>
+      /* Scroll page function */
+      $(function() {
+        $('a[href*="#"]:not([href="#"])').click(function() {
+          if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var target = $(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+            if (target.length) {
+              $('html, body').animate({
+                scrollTop: target.offset().top
+              }, 500);
+              return false;
+            }
+          }
+        });
+      });
+
+      /* Navbar active class function */
+      $(document).ready(function() {
+        $('.navbar a').on("click", function() {
+          $(this).parent().siblings().find('a').removeClass('selected');
+          $(this).addClass('selected');
+        });
+      });
+    </script>
   </body>
 </html>

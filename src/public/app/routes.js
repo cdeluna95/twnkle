@@ -11,6 +11,11 @@
         $urlRouterProvider.otherwise('/home');
 
         $stateProvider
+            .state('home', {
+                url: '/home',
+                templateUrl: '/app/home/_home.html',
+                controller: 'HomeCtrl'
+            })
             .state('login', {
                 url: '/login',
                 templateUrl: '/app/login/_login.html',
@@ -20,11 +25,6 @@
                 url: '/signup',
                 templateUrl: '/app/signup/_signup.html',
                 controller: 'SignupCtrl'
-            })
-            .state('home', {
-                url: '/home',
-                templateUrl: '/app/home/_home.html',
-                controller: 'HomeCtrl'
             })
             .state('matches', {
                 url: '/matches',

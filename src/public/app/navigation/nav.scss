@@ -3,64 +3,120 @@
  * @date 09/20/2016
  */
 
-/* Variables and mixins */
+/* Variables */
 
 $white: #fff;
 $black: #000;
 $green: #097a5a;
+$darkgreen: #046b4e;
+$lightgreen: #1ac997;
+$slabo: 'Slabo 27px', serif;
+$transition: 0.2s ease-in-out;
+$zoom: zoom 0.8s infinite ease-in-out;
 
-@mixin customText {
-	color: $green;
-	text-shadow: 2px 2px 5px rgba($black, 0.1);
+/* Mixins */
+
+@mixin customText($font-size) {
+	color: rgba($black, 0.6);
+	font-size: $font-size;
+	font-family: $slabo;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-shadow: 2px 2px 3px rgba($black, 0.2);
 	letter-spacing: 2px;
-	transition: 0.2s ease-in-out;
+	transition: $transition;
 }
 
-/* Styles */
+/* Navigation Bar */
 
 .navbar {
 	border: 0;
 	background: $white;
-	box-shadow: 0 5px 20px rgba($black, 0.2);
+	box-shadow: 0 5px 20px rgba($black, 0.1),
+				0 10px 40px rgba($black, 0.1);
 	padding: 20px 0 20px 0;
 }
 
-.navbar-default .navbar-toggle, .navbar-collapse {
-	border: 0;
-	text-align: center;
-	transition: 0.2s ease-in-out;
+.navbar-default {
+
+	.navbar-toggle {
+
+		.icon-bar {
+			background: $lightgreen;
+			transition: $transition;
+		}
+
+		&:hover {
+			background: $green;
+		}
+
+		&:active {
+			text-shadow: 3px 3px 6px rgba($black, 0.3);
+		}
+	}
+
+	.navbar-toggle,
+	.navbar-collapse {
+		border: 0;
+		transition: $transition;
+	}
+
+	.navbar-brand {
+		position: absolute;
+		top: 8%;
+
+		&:hover {
+			animation: $zoom;
+		}
+
+		&:active {
+			transform: scale(1.2);
+		}
+	}
+
+	.navbar-nav {
+
+		li {
+
+			a {
+				transition: $transition;
+				margin: 0 10px 0 10px;
+				@include customText(18px);
+
+				&:before {
+					content: "";
+					background-color: $lightgreen;
+					position: absolute;
+					height: 1px;
+					width: 100%;
+					bottom: 0;
+					left: 0;
+					opacity: 0;
+					transform: scaleX(0);
+					transition: $transition;
+				}
+
+				&:hover {
+					color: $lightgreen;
+
+					&:before {
+						opacity: 1;
+						transform: scaleX(1);
+					}
+				}
+
+				&:active {
+					text-shadow: 3px 3px 6px rgba($black, 0.3);
+				}
+			}
+		}
+	}
 }
 
-.navbar-default .navbar-toggle .icon-bar {
-	background-color: $white;
-	transition: 0.2s ease-in-out;
-}
-
-.navbar-default .navbar-brand {
-	position: absolute;
-	top: 8%;
-}
-
-.navbar-default .navbar-nav {
-	display: inline-block;
-	float: none;
-	vertical-align: top;
-}
-
-.navbar-default .navbar-nav li a {
-	font-family: 'Slabo 27px', serif;
-	font-size: 14px;
-	text-transform: uppercase;
-	@include customText;
-}
-
-.navbar-default .navbar-toggle:hover {
-	background-color: $green;
-	transition: 0.2s ease-in-out;
-}
-
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-nav > li > a:hover {
-	color: $green;
-	transition: 0.2s ease-in-out;
+@keyframes zoom {
+	0% {
+		transform: scale(1);
+	} 50% {
+			  transform: scale(1.2);
+		  }
 }
