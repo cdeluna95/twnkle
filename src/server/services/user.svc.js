@@ -52,11 +52,11 @@ var usersvc = (function() {
                     jwt.sign( ret, config.server.secret, { expiresIn: 900 }, function( err, token ) {
                         cb( null, {
                             token: token
-                        } );
-                    } );
+                        });
+                    });
                 }
-            } );
-        } );
+            });
+        });
     };
 
     /**
@@ -90,7 +90,7 @@ var usersvc = (function() {
                 }
 
                 if( result.length > 0 ) {
-                    return cb( new Error( 'email address already in use' ), null );
+                    return cb( { email: 'Email address is already in use' }, null );
                 }
 
                 //check if the username is already in use
@@ -101,7 +101,7 @@ var usersvc = (function() {
                     }
 
                     if( result.length > 0 ) {
-                        return cb( new Error( 'username is taken' ), null );
+                        return cb( { username: 'Username is taken' }, null );
                     }
 
                     //process a user and apply analysis for matching
@@ -118,24 +118,25 @@ var usersvc = (function() {
                             }
 
                             //insert the user into the database
-                            var insertSql = "INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, gender, preference)" +
-                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-                            var data      = [newUser.firstName, newUser.lastName, newUser.username, hash, newUser.email, newUser.dob, newUser.gender, newUser.sexualPreference];
+                            var insertSql = "INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, easternSign, westernSign, gender, preference, status)" +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                            var data      = [newUser.firstName, newUser.lastName, newUser.username, hash, newUser.email, newUser.dob, 1, 1, newUser.gender, newUser.sexualPreference, 2];
+                            util.log('about to insert');
                             connection.query( insertSql, data, function( err, result ) {
                                 if( err ) {
                                     return cb( err, null );
                                 }
-
-                                //send confirmation email
+                                util.log('made it past the insert');
+                                newUser.userId = result.insertId;
 
                                 connection.release();
-                                return cb( null, { success: true } );
-                            } );
-                        } );
-                    } );
-                } );
-            } );
-        } );
+                                return cb( null, newUser );
+                            });
+                        });
+                    });
+                });
+            });
+        });
     };
 
     /**

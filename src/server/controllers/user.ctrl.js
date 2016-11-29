@@ -8,7 +8,12 @@
 
 var util    = require('util');
 var UserSvc = require('../services/user.svc');
+var emailSvc = require('../services/email.svc');
 var svc     = new UserSvc();
+var EmailSvc = new emailSvc();
+var UserValidator = require('../validators/user.validator');
+var jwt = require('jsonwebtoken');
+var config = require('../config/config');
 
 /**
  *
@@ -35,13 +40,36 @@ var login = function (req, res) {
 var register = function (req, res) {
     var newUser = req.body.newUser;
 
-    svc.register(newUser, function (err, result) {
-        if (err) {
-            return res.status(401).json({err: err.message});
-        }
 
-        res.status(200).json({result: result});
+    UserValidator.validate(newUser, function(errs, validUser) {
+        if(errs) {
+            return res.status(422).json({ errs: errs });
+        }
+        
+        svc.register(validUser, function (err, registeredUser) {
+            if (err) {
+                return res.status(401).json({err: err});
+            }
+
+            // //generate verification email token
+            jwt.sign({ userId: registeredUser.userId }, config.server.secret, function(err, token) {
+                if(err) {
+                    return res.status(400).json({ err: err });
+                }
+                
+                EmailSvc.sendVerificationEmail(registeredUser, token, function(err, result) {
+                    if(err) {
+                        return res.status(400).json({ err: err });
+                    }    
+                    
+                    res.status(200).json({ success: true });        
+                });
+            })
+            // //send verification email
+            
+        });    
     });
+    
 };
 
 var authenticate = function (req, res) {
