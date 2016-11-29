@@ -45,6 +45,13 @@ $transition: 0.2s ease-in-out;
   padding: 5px 15px 5px 15px;
 }
 
+@mixin animatedButton {
+  width: 100px;
+  position: absolute;
+  left: -6.5em;
+  opacity: 1;
+}
+
 /* Profile */
 
 #profile {
@@ -86,11 +93,8 @@ $transition: 0.2s ease-in-out;
           filter: brightness(0.8);
 
           .btn-update {
-            width: 100px;
-            position: absolute;
-            left: -6.5em;
-            opacity: 1;
             transition: $transition;
+            @include animatedButton;
 
             &:hover {
               text-decoration: none;
@@ -99,6 +103,7 @@ $transition: 0.2s ease-in-out;
 
             &:active {
               background: rgba($darkyellow, 0.9);
+              @include animatedButton;
             }
           }
         }

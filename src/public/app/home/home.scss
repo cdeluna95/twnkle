@@ -330,7 +330,7 @@ $float: float 0.8s infinite ease;
 
       .up-arrow {
         position: relative;
-        @include pageMargin(1.5em 0)
+        @include pageMargin(2em 0);
 
         i {
           color: $green;

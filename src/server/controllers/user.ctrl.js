@@ -49,8 +49,8 @@ function about(req, res) {
 
 module.exports = {
     login: login,
-    register: register,
     signup: signup,
+    register: register,
     home: home,
     matches: matches,
     connections: connections,
