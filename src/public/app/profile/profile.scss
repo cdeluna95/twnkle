@@ -105,6 +105,7 @@ $transition: 0.2s ease-in-out;
         }
 
         .btn-photo {
+          transition: $transition;
           @include customButton($darkgreen);
 
           &:hover {
@@ -114,6 +115,7 @@ $transition: 0.2s ease-in-out;
         }
 
         .btn-profile {
+          transition: $transition;
           @include customButton($yellow);
 
           &:hover {
