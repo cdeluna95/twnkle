@@ -133,27 +133,40 @@ var validateSexualPreference = function( preference ) {
 
 var validate = function( user, cb ) {
     var fnErr, lnErr, usernameErr, emailErr, dobErr, passErr, genderErr, spErr;
-    var errs = [];
+    var errs = {
+        firstName: null,
+        lastName: null,
+        username: null,
+        email: null,
+        dob: null,
+        password: null,
+        gender: null,
+        sexualPreference: null
+    };
+    
     if( (fnErr = validateFirstName( user.firstName )) != null )
-        errs.push( fnErr );
+        errs.firstName = fnErr;
     if( (lnErr = validateLastName( user.lastName )) != null )
-        errs.push( lnErr );
+        errs.lastName = lnErr;
     if( (usernameErr = validateUsername( user.username )) != null )
-        errs.push( usernameErr );
+        errs.username = usernameErr;
     if( (emailErr = validateEmail( user.email )) != null )
-        errs.push( emailErr );
+        errs.email = emailErr;
     if( (dobErr = validateDOB( user.dob )) != null )
-        errs.push( dobErr );
+        errs.dob = dobErr;
     if( (passErr = validatePassword( user.password )) != null )
-        errs.push( passErr );
+        errs.password = passErr;
     if( (genderErr = validateGender( user.gender )) != null )
-        errs.push( genderErr );
+        errs.gender = genderErr;
     if( (spErr = validateSexualPreference( user.sexualPreference )) != null )
-        errs.push( spErr );
+        errs.sexualPreference = spErr;
 
-    if( errs.length > 0 )
-        return cb( errs, null );
-    cb( null, user );
+    Object.keys(errs).forEach(function(key, index) {
+        if(errs[key] !== null)
+            return cb(errs, null)
+    });
+    
+    cb(null, user);
 };
 
 module.exports = exports = {
