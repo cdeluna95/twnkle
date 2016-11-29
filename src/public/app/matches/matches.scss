@@ -56,6 +56,7 @@ $transition: 0.2s ease-in-out;
     @include pageMargin(10em 0 2em 0);
 
     .selection-wrapper {
+      text-align: center;
 
       .selection-card {
         height: auto;
@@ -87,12 +88,13 @@ $transition: 0.2s ease-in-out;
         }
 
         .selection-desc {
+          text-align: left;
           @include selectionDesc;
         }
 
         .selection-icon {
           position: absolute;
-          top: 5%;
+          top: 5px;
           right: 5px;
 
           i {

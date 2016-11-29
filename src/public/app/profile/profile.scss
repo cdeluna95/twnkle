@@ -21,6 +21,12 @@ $transition: 0.2s ease-in-out;
   margin: $margin;
 }
 
+@mixin flexWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
 @mixin backgroundTile {
   box-sizing: border-box;
   background: $white;
@@ -50,11 +56,13 @@ $transition: 0.2s ease-in-out;
     @include pageMargin(10em 0 0 0);
 
     .user-wrapper {
+      margin: 0 auto;
       text-align: center;
+      @include flexWrapper;
 
       .user-img {
-        float: right;
         position: relative;
+        margin: 0 5em;
         transition: $transition;
 
         img {
@@ -90,6 +98,10 @@ $transition: 0.2s ease-in-out;
             }
           }
         }
+
+        &:active {
+          filter: brightness(0.7);
+        }
       }
 
       .user-desc {
@@ -112,6 +124,10 @@ $transition: 0.2s ease-in-out;
             text-decoration: none;
             background: $green;
           }
+
+          &:active {
+            background: rgba($green, 0.9);
+          }
         }
 
         .btn-profile {
@@ -121,6 +137,10 @@ $transition: 0.2s ease-in-out;
           &:hover {
             text-decoration: none;
             background: $darkyellow;
+          }
+
+          &:active {
+            background: rgba($darkyellow, 0.9);
           }
         }
       }
@@ -143,7 +163,10 @@ $transition: 0.2s ease-in-out;
 
         &:hover {
           filter: contrast(1.2);
-          transition: $transition;
+        }
+
+        &:active {
+          filter: contrast(1.3);
         }
       }
     }
