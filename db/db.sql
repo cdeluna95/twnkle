@@ -20,7 +20,7 @@ CREATE TABLE users
     westernSign INT NOT NULL,
     gender VARCHAR(20) NOT NULL,
     preference ENUM('MALE', 'FEMALE', 'OTHER') NOT NULL,
-    active TINYINT(4) DEFAULT '1',
+    status TINYINT(1) default 2,
     lastActive DATETIME
 );
 
