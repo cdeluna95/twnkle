@@ -53,7 +53,7 @@ $transition: 0.2s ease-in-out;
   /* Profile Header */
 
   #user {
-    @include pageMargin(10em 0 0 0);
+    @include pageMargin(10em 0 0);
 
     .user-wrapper {
       margin: 0 auto;
@@ -154,7 +154,7 @@ $transition: 0.2s ease-in-out;
   /* Photos */
 
   #photos {
-    @include pageMargin(2em 0 2em 0);
+    @include pageMargin(2em 0);
 
     .photos-wrapper {
 
