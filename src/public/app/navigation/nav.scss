@@ -32,9 +32,11 @@ $zoom: zoom 0.8s infinite ease-in-out;
 @keyframes zoom {
 	0% {
 		transform: scale(1);
-	} 50% {
-		  transform: scale(1.2);
-	  }
+	}
+
+	50% {
+		transform: scale(1.2);
+	}
 }
 
 /* Navigation Bar */
