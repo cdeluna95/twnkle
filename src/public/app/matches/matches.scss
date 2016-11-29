@@ -63,7 +63,6 @@ $transition: 0.2s ease-in-out;
         max-width: 100%;
         margin-top: 2em;
         position: relative;
-        display: inline-block;
         transition: $transition;
         @include selectionCard;
 
@@ -74,8 +73,8 @@ $transition: 0.2s ease-in-out;
         .selection-img {
 
           img {
-            @include selectionImg;
             transition: $transition;
+            @include selectionImg;
 
             &:hover {
               filter: brightness(0.9);

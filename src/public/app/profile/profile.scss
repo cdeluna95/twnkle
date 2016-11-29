@@ -96,6 +96,10 @@ $transition: 0.2s ease-in-out;
               text-decoration: none;
               background: $darkyellow;
             }
+
+            &:active {
+              background: rgba($darkyellow, 0.9);
+            }
           }
         }
 

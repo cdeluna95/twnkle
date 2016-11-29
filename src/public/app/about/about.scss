@@ -7,6 +7,7 @@
 
 $white: #fff;
 $black: #000;
+$josefin: 'Josefin Sans', sans-serif;
 $raleway: 'Raleway', sans-serif;
 $transition: 0.2s ease;
 
@@ -33,7 +34,6 @@ $transition: 0.2s ease;
 /* About */
 
 #about {
-  font-family: $raleway;
 
   /* Header */
 
@@ -56,6 +56,7 @@ $transition: 0.2s ease;
     left: 25%;
 
     .header-title {
+      font-family: $josefin;
 
       h1 {
         font-size: 3vw;
@@ -82,6 +83,7 @@ $transition: 0.2s ease;
   }
 
   .content-title {
+    font-family: $josefin;
 
     h2 {
       font-size: 3vw;
@@ -92,6 +94,7 @@ $transition: 0.2s ease;
   }
 
   .content-members {
+    font-family: $raleway;
     text-align: center;
 
     img {
@@ -105,7 +108,10 @@ $transition: 0.2s ease;
       &:hover {
         opacity: 1.0;
         margin-top: 4em;
-        transition: $transition;
+      }
+
+      &:active {
+        margin-top: 3.5em;
       }
     }
 
