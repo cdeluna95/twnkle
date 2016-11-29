@@ -52,16 +52,16 @@ $zoom: zoom 0.8s infinite ease-in-out;
 	.navbar-toggle {
 
 		.icon-bar {
-			background: $lightgreen;
+			background: rgba($black, 0.5);
 			transition: $transition;
 		}
 
 		&:hover {
-			background: $green;
+			background: $lightgreen;
 		}
 
 		&:active {
-			color: $darkgreen;
+			background: $green;
 		}
 	}
 
@@ -89,8 +89,8 @@ $zoom: zoom 0.8s infinite ease-in-out;
 		li {
 
 			a {
-				transition: $transition;
 				margin: 0 10px 0 10px;
+				transition: $transition;
 				@include customText(18px);
 
 				&:before {
