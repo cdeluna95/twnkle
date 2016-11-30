@@ -8,6 +8,7 @@
 $white: #fff;
 $black: #000;
 $green: #097a5a;
+$darkgreen: #046b4e;
 $raleway: 'Raleway', sans-serif;
 $transition: 0.2s ease-in-out;
 
@@ -19,12 +20,11 @@ $transition: 0.2s ease-in-out;
 
 @mixin wrapperPosition {
   height: 100%;
-  width: 0;
+  width: 250px;
   position: fixed;
   left: 250px;
   margin-left: -250px;
   overflow-y: auto;
-  z-index: 9999;
 }
 
 /* Contacts */
@@ -33,29 +33,67 @@ $transition: 0.2s ease-in-out;
   font-family: $raleway;
 
   #contacts {
-    padding-left: 0;
-    transition: all 0.5s ease;
-    @include pageMargin(10em);
 
     .contacts-wrapper {
-      background: $white;
-      transition: $transition;
+      background: #000;
       @include wrapperPosition;
+
+      .contacts-nav {
+        width: 250px;
+        position: absolute;
+        top: 0;
+        margin-top: 7em;
+        padding: 0;
+        list-style: none;
+        text-indent: 20px;
+
+        .contacts-title {
+          line-height: 60px;
+
+          h2 {
+            color: #999999;
+
+            &:hover {
+              color: #fff;
+              background: none;
+            }
+          }
+        }
+
+        .contacts-connections {
+          line-height: 40px;
+
+          a {
+            display: block;
+            text-decoration: none;
+            color: #999999;
+
+            &:hover {
+              text-decoration: none;
+              color: #fff;
+              background: rgba(255,255,255,0.2);
+            }
+
+            &:active {
+              text-decoration: none;
+            }
+          }
+        }
+      }
     }
   }
 
-  #contacts.toggled .contacts-wrapper {
-    width: 250px;
-  }
+  /* Chat */
 
   #chat {
-    width: 100%;
-    position: absolute;
-    padding: 15px;
-  }
 
-  #contacts.toggled .contacts-wrapper {
-    position: absolute;
-    margin-right: -250px;
+    .chat-wrapper {
+      position: absolute;
+      @include pageMargin(8em 0);
+
+      .chat-toggle {
+        position: absolute;
+      }
+    }
   }
 }

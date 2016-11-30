@@ -7,29 +7,28 @@
 
   <!-- Contacts -->
   <div id="contacts">
-    <div class="contacts-wrapper">
+    <div class="contacts-wrapper" ng-class="{ collapse: isCollapsed }">
       <ul class="contacts-nav">
-        <li class="contacts-profile">
-          <img class="img-responsive" src="/assets/images/adrianna.jpg">
-          <h2>Adrianna Valdivia</h2>
+        <li class="contacts-title">
+          <h3>Connections</h3>
         </li>
-        <li>
-          <span class="contacts-img">
-            <img class="img-responsive" src="/assets/images/david.jpg">
-          </span>
-          <span class="contacts-desc">
-            <h4><b>David Edwards</b></h4>
-            <h5>Capricorn</h5>
-          </span>
+        <li class="contacts-connections">
+          <a ng-click="userChat()">Adrianna Valdivia</a>
         </li>
-        <li>
-          <span class="contacts-img">
-            <img class="img-responsive" src="/assets/images/ashutosh.jpg">
-          </span>
-          <span class="contacts-desc">
-            <h4><b>Ashutosh Sharma</b></h4>
-            <h5>Scorpio</h5>
-          </span>
+        <li class="contacts-connections">
+          <a ng-click="userChat()">David Edwards</a>
+        </li>
+        <li class="contacts-connections">
+          <a ng-click="userChat()">Ashutosh Sharma</a>
+        </li>
+        <li class="contacts-connections">
+          <a ng-click="userChat()">Christan de Luna</a>
+        </li>
+        <li class="contacts-connections">
+          <a ng-click="userChat()">John Holcombe</a>
+        </li>
+        <li class="contacts-connections">
+          <a ng-click="userChat()">Bhavan Patel</a>
         </li>
       </ul>
     </div>
@@ -38,10 +37,11 @@
   <!-- Chat -->
   <div id="chat">
     <div class="chat-wrapper">
-      <img src="http://i32.tinypic.com/zl4tx2.jpg" alt="">
-      <h1>Under Construction</h1>
-      <p>https://blackrockdigital.github.io/startbootstrap-simple-sidebar</p>
-      <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+      <div class="chat-toggle">
+        <a class="btn-bar" ng-init="isCollapsed = true" ng-click="isCollapsed = !isCollapsed">
+          <i class="fa fa-bars" aria-hidden="true"></i>
+        </a>
+      </div>
     </div>
   </div>
 
