@@ -40,6 +40,10 @@
                 url: '/signup',
                 templateUrl: '/app/signup/_signup.html',
                 controller: 'SignupCtrl'
+            })
+            .state('post-signup', {
+                url: '/post-signup',
+                templateUrl: '/app/signup/_post-signup.html'
             });
     }
 

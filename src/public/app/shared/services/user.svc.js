@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    function UserSvc($http, $q) {
+    function UserSvc($http, $q, TokenSvc) {
         var LOCAL_TOKEN_KEY = '';
         var _user = {};
         var isAuthenticated = false;
@@ -21,7 +21,7 @@
         }
 
         function loadUserCredentials() {
-            var token = window.localStorage.getItem('LOCAL_TOKEN_KEY');
+            var token = TokenSvc.get();
             if(token) {
                 authenticateUser({ token: token }).then(function(data) {
                     useCredentials(data.user, token);
@@ -30,16 +30,19 @@
                 });
             }
         }
+
         function storeUserCredentials(user, token) {
-            window.localStorage.setItem('LOCAL_TOKEN_KEY', token);
+            TokenSvc.set(token);
             useCredentials(user, token);
         }
+
         function useCredentials(user, token) {
             _user = angular.copy(user);
             isAuthenticated = true;
             authtoken = token;
             $http.defaults.headers.common['x-access-token'] = token;
         }
+
         function destroyUserCredentials() {
             authtoken = undefined;
             _user = {
@@ -50,8 +53,9 @@
             };
             isAuthenticated = false;
             $http.defaults.headers.common['x-access-token'] = undefined;
-            window.localStorage.removeItem('LOCAL_TOKEN_KEY');
+            TokenSvc.destroy();
         }
+
         function login(user) {
             var deferred = $q.defer();
             $http.post('/user/login', user)
@@ -78,10 +82,10 @@
             if(isAuthenticated) {
                 return isAuthenticated;
             }
-            else if(!isAuthenticated && window.localStorage.getItem('LOCAL_TOKEN_KEY')) {
-                authenticateUser({token: window.localStorage.getItem('LOCAL_TOKEN_KEY')}).then(function(data) {
+            else if(!isAuthenticated && TokenSvc.get()) {
+                authenticateUser({token: TokenSvc.get() }).then(function(data) {
                     console.log("user = " + _user);
-                    storeUserCredentials(data.user, window.localStorage.getItem('LOCAL_TOKEN_KEY'));
+                    storeUserCredentials(data.user, TokenSvc.get());
                     return isAuthenticated;
                 }, function (err) {
                     return isAuthenticated;
@@ -91,7 +95,8 @@
                 return isAuthenticated;
             }
         }
-        //loadUserCredentials();
+        loadUserCredentials();
+
         return {
             login: login,
             logout: logout,
@@ -100,4 +105,6 @@
             getUser: function() { console.log('user = ' + JSON.stringify(_user)); return _user; }
         }
     }
+
+    angular.module('app').factory('UserSvc', UserSvc);
 })();
