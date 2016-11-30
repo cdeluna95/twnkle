@@ -138,21 +138,85 @@ $transition: 0.2s ease-in-out;
       padding: 30px;
 
       .chat-receiver {
+        margin-right: 8em;
         padding-left: 0;
         @include chatPosition(left);
 
         li {
           transition: $transition;
           @include chatBox($black, rgba($black, 0.2), 15px 15px 15px 30px);
+
+          &:last-of-type {
+            margin: 0;
+          }
         }
       }
 
       .chat-sender {
+        margin-left: 4em;
         @include chatPosition(right);
 
         li {
           transition: $transition;
           @include chatBox($white, $green, 15px 30px 15px 15px);
+
+          &:last-of-type {
+            margin: 0;
+          }
+        }
+      }
+    }
+  }
+
+  .chat-input {
+    background: $green;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, 0.1),
+                0 -10px 40px 0 rgba(0, 0, 0, 0.2);
+    height: 7.7rem;
+    padding: 15px;
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+
+    .input {
+      color: $white;
+      background: rgba($white, 0.1);
+      font-size: 16px;
+      font-weight: 600;
+      text-indent: 20px;
+      border: 0;
+      border-radius: 5px;
+      box-shadow: none;
+      outline: none;
+      width: 100%;
+      height: 4.7rem;
+    }
+
+    .btn-plus {
+      background: rgba(0, 0, 0, 0);
+      border: 0;
+      box-shadow: none;
+      outline: none;
+      width: 50px;
+      height: 45px;
+      overflow: hidden;
+      cursor: pointer;
+      position: absolute;
+      top: 19.5px;
+      right: 20px;
+
+      .fa-plus {
+        color: $white;
+        font-size: 20px;
+        text-shadow: 1px 2px 2px rgba($black, 0.1);
+        opacity: 0.8;
+        transition: $transition;
+
+        &:hover {
+          transform: scale(1.5);
+          opacity: 1;
         }
       }
     }
