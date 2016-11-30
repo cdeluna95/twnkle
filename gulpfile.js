@@ -104,6 +104,7 @@ gulp.task('build:lib:js', ['clean:lib:js'], function() {
         .src([
             'bower_components/angular/angular.js',
             'bower_components/angular-ui-router/release/angular-ui-router.js',
+            'src/public/assets/js/ui-bootstrap-tpls-2.3.0.js',
             'bower_components/angularjs-datepicker/dist/angular-datepicker.min.js'
         ])
         .pipe(concat('vendor.js'))
