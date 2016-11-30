@@ -75,9 +75,17 @@
         }
 
         function register(newUser) {
-            console.log('posting: ' + newUser);
-            return $http.post('/user/register', newUser);
+            var deferred = $q.defer();
+            console.log(newUser);
+            $http.post('/user/register', { newUser: newUser }).then(function(data) {
+                deferred.resolve(data);
+            }, function(err) {
+                deferred.reject(err.data.errs);
+            });
+
+            return deferred.promise;
         }
+
         function authenticated() {
             if(isAuthenticated) {
                 return isAuthenticated;

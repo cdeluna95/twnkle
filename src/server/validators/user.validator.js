@@ -68,6 +68,7 @@ var validateEmail = function( email ) {
 };
 
 var validateDOB = function( dob ) {
+    util.log(dob);
     if( _.isNull( dob ) || _.isUndefined( dob ) )
         return 'Date of birth is required';
     if( dob.length <= 0 )
@@ -161,11 +162,17 @@ var validate = function( user, cb ) {
     if( (spErr = validateSexualPreference( user.sexualPreference )) != null )
         errs.sexualPreference = spErr;
 
+    var err = false;
     Object.keys(errs).forEach(function(key, index) {
-        if(errs[key] !== null)
-            return cb(errs, null)
+        if(errs[key] !== null) {
+            err = true;
+        }
     });
-    
+
+    if(err) {
+        return cb(errs, null)
+    }
+
     cb(null, user);
 };
 

@@ -12,30 +12,42 @@
                     <div class="form-group">
                         <label for="new-firstname">First Name</label>
                         <input class="form-control" type="text" ng-model="newUser.firstName" id="new-firstname" placeholder="First Name"/>
+                        <span class="help-block" ng-show="errs.firstName"> {{ errs.firstName }}</span>
                     </div>
 
                     <!-- Last Name -->
                     <div class="form-group">
                         <label for="new-lastname">Last Name</label>
                         <input class="form-control" type="text" ng-model="newUser.lastName" id="new-lastname" placeholder="Last Name" />
+                        <span class="help-block" ng-show="errs.lastName"> {{ errs.lastName}} </span>
+                    </div>
+
+                    <!-- Username -->
+                    <div class="form-group">
+                        <label for="new-username">Username</label>
+                        <input class="form-control" type="text" ng-model="newUser.username" id="new-username" placeholder="Username"/>
+                        <span class="help-block" ng-show="errs.username"> {{ errs.username }}</span>
                     </div>
 
                     <!-- Email -->
                     <div class="form-group">
                         <label for="new-email">Email Address</label>
                         <input class="form-control" type="text" ng-model="newUser.email" id="new-email" placeholder="Email" />
+                        <span class="help-block" ng-show="errs.email"> {{ errs.email }}</span>
                     </div>
 
                     <!-- Password -->
                     <div class="form-group">
                         <label for="new-pass">Password</label>
                         <input class="form-control" type="password" ng-model="newUser.password" id="new-pass" placeholder="Password" />
+                        <span class="help-block" ng-show="errs.password"> {{ errs.password }}</span>
                     </div>
 
                     <!-- Confirm Password -->
                     <div class="form-group">
                         <label for="new-confirm-pass">Confirm Password</label>
                         <input class="form-control" type="password" ng-model="newUser.confirmPassword" id="new-confirm-pass" placeholder="Confirm Password" />
+                        <span class="help-block" ng-show="errs.confirmPassword"> {{ errs.confirmPassword }}</span>
                     </div>
 
                 </div>
@@ -44,8 +56,9 @@
                     <div class="form-group">
                         <label for="bday">Birthday:</label>
                         <datepicker date-format="MM/dd/yyyy" selector="form-control">
-                            <input ng-model="date" class="form-control" id="bday" type="text"/>
+                            <input ng-model="newUser.dob" class="form-control" id="bday" type="text"/>
                         </datepicker>
+                        <span class="help-block" ng-show="errs.dob"> {{ errs.dob }}</span>
                     </div>
 
                     <div class="form-group">
@@ -54,6 +67,15 @@
                             <label class="btn btn-success" ng-model="newUser.gender" uib-btn-radio="'Male'">Male</label>
                             <label class="btn btn-success" ng-model="newUser.gender" uib-btn-radio="'Other'">Other</label>
                         </div>
+                        <span class="help-block" ng-show="errs.gender"> {{ errs.gender }}</span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="btn-group">
+                            <label class="btn btn-primary" ng-model="sexualPreference.male" uib-btn-checkbox="'Male'">Male</label>
+                            <label class="btn btn-primary" ng-model="sexualPreference.female" uib-btn-checkbox="'Female'">Female</label>
+                        </div>
+                        <span class="help-block" ng-show="errs.sexualPreference"> {{ errs.sexualPreference }}</span>
                     </div>
 
                     <input type="submit" class="btn btn btn-primary" value="Sign Up"/>

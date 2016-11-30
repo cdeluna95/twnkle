@@ -38,6 +38,7 @@ var login = function (req, res) {
  * @param res
  */
 var register = function (req, res) {
+    debugger;
     var newUser = req.body.newUser;
 
 
@@ -48,25 +49,11 @@ var register = function (req, res) {
         
         svc.register(validUser, function (err, registeredUser) {
             if (err) {
+                util.log(util.inspect(err));
                 return res.status(401).json({err: err});
             }
 
-            // //generate verification email token
-            jwt.sign({ userId: registeredUser.userId }, config.server.secret, function(err, token) {
-                if(err) {
-                    return res.status(400).json({ err: err });
-                }
-                
-                EmailSvc.sendVerificationEmail(registeredUser, token, function(err, result) {
-                    if(err) {
-                        return res.status(400).json({ err: err });
-                    }    
-                    
-                    res.status(200).json({ success: true });        
-                });
-            })
-            // //send verification email
-            
+            res.status(200).json({ success: true });
         });    
     });
     

@@ -17,15 +17,16 @@
         
         var register = function(newUser) {
             var deferred = $q.defer();
-            
+            console.log(newUser);
             $http.post('/user/register', { newUser: newUser }).then(function(response) {
                 deferred.resolve(response); 
             }, function(err) {
-                deferred.reject(err);
+                console.log('service errors');
+                deferred.reject(err.data.errs);
             });
             
             return deferred.promise;
-        }
+        };
         
         return {
             login: login,
