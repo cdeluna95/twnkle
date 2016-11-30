@@ -27,6 +27,33 @@ $transition: 0.2s ease-in-out;
   overflow-y: auto;
 }
 
+@mixin navPosition {
+  width: 250px;
+  position: absolute;
+  top: 0;
+  margin: 5em 0;
+  padding: 0;
+}
+
+@mixin chatBox($color, $bgcolor, $padding) {
+  color: $color;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px rgba($black, 0.1);
+  background: $bgcolor;
+  border-radius: 10px;
+  box-shadow: 2px 4px 3px rgba($black, 0.2);
+  line-height: 20px;
+  min-height: 50px;
+  position: relative;
+  margin-bottom: 10px;
+  padding: $padding;
+}
+
+@mixin chatPosition($float) {
+  list-style: none;
+  float: $float;
+}
+
 /* Contacts */
 
 #connections {
@@ -35,28 +62,21 @@ $transition: 0.2s ease-in-out;
   #contacts {
 
     .contacts-wrapper {
-      background: #000;
+      background: $green;
       @include wrapperPosition;
 
       .contacts-nav {
-        width: 250px;
-        position: absolute;
-        top: 0;
-        margin-top: 7em;
-        padding: 0;
         list-style: none;
         text-indent: 20px;
+        @include navPosition;
 
         .contacts-title {
-          line-height: 60px;
 
-          h2 {
-            color: #999999;
-
-            &:hover {
-              color: #fff;
-              background: none;
-            }
+          h3 {
+            color: $white;
+            background: rgba($white, 0.1);
+            display: block;
+            padding: 20px 0;
           }
         }
 
@@ -64,36 +84,77 @@ $transition: 0.2s ease-in-out;
           line-height: 40px;
 
           a {
+            color: $white;
             display: block;
-            text-decoration: none;
-            color: #999999;
+            cursor: pointer;
+            transition: $transition;
 
             &:hover {
+              font-weight: 600;
               text-decoration: none;
-              color: #fff;
-              background: rgba(255,255,255,0.2);
+              text-shadow: 2px 2px 2px rgba($black, 0.3);
+              padding-left: 5px;
+              background: rgba($white, 0.1);
             }
 
             &:active {
-              text-decoration: none;
+              background: rgba($white, 0.2);
             }
           }
         }
       }
     }
   }
+}
 
   /* Chat */
 
   #chat {
 
-    .chat-wrapper {
-      position: absolute;
-      @include pageMargin(8em 0);
+    //.chat-wrapper {
+    //  position: absolute;
+    //  @include pageMargin(7.75em 0);
+    //
+    //  .chat-toggle {
+    //
+    //    i {
+    //      color: rgba($black, 0.6);
+    //      font-size: 30px;
+    //      transition: $transition;
+    //
+    //      &:hover {
+    //        color: rgba($black, 0.4);
+    //      }
+    //    }
+    //  }
+    //}
 
-      .chat-toggle {
-        position: absolute;
+    .chat-border {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 12%;
+      left: 0;
+      padding: 30px;
+
+      .chat-receiver {
+        padding-left: 0;
+        @include chatPosition(left);
+
+        li {
+          transition: $transition;
+          @include chatBox($black, rgba($black, 0.2), 15px 15px 15px 30px);
+        }
+      }
+
+      .chat-sender {
+        @include chatPosition(right);
+
+        li {
+          transition: $transition;
+          @include chatBox($white, $green, 15px 30px 15px 15px);
+        }
       }
     }
   }
-}
+
