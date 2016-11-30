@@ -92,7 +92,6 @@ gulp.task('build:lib:css', ['clean:lib:css'], function() {
     return gulp
         .src([
             'bower_components/bootstrap/dist/css/bootstrap.min.css',
-            'bower_components/font-awesome/css/font-awesome.min.css',
             'bower_components/angularjs-datepicker/dist/angular-datepicker.min.css'
         ])
         .pipe(concat('vendor.min.css'))
