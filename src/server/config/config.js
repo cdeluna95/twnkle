@@ -5,8 +5,10 @@ var config = {
     },
     db: {
         port: 3306,
-        hostname: '0.0.0.0',
-        user: 'dedward3'
+        hostname: 'localhost',
+        user: 'app',
+        password: 'astropass',
+        database: 'astroapp'
     }
 };
 

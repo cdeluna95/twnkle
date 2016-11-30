@@ -34,8 +34,8 @@ var db = (function() {
                                      connectionLimit: 10,
                                      host: config.db.hostname || 'localhost',
                                      user: config.db.user || 'app',
-                                     password: '',
-                                     database: 'astromeet'
+                                     password: config.db.password,
+                                     database: config.db.database
                                  } );
     };
 
