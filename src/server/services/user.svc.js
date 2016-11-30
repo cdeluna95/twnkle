@@ -14,6 +14,8 @@ var User          = require( '../models/user.model' );
 var config        = require( '../config/config' );
 var db            = require( '../config/db' );
 var userValidator = require( '../validators/user.validator' );
+var SignSvc = require('../services/sign.svc');
+var signSvc = new SignSvc();
 
 var usersvc = (function() {
     function UserSvc() {
@@ -105,32 +107,48 @@ var usersvc = (function() {
                     }
 
                     //process a user and apply analysis for matching
+                    signSvc.getSigns(newUser.dob, function(err, result) {
+                        newUser.easternSign = result.easternSign;
+                        newUser.westernSign = result.westernSign;
 
-                    //hash the password
-                    bcrypt.genSalt( 10, function( err, salt ) {
-                        if( err ) {
-                            return cb( err, null );
-                        }
-
-                        bcrypt.hash( newUser.password, salt, function( err, hash ) {
+                        //hash the password
+                        bcrypt.genSalt( 10, function( err, salt ) {
                             if( err ) {
                                 return cb( err, null );
                             }
 
-                            //insert the user into the database
-                            var insertSql = "INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, easternSign, westernSign, gender, preference, status)" +
-                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                            var data      = [newUser.firstName, newUser.lastName, newUser.username, hash, newUser.email, newUser.dob, 1, 1, newUser.gender, newUser.sexualPreference, 2];
-                            util.log('about to insert');
-                            connection.query( insertSql, data, function( err, result ) {
+                            bcrypt.hash( newUser.password, salt, function( err, hash ) {
                                 if( err ) {
                                     return cb( err, null );
                                 }
-                                util.log('made it past the insert');
-                                newUser.userId = result.insertId;
 
-                                connection.release();
-                                return cb( null, newUser );
+                                //insert the user into the database
+                                var insertSql = "INSERT INTO users (firstName, lastName, username, hashedPassword, email, dob, easternSign, westernSign, gender, preference, status)" +
+                                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                                var data      = [
+                                    newUser.firstName,
+                                    newUser.lastName,
+                                    newUser.username,
+                                    hash,
+                                    newUser.email,
+                                    newUser.dob,
+                                    newUser.easternSign,
+                                    newUser.westernSign,
+                                    newUser.gender,
+                                    newUser.sexualPreference,
+                                    1];
+
+                                util.log('about to insert');
+                                connection.query( insertSql, data, function( err, result ) {
+                                    if( err ) {
+                                        return cb( err, null );
+                                    }
+                                    util.log('made it past the insert');
+                                    newUser.userId = result.insertId;
+
+                                    connection.release();
+                                    return cb( null, newUser );
+                                });
                             });
                         });
                     });
