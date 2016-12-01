@@ -6,6 +6,7 @@
 
         var set = function(token) {
             window.localStorage.setItem('auth_token', token);
+            console.log('set token');
         };
 
         var get = function() {

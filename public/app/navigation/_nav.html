@@ -17,11 +17,16 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse" ng-class="{ collapse: isCollapsed }">
             <ul class="nav navbar-nav navbar-right">
-                <li><a ui-sref="login" ng-hide="isAuthenticated">Login</a> </li>
-                <li><a ui-sref="signup" ng-hide="isAuthenticated">Sign Up</a></li>
-                <li><a href="http://facebook.com"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="http://twitter.com"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="http://instagram.com"><i class="fa fa-instagram"></i></a></li>
+                <li ng-show="isAuthenticated"><a ui-sref="matches">Find Matches</a></li>
+                <li ng-show="isAuthenticated"><a ui-sref="connections">Connections</a></li>
+                <li ng-show="isAuthenticated"><a ui-sref="profile">Profile</a></li>
+                <li ng-show="isAuthenticated"><a ui-sref="logout">Logout</a></li>
+                <li ng-hide="isAuthenticated"><a ui-sref="login">Login</a> </li>
+                <li ng-hide="isAuthenticated"><a ui-sref="signup">Sign Up</a></li>
+                <li ng-hide="isAuthenticated"><a ui-sref="about">About</a> </li>
+                <li ng-hide="isAuthenticated"><a href="http://facebook.com"><i class="fa fa-facebook"></i></a></li>
+                <li ng-hide="isAuthenticated"><a href="http://twitter.com"><i class="fa fa-twitter"></i></a></li>
+                <li ng-hide="isAuthenticated"><a href="http://instagram.com"><i class="fa fa-instagram"></i></a></li>
             </ul>
         </div>
     </div>

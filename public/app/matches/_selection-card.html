@@ -1,0 +1,13 @@
+<div class="selection-card" ui-sref="user-profile({userId: {{user.userId}}})">
+    <div class="selection-img">
+        <img class="img-responsive" ng-src="{{user.profilePicture}}">
+    </div>
+    <div class="selection-desc">
+        <h4><b>{{ ::user.firstName}} {{ ::user.lastName}}</b></h4>
+        <h5>{{ ::user.westernSign | westernSign }}/{{ ::user.easternSign | easternSign}}</h5>
+    </div>
+    <span class="selection-icon">
+        <a ng-click="acceptUser()"><i class="fa fa-check-circle-o"></i></a>
+        <a ng-click="declineUser()"><i class="fa fa-times-circle-o"></i></a>
+    </span>
+</div>

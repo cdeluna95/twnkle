@@ -27,7 +27,6 @@ var rootPath = path.normalize( __dirname + '/../dist' );
 app.use( logger( 'dev' ) );
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( { extended: false } ) );
-util.log(rootPath)
 
 app.use( '/lib', express.static( rootPath + '/lib' ) );
 app.use( '/app', express.static( rootPath + '/public/app' ) );

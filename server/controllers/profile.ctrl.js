@@ -1,13 +1,13 @@
 var util       = require('util');
 var ProfileSvc = require('../services/profile.svc');
-
+var profileSvc = new ProfileSvc();
 
 var getProfileById = function (req, res) {
     util.log('inside get profile');
     var id = req.params.userId;
     util.log('id = ' + id);
 
-    ProfileSvc.findById(id, function (err, result) {
+    profileSvc.findById(id, function (err, result) {
         if (err) {
             return res.status(401).json({err: err});
         }

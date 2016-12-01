@@ -34,6 +34,7 @@
 
             UserSvc.register(newUser).then(function (data) {
                 console.log(data);
+                $state.go('post-signup', { firstName: newUser.firstName });
             }, function (err) {
                 $scope.errs = angular.copy(err);
                 console.log('errors');

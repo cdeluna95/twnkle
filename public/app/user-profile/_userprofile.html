@@ -1,0 +1,32 @@
+<section id="profile">
+
+<div id="user">
+    <div class="row">
+        <div class="user-wrapper">
+            <div class="user-img">
+                <img class="img-circle img-responsive" ng-src="{{ userProfile.profilePicture }}">
+
+            </div>
+            <div class="user-desc">
+                <h2>{{ ::userProfile.firstName }} {{ ::userProfile.lastName}} </h2>
+                <h3>{{ ::userProfile.westernSign | westernSign }}/{{ ::userProfile.easternSign | easternSign }}</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <h2>About Me</h2>
+            <p ng-show="userProfile.aboutMe.length !== ''"> {{ ::userProfile.aboutMe }}</p>
+            <p ng-show="userProfile.aboutMe.length === ''">N/A</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Looking For</h2>
+            <p ng-show="userProfile.lookingFor.length !== ''"> {{ ::userProfile.lookingFor}}</p>
+            <p ng-show="userProfile.lookingFor.length === ''">N/A</p>
+        </div>
+    </div>
+</div>
+
+</section>

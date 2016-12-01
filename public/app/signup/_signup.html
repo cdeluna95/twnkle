@@ -2,12 +2,26 @@
  - @author Christan, Adrianna
  - @date 10/10/2016
  -->
+<div class="row">
+<div id="signup">
 
-<div id="auth">
-    <div class="auth-wrapper">
-        <div class="auth-desc">
+
+    <!-- Authentication -->
+    <div id="registration">
+        <div id="registration-img"></div>
+
+        <span class="registration-clip">
+            ∎
+        </span>
+        <div class="registration-wrapper">
+            <div class="registration-desc">
+                <div class="registration-title">
+                    <h2>Sign Up</h2>
+                </div>
+
             <form ng-submit="register(newUser)" novalidate>
-                <div class="col-md-3">
+                <div class="row">
+                <div class="col-md-5 col-md-offset-1">
                     <!-- First Name -->
                     <div class="form-group">
                         <label for="new-firstname">First Name</label>
@@ -52,7 +66,7 @@
 
                 </div>
 
-                <div class="col-md-4 offset-md-4">
+                <div class="col-md-5">
                     <div class="form-group">
                         <label for="bday">Birthday:</label>
                         <datepicker date-format="MM/dd/yyyy" selector="form-control">
@@ -78,10 +92,14 @@
                         <span class="help-block" ng-show="errs.sexualPreference"> {{ errs.sexualPreference }}</span>
                     </div>
 
-                    <input type="submit" class="btn btn btn-primary" value="Sign Up"/>
+                    <input type="submit" class="btn-login" value="Sign Up"/>
+                </div>
                 </div>
             </form>
 
+            </div>
         </div>
     </div>
+
+</div>
 </div>

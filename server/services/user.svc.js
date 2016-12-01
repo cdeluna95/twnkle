@@ -33,31 +33,58 @@ var usersvc = (function() {
      * @param cb
      * TODO add code to update lastSignin from the database
      */
-    UserSvc.prototype.login = function( user, cb ) {
-        User.find( { username: user.username }, function( err, results ) {
-            if( results.length === 0 ) {
-                return cb( err, null );
+    UserSvc.prototype.login = function(user, cb ) {
+
+        var sql = 'SELECT userId, firstName, lastName, username, hashedPassword, email, profilePicture FROM users WHERE ';
+        if(user.type === 'username')
+            sql += 'username=?';
+        else
+            sql += 'email=?';
+
+        db.getConnection(function(err, connection) {
+            if(err) {
+                return cb( {type: 'system', err: 'There was a system error' }, null);
             }
-
-            var resUser = results[0];
-
-            bcrypt.compare( user.password, resUser.hashedPassword, function( err, result ) {
-                if( err ) {
-                    return cb( err, null );
+            util.log("sql = " + sql);
+            util.log('username = ' + user.user.username);
+            connection.query(sql, [user.user.username], function(err, results) {
+                if(err) {
+                    return cb( {type: 'system', err: 'There was a system error' }, null);
                 }
 
-                if( result ) {
-                    var ret = {
-                        userId: resUser.userId
-                    };
+                util.log(util.inspect(results));
+                if(results.length === 0)
+                    return cb({ type: 'user', err: 'User not found' }, null);
 
-                    jwt.sign( ret, config.server.secret, { expiresIn: 900 }, function( err, token ) {
-                        cb( null, {
-                            token: token
+                var dbUser = results[0];
+
+                bcrypt.compare(user.user.password, dbUser.hashedPassword, function(err, result) {
+                    if(err) {
+                        util.log(err);
+                        return cb({ type: 'system', err: 'There was a system error' }, null);
+                    }
+
+                    if(result) {
+                        jwt.sign({ userId: dbUser.userId }, config.server.secret, { expiresIn: 900 }, function(err, token) {
+                            if(err) {
+                                return cb({ type: 'system', err: 'There was a system error' }, null);
+                            }
+
+                            delete dbUser.hashedPassword;
+
+                            return cb(null, {
+                                token: token,
+                                user: dbUser
+                            });
                         });
-                    });
-                }
-            });
+                    } else {
+                        return cb({ type: 'user', err: 'username/password is not valid' }, null);
+                    }
+                });
+
+             });
+
+            connection.release();
         });
     };
 
@@ -103,7 +130,7 @@ var usersvc = (function() {
                     }
 
                     if( result.length > 0 ) {
-                        return cb( { username: 'Username is taken' }, null );
+                        return cb( { type: 'user', errs: { username: 'Username is taken' } }, null );
                     }
 
                     //process a user and apply analysis for matching
@@ -114,7 +141,7 @@ var usersvc = (function() {
                         //hash the password
                         bcrypt.genSalt( 10, function( err, salt ) {
                             if( err ) {
-                                return cb( err, null );
+                                return cb( { type: 'system', err: err }, null );
                             }
 
                             bcrypt.hash( newUser.password, salt, function( err, hash ) {
@@ -141,7 +168,7 @@ var usersvc = (function() {
                                 util.log('about to insert');
                                 connection.query( insertSql, data, function( err, result ) {
                                     if( err ) {
-                                        return cb( err, null );
+                                        return cb({ type: 'system', err: err}, null );
                                     }
                                     util.log('made it past the insert');
                                     newUser.userId = result.insertId;
@@ -165,12 +192,30 @@ var usersvc = (function() {
      */
     UserSvc.prototype.authenticate = function( token, cb ) {
         jwt.verify( token, config.server.secret, function( err, decoded ) {
-            if( err ) {
-                return cb( err, null );
+            if(err) {
+                return cb(err, null);
             }
 
-            cb( null, decoded );
-        } );
+            util.log(util.inspect(decoded));
+            db.getConnection(function(err, connection) {
+                var sql = "SELECT userId, firstName, lastName, username, email, profilePicture FROM users WHERE userId=?";
+
+                connection.query(sql, [decoded.userId], function(err, results) {
+                    if(err) {
+                        return cb({type: 'system', err: 'There was a system error'}, null);
+                    }
+
+                    if(results.length === 0) {
+                        return cb({type: 'system', err: 'There was a system error'}, null);
+                    }
+
+                    var user = results[0];
+
+                    connection.release();
+                    return cb(null, { user: user, token: token });
+                });
+            });
+        });
     };
 
     return UserSvc;

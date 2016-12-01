@@ -1,78 +1,21 @@
 (function() {
     'use strict';
 
-    function UserSvc($http, $q, TokenSvc) {
-        var LOCAL_TOKEN_KEY = '';
-        var _user = {};
-        var isAuthenticated = false;
-        var authtoken;
+    function UserSvc($http, $q, TokenSvc, $localStorage) {
+        var _user = null;
+        var authenticated = false;
 
-        function authenticateUser(token) {
-            var deferred = $q.defer();
-            console.log(token);
-            $http.post('/user/authenticate', token)
-                .then(function(data) {
-                    deferred.resolve(data)
-                }, function(err) {
-                    deferred.reject({ err: err });
+        var login = function(user, success, error) {
+            $http.post('/user/login', { user: user })
+                .success(function(res) {
+                    _user = res.user;
+                    $localStorage.token = res.token;
+                    authenticated = true;
+                    success();
+                }).error(function(err) {
+                    error(err);
                 });
-
-            return deferred.promise;
-        }
-
-        function loadUserCredentials() {
-            var token = TokenSvc.get();
-            if(token) {
-                authenticateUser({ token: token }).then(function(data) {
-                    useCredentials(data.user, token);
-                }, function(err) {
-                    console.log(err);
-                });
-            }
-        }
-
-        function storeUserCredentials(user, token) {
-            TokenSvc.set(token);
-            useCredentials(user, token);
-        }
-
-        function useCredentials(user, token) {
-            _user = angular.copy(user);
-            isAuthenticated = true;
-            authtoken = token;
-            $http.defaults.headers.common['x-access-token'] = token;
-        }
-
-        function destroyUserCredentials() {
-            authtoken = undefined;
-            _user = {
-                firstName: '',
-                lastName: '',
-                email: '',
-                username: ''
-            };
-            isAuthenticated = false;
-            $http.defaults.headers.common['x-access-token'] = undefined;
-            TokenSvc.destroy();
-        }
-
-        function login(user) {
-            var deferred = $q.defer();
-            $http.post('/user/login', user)
-                .success(function(data) {
-                    console.log(JSON.stringify(data.user));
-                    storeUserCredentials(data.user, data.token);
-                    deferred.resolve({ msg: 'Login Successful!' });
-                })
-                .error(function(err) {
-                    deferred.reject({ msg: err});
-                });
-            return deferred.promise;
-        }
-
-        function logout(user) {
-            destroyUserCredentials();
-        }
+        };
 
         function register(newUser) {
             var deferred = $q.defer();
@@ -86,31 +29,41 @@
             return deferred.promise;
         }
 
-        function authenticated() {
-            if(isAuthenticated) {
-                return isAuthenticated;
-            }
-            else if(!isAuthenticated && TokenSvc.get()) {
-                authenticateUser({token: TokenSvc.get() }).then(function(data) {
-                    console.log("user = " + _user);
-                    storeUserCredentials(data.user, TokenSvc.get());
-                    return isAuthenticated;
-                }, function (err) {
-                    return isAuthenticated;
-                });
-            }
+        var me = function() {
+            if(_user !== null)
+                return _user;
             else {
-                return isAuthenticated;
+                $http.get('/user/me')
+                    .success(function(res) {
+                        console.log(res);
+                        _user = res.user;
+                        authenticated = true;
+                        return _user;
+                    })
+                    .error(function(err) {
+                        authenticated = false;
+                        return null;
+                    });
             }
-        }
-        loadUserCredentials();
+
+        };
+
+        var logout = function() {
+            _user = null;
+            delete $localStorage.token;
+            authenticated = false;
+        };
+
+        var isAuthenticated = function() {
+            return authenticated;
+        };
 
         return {
             login: login,
-            logout: logout,
             register: register,
-            isAuthenticated: authenticated,
-            getUser: function() { console.log('user = ' + JSON.stringify(_user)); return _user; }
+            me: me,
+            logout: logout,
+            isAuthenticated: isAuthenticated
         }
     }
 

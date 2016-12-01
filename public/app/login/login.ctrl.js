@@ -1,18 +1,21 @@
 (function() {
     'use strict';
 
-    LoginCtrl.$inject = ['$scope', 'UserSvc'];
-    function LoginCtrl($scope, UserSvc) {
+    LoginCtrl.$inject = ['$scope', 'UserSvc', '$state'];
+    function LoginCtrl($scope, UserSvc, $state) {
+        $scope.err = {};
+
+        $scope.user = {
+            username: '',
+            password: ''
+        };
 
         $scope.login = function(user) {
-            UserSvc.login(user)
-                .then(function(response) {
-                    console.log(response);
-                })
-                .catch(function(err) {
-                    console.log('There was an error');
-                    console.log(err);
-                });
+            UserSvc.login(user, function() {
+                $state.go('matches');
+            }, function(err) {
+                console.log(err);
+            });
         };
     }
 

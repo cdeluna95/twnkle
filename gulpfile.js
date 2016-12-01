@@ -104,7 +104,8 @@ gulp.task('build:lib:js', ['clean:lib:js'], function() {
             'bower_components/angular/angular.js',
             'bower_components/angular-ui-router/release/angular-ui-router.js',
             'public/assets/js/ui-bootstrap-tpls-2.3.0.js',
-            'bower_components/angularjs-datepicker/dist/angular-datepicker.min.js'
+            'bower_components/angularjs-datepicker/dist/angular-datepicker.min.js',
+            'bower_components/ngstorage/ngStorage.js'
         ])
         .pipe(concat('vendor.js'))
         .pipe(gulp.dest('dist/lib'));
@@ -138,6 +139,8 @@ gulp.task('build:app:js', ['clean:app:js'], function() {
             'public/app/routes.js',
             'public/app/run.js',
             'public/app/**/*.svc.js',
+            'public/app/**/*.interceptor.js',
+            'public/app/**/*.filter.js',
             'public/app/**/*.ctrl.js',
             'public/app/**/*.directive.js'
         ])
@@ -147,7 +150,10 @@ gulp.task('build:app:js', ['clean:app:js'], function() {
 
 gulp.task('build:app:images', ['clean:app:images'], function() {
     return gulp
-        .src('public/assets/images/*.jpg')
+        .src([
+            'public/assets/images/*.jpg',
+            'public/assets/images/*.png'
+        ])
         .pipe(gulp.dest('dist/public/assets/images'));
 });
 

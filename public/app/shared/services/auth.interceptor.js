@@ -1,12 +1,18 @@
 (function() {
     'use strict';
 
-    function AuthInterceptor($rootScope, $q, AUTH_EVENTS) {
+    function AuthInterceptor($location, $q, $localStorage) {
         return {
+            request: function(config) {
+                config.headers = config.headers || {};
+                if($localStorage.token) {
+                    config.headers.authtoken = $localStorage.token;
+                }
+                return config;
+            },
             responseError: function(response) {
-                $rootScope.$broadcast({
-                    401: AUTH_EVENTS.notAuthenticated
-                }[response.status], response);
+                if(response.status === 401 || response.status === 403)
+                    $location.path('/login');
                 return $q.reject(response);
             }
         };

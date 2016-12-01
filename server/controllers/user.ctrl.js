@@ -22,13 +22,22 @@ var config = require('../config/config');
  */
 var login = function (req, res) {
     var user = req.body.user;
-
-    svc.login(user, function (err, result) {
-        if (err) {
-            return res.status(401).json({msg: 'There was a login error'});
+    util.log(util.inspect(user));
+    UserValidator.validateLogin(user, function(err, user) {
+        if(err) {
+            return res.status(422).json({ err: err });
         }
 
-        res.status(200).json({data: result.token});
+        svc.login(user, function(err, results) {
+            if(err) {
+                if(err.type === 'user')
+                    return res.status(422).json({ err: err.err });
+                else if(err.type === 'system')
+                    return res.status(500).json({ err: 'There was a system error' });
+            }
+            util.log(util.inspect(results));
+            res.status(200).json(results);
+        });
     });
 };
 
@@ -49,8 +58,10 @@ var register = function (req, res) {
         
         svc.register(validUser, function (err, registeredUser) {
             if (err) {
-                util.log(util.inspect(err));
-                return res.status(401).json({err: err});
+                if(err.type === 'user')
+                    return res.status(401).json({errs: err});
+                else if(err.type === 'system')
+                    return res.status(500).json({ err: 'There was a system error'} )
             }
 
             res.status(200).json({ success: true });
@@ -60,7 +71,7 @@ var register = function (req, res) {
 };
 
 var authenticate = function (req, res) {
-    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+    var token = req.body.token || req.query.token || req.headers['authtoken'];
 
     if (!token) {
         return res
@@ -68,7 +79,7 @@ var authenticate = function (req, res) {
             .json({err: 'No token provided'});
     }
 
-    svc.authenticate(token, function (err, decoded) {
+    svc.authenticate(token, function (err, results) {
         if (err) {
             return res
                 .status(401)
@@ -77,7 +88,7 @@ var authenticate = function (req, res) {
 
         res
             .status(200)
-            .json({success: true});
+            .json(results);
     });
 };
 

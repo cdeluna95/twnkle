@@ -176,6 +176,56 @@ var validate = function( user, cb ) {
     cb(null, user);
 };
 
+var nullOrEmpty = function(str) {
+    return _.isNull(str) || _.isUndefined(str) || str.length <= 0;
+};
+
+var validateUsernameLogin = function (username) {
+    util.log(username);
+    if(nullOrEmpty(username))
+        return 'Please input your username or email';
+
+    return null;
+};
+
+var validatePasswordLogin = function(password) {
+    if(nullOrEmpty(password))
+        return 'Please input your password';
+
+    return null;
+};
+
+var validateLogin = function(user, cb) {
+    var unErr, pwErr;
+
+    var errs = {
+        username: null,
+        password: null
+    };
+
+    if((unErr = validateUsernameLogin(user.username)) != null)
+        errs.username = unErr;
+    if((pwErr = validatePasswordLogin(user.password)) != null)
+        errs.password = pwErr;
+
+    var err = false;
+    Object.keys(errs).forEach(function(key, index) {
+        if(errs[key] !== null)
+            err = true;
+    });
+
+    if(err) {
+        util.log(util.inspect(errs));
+        return cb(errs, null);
+    }
+
+    if(validator.isEmail(user.username))
+        return cb(null, { type: 'email', user: user });
+
+    return cb(null, {type: 'username', user: user });
+};
+
 module.exports = exports = {
-    validate: validate
+    validate: validate,
+    validateLogin: validateLogin
 };

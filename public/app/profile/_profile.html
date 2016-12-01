@@ -9,11 +9,11 @@
   <div id="user">
     <div class="user-wrapper">
       <div class="user-img">
-        <img class="img-circle img-responsive" src="/assets/images/adrianna.jpg">
+        <img class="img-circle img-responsive" ng-src="{{ user.profilePicture }}">
         <a class="btn-update" ng-click="updatePhoto()" role="button"><span>Update</span></a>
       </div>
       <div class="user-desc">
-        <h2>Adrianna Valdivia (sign)</h2>
+        <h2>{{ user.firstName}} {{ user.lastName }}</h2>
         <h3>50 connections</h3>
         <p>I <3 astrology.</p>
         <a class="btn-photo" ng-click="addPhoto()" role="button">Add Photo</a>

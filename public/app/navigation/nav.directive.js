@@ -4,12 +4,13 @@
     function Navbar() {
         return {
             restrict: 'E',
-            controller: function($scope, UserSvc) {
+            controller: function($scope, $rootScope, UserSvc) {
                 $scope.navbarCollapsed = true;
                 $scope.isAuthenticated = UserSvc.isAuthenticated();
 
-                console.log('I\'m running');
-                console.log($scope.isAuthenticated);
+                $rootScope.$on('$stateChangeSuccess', function() {
+                    $scope.isAuthenticated = UserSvc.isAuthenticated();
+                });
             },
             templateUrl: '/app/navigation/_nav.html'
         }
