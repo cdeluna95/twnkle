@@ -7,9 +7,15 @@
 
 $white: #fff;
 $black: #000;
+$green: #097a5a;
+$darkgreen: #046b4e;
+$facebook: #3b5998;
+$twitter: #55acee;
+$gitlab: #cc5027;
 $josefin: 'Josefin Sans', sans-serif;
 $raleway: 'Raleway', sans-serif;
 $transition: 0.2s ease;
+$bounce: bounce 0.6s ease;
 
 /* Mixins */
 
@@ -25,11 +31,52 @@ $transition: 0.2s ease;
   }
 }
 
+@mixin pageMargin($margin) {
+  margin: $margin;
+}
+
 @mixin titleStyle {
   text-shadow: 3px 3px 5px rgba($black, 0.1);
   text-transform: uppercase;
   text-align: center;
   margin: 0 auto;
+}
+
+/* Animations */
+
+@keyframes bounce {
+  0%, 20%, 60%, 100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  } 40% {
+      -webkit-transform: translateY(-20px);
+      transform: translateY(-20px);
+    } 80% {
+        -webkit-transform: translateY(-10px);
+        transform: translateY(-10px);
+      }
+}
+
+/* Media Queries */
+
+/* Smartphones */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  #header-img {
+    background-attachment: scroll;
+  }
+}
+
+/* Tablets */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  #header-img {
+    background-attachment: scroll;
+  }
 }
 
 /* About */
@@ -80,7 +127,7 @@ $transition: 0.2s ease;
   /* Content */
 
   #content {
-    margin-top: 5em;
+    @include pageMargin(5em 0 0 0);
   }
 
   .content-title {
@@ -122,6 +169,95 @@ $transition: 0.2s ease;
 
     h4 {
       font-size: 1vw;
+    }
+
+    #footer {
+
+      .footer-wrapper {
+        background: $darkgreen;
+        border-radius: 15px 15px 0 0;
+        box-shadow: 0 -5px 20px rgba($black, 0.1),
+                    0 -10px 40px rgba($black, 0.1);
+        text-shadow: 2px 5px 5px rgba(0, 0, 0, 0.2);
+        height: 120px;
+        position: relative;
+        @include pageMargin(5em 0 0 0);
+
+        .footer-links {
+          position: absolute;
+          top: 22.5px;
+          right: 0;
+          left: 0;
+
+          a {
+
+            i {
+              color: $white;
+              font-size: 30px;
+              margin: 0 20px 0 20px;
+              transition: $transition;
+
+              &:hover {
+                animation: $bounce;
+              }
+
+              &:active {
+                transform: translateY(-5px);
+              }
+            }
+
+            .fa-facebook {
+              color: $white;
+
+              &:hover {
+                color: $facebook;
+              }
+
+              &:active {
+                color: rgba($facebook, 0.8);
+              }
+            }
+
+            .fa-twitter {
+              color: $white;
+
+              &:hover {
+                color: $twitter;
+              }
+
+              &:active {
+                color: rgba($twitter, 0.8);
+              }
+            }
+
+            .fa-gitlab {
+              color: $white;
+
+              &:hover {
+                color: $gitlab;
+              }
+
+              &:active {
+                color: rgba($gitlab, 0.8);
+              }
+            }
+          }
+        }
+
+        .footer-copyright {
+          position: absolute;
+          right: 0;
+          bottom: 22.5px;
+          left: 0;
+
+          small {
+            color: $white;
+            font-size: 1vw;
+            font-weight: 600;
+            font-style: italic;
+          }
+        }
+      }
     }
   }
 }

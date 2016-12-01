@@ -167,7 +167,7 @@ $transition: 0.2s ease-in-out;
   /* Photos */
 
   #photos {
-    @include pageMargin(2em 0);
+    @include pageMargin(2em 0 6em);
 
     .photos-wrapper {
 

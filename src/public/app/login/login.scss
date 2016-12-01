@@ -71,6 +71,28 @@ $transition: 0.2s ease-in-out;
   max-width: 100%;
 }
 
+/* Media Queries */
+
+/* Smartphones */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  #auth-img {
+    background-attachment: scroll;
+  }
+}
+
+/* Tablets */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  #auth-img {
+    background-attachment: scroll;
+  }
+}
+
 /* Login */
 
 #login {

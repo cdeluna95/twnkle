@@ -79,6 +79,30 @@ $float: float 0.8s infinite ease;
   transition: 0.2s ease-in-out;
 }
 
+/* Media Queries */
+
+/* Smartphones */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2) {
+  #landing-img,
+  #astro-img {
+    background-attachment: scroll;
+  }
+}
+
+/* Tablets */
+@media only screen
+and (min-device-width: 768px)
+and (max-device-width: 1024px)
+and (-webkit-min-device-pixel-ratio: 1) {
+  #landing-img,
+  #astro-img {
+    background-attachment: scroll;
+  }
+}
+
 /* Buttons */
 
 .btn-green {
