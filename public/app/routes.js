@@ -5,7 +5,7 @@
 
 (function() {
     'use strict';
-
+    //test
     function routes($stateProvider, $urlRouterProvider) {
         
         $urlRouterProvider.otherwise('/home');

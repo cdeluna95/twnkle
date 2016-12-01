@@ -20,14 +20,14 @@ var apiRoutes  = require( './routes/api.routes' );
 
 var app = express();
 
-var rootPath = path.normalize( __dirname + '/..' );
+var rootPath = path.normalize( __dirname + '/../dist' );
 
 
 //TODO This is to be refractor to be environment specific
 app.use( logger( 'dev' ) );
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded( { extended: false } ) );
-
+util.log(rootPath)
 
 app.use( '/lib', express.static( rootPath + '/lib' ) );
 app.use( '/app', express.static( rootPath + '/public/app' ) );

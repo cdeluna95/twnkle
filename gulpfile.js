@@ -103,7 +103,7 @@ gulp.task('build:lib:js', ['clean:lib:js'], function() {
         .src([
             'bower_components/angular/angular.js',
             'bower_components/angular-ui-router/release/angular-ui-router.js',
-            'src/public/assets/js/ui-bootstrap-tpls-2.3.0.js',
+            'public/assets/js/ui-bootstrap-tpls-2.3.0.js',
             'bower_components/angularjs-datepicker/dist/angular-datepicker.min.js'
         ])
         .pipe(concat('vendor.js'))
@@ -114,7 +114,7 @@ gulp.task('build:lib', ['build:lib:css', 'build:lib:js']);
 
 gulp.task('build:app:css', ['clean:app:css'], function() {
     return gulp
-        .src('src/public/app/**/*.scss')
+        .src('public/app/**/*.scss')
         .pipe(concat('app.min.css'))
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer({
@@ -127,19 +127,19 @@ gulp.task('build:app:css', ['clean:app:css'], function() {
 
 gulp.task('build:app:html', ['clean:app:html'], function() {
     return gulp
-        .src('src/public/app/**/*.html')
+        .src('public/app/**/*.html')
         .pipe(gulp.dest('dist/public/app'));
 });
 
 gulp.task('build:app:js', ['clean:app:js'], function() {
     return gulp
         .src([
-            'src/public/app/app.js',
-            'src/public/app/routes.js',
-            'src/public/app/run.js',
-            'src/public/app/**/*.svc.js',
-            'src/public/app/**/*.ctrl.js',
-            'src/public/app/**/*.directive.js'
+            'public/app/app.js',
+            'public/app/routes.js',
+            'public/app/run.js',
+            'public/app/**/*.svc.js',
+            'public/app/**/*.ctrl.js',
+            'public/app/**/*.directive.js'
         ])
         .pipe(concat('app.js'))
         .pipe(gulp.dest('dist/public/app'));
@@ -147,12 +147,12 @@ gulp.task('build:app:js', ['clean:app:js'], function() {
 
 gulp.task('build:app:images', ['clean:app:images'], function() {
     return gulp
-        .src('src/public/assets/images/*.jpg')
+        .src('public/assets/images/*.jpg')
         .pipe(gulp.dest('dist/public/assets/images'));
 });
 
-gulp.task('build:client', ['build:app:js', 'build:app:html', 'build:app:css', 'build:app:images']);
-gulp.task('build:client:full', ['build:client', 'build:lib']);
+gulp.task('build:client', ['build:app:js', 'build:app:html', 'build:app:css']);
+gulp.task('build:client:full', ['build:client', 'build:lib', 'build:app:images']);
 
 /* END BUILDING TASKS */
 
@@ -172,42 +172,8 @@ gulp.task('build:client:full', ['build:client', 'build:lib']);
  * is moving our server code from the src/ directory to the dist/
  * directory.
  */
-gulp.task('clean:server', function() {
-    return del(['dist/server/**/*.js']);
-});
-
-gulp.task('clean:mainjs', function() {
-    return del('dist/server.js');
-});
-
-gulp.task('clean:index', function() {
-    return del('dist/server/views/index.html');
-});
-
-gulp.task('clean:server:full', ['clean:server', 'clean:mainjs', 'clean:index']);
 
 
-gulp.task('build:mainjs', ['clean:mainjs'], function() {
-    return gulp
-        .src('src/server.js')
-        .pipe(gulp.dest('dist'));
-});
-
-gulp.task('build:index', ['clean:index'], function() {
-    return gulp
-        .src('src/server/views/index.html')
-        .pipe(gulp.dest('dist/server/views'));
-});
-
-gulp.task('build:server', ['clean:server'], function() {
-    return gulp
-        .src([
-            'src/server/**/*.js'
-        ])
-        .pipe(gulp.dest('dist/server'));
-});
-
-gulp.task('build:server:full', ['build:mainjs', 'build:server', 'build:index']);
 
 
 /**
@@ -225,5 +191,10 @@ gulp.task('nuke', function() {
     return del('dist/**/*');
 });
 
-gulp.task('build', ['build:server', 'build:client']);
-gulp.task('setup', ['build:server:full', 'build:client:full']);
+gulp.task('build', ['build:client']);
+gulp.task('setup', ['build:client:full']);
+
+
+gulp.task('watch', function() {
+    gulp.watch('public/app/**/*', ['build']);
+});
