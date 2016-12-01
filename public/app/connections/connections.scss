@@ -3,16 +3,255 @@
  * @date 10/3/2016
  */
 
-/* Variables and mixins */
+/* Variables */
 
-$yellow: #e6ebb7;
+$white: #fff;
+$black: #000;
+$green: #097a5a;
+$darkgreen: #046b4e;
+$raleway: 'Raleway', sans-serif;
+$transition: 0.2s ease-in-out;
 
-/* Styles */
+/* Mixins */
 
-#connections {
-  background-color: $yellow;
+@mixin pageMargin($margin) {
+  margin: $margin;
 }
 
-.connections-wrapper {
-  padding: 10em 0 5em 0;
+@mixin wrapperPosition {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  left: 250px;
+  margin-left: -250px;
+  overflow-y: auto;
+}
+
+@mixin navPosition {
+  width: 250px;
+  position: absolute;
+  top: 0;
+  margin: 5em 0;
+  padding: 0;
+}
+
+@mixin chatPosition($position, $bottom, $left) {
+  position: $position;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin chatBox($color, $bgcolor, $padding) {
+  color: $color;
+  font-size: 16px;
+  text-shadow: 1px 1px 1px rgba($black, 0.1);
+  background: $bgcolor;
+  border-radius: 10px;
+  box-shadow: 2px 4px 3px rgba($black, 0.2);
+  line-height: 20px;
+  min-height: 50px;
+  position: relative;
+  margin-bottom: 10px;
+  padding: $padding;
+}
+
+@mixin chatStyle($float) {
+  list-style: none;
+  float: $float;
+}
+
+@mixin chatInput($background, $border-radius, $height, $width, $padding) {
+  background: $background;
+  border-radius: $border-radius;
+  height: $height;
+  width: $width;
+  padding: $padding;
+}
+
+@mixin origInput($color, $background, $font-size, $font-weight, $text-indent, $border, $border-radius, $box-shadow, $outline, $width, $height) {
+  color: $color;
+  background: $background;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  text-indent: $text-indent;
+  border: $border;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  outline: $outline;
+  width: $width;
+  height: $height;
+}
+
+@mixin btnPlane($background, $border, $border-radius, $box-shadow, $outline, $width, $height, $overflow, $cursor, $absolute, $top, $right) {
+  background: $background;
+  border: $border;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  outline: $outline;
+  width: $width;
+  height: $height;
+  overflow: $overflow;
+  cursor: $cursor;
+  position: $absolute;
+  top: $top;
+  right: $right;
+}
+
+@mixin paperPlane($color, $font-size, $text-shadow, $opacity) {
+  color: $color;
+  font-size: $font-size;
+  text-shadow: $text-shadow;
+  opacity: $opacity;
+}
+
+/* Contacts */
+
+#connections {
+  font-family: $raleway;
+
+  #contacts {
+
+    .contacts-wrapper {
+      background: $green;
+      @include wrapperPosition;
+
+      .contacts-nav {
+        list-style: none;
+        text-indent: 5em;
+        @include navPosition;
+
+        .contacts-title {
+
+          h3 {
+            color: $white;
+            background: rgba($white, 0.1);
+            display: block;
+            padding: 20px 0;
+          }
+        }
+
+        .contacts-connections {
+          line-height: 40px;
+
+          a {
+            color: $white;
+            display: block;
+            cursor: pointer;
+            transition: $transition;
+
+            &:hover {
+              font-weight: 600;
+              text-decoration: none;
+              text-shadow: 1px 1px 1px rgba($black, 0.1);
+              padding-left: 5px;
+              background: rgba($white, 0.1);
+            }
+
+            &:active {
+              background: rgba($white, 0.2);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  /* Chat */
+
+  #chat {
+
+    .chat-wrapper {
+      height: 30px;
+      width: 27px;
+      position: absolute;
+      left: 20px;
+      @include pageMargin(7.75em 0);
+
+      .chat-toggle {
+
+        i {
+          color: rgba($black, 0.6);
+          font-size: 30px;
+          cursor: pointer;
+          transition: $transition;
+
+          &:hover {
+            color: rgba($black, 0.4);
+          }
+
+          &:active {
+            color: rgba($black, 0.3);
+          }
+        }
+      }
+    }
+
+    .chat-border {
+      width: 100%;
+      top: 12%;
+      margin: 5em 0;
+      padding: 30px;
+      z-index: -1;
+      @include chatPosition(relative, 0, 0);
+
+      .chat-receiver {
+        margin-right: 8em;
+        padding-left: 0;
+        @include chatStyle(left);
+
+        li {
+          transition: $transition;
+          @include chatBox($black, rgba($black, 0.15), 15px 15px 15px 30px);
+
+          &:last-of-type {
+            margin: 0;
+          }
+        }
+      }
+
+      .chat-sender {
+        margin-left: 8em;
+        @include chatStyle(right);
+
+        li {
+          transition: $transition;
+          @include chatBox($white, $green, 15px 30px 15px 15px);
+
+          &:last-of-type {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .chat-input {
+      right: 0;
+      box-shadow: 0 -5px 20px 0 rgba(0, 0, 0, 0.1),
+                  0 -10px 40px 0 rgba(0, 0, 0, 0.2);
+      @include chatInput($green, 10px 10px 0 0, 7.7rem, 100%, 15px);
+      @include chatPosition(fixed, 0, 0);
+
+      .input {
+        @include origInput($white, rgba($white, 0.1), 16px, 600, 20px, 0, 5px 25px 25px 5px, none, none, 100%, 4.7rem);
+      }
+
+      .btn-plane {
+        @include btnPlane($white, 0, 50%, none, none, 45px, 45px, hidden, pointer, absolute, 16px, 15px);
+
+        .fa-paper-plane-o {
+          transition: $transition;
+          @include paperPlane($green, 20px, 1px 2px 2px rgba($black, 0.1), 0.8);
+
+          &:hover {
+            transform: scale(1.3);
+            opacity: 1;
+          }
+
+          &:active {
+            transform: scale(1.4);
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,0 +1,157 @@
+<!--
+ - @author David, Christan, Adrianna
+ - @date 09/20/2016
+ -->
+
+<main id="home">
+
+    <!-- Landing page -->
+    <header id="landing">
+        <div id="landing-img"></div>
+        <div class="landing-wrapper">
+            <div class="landing-slogan">
+                <h1>Find your sign.</h1>
+            </div>
+<<<<<<< HEAD:public/app/home/_home.html
+            <div class="home-button">
+                <a class="btn-green" ui-sref="login" role="button">Log in</a>
+                <a class="btn-yellow" ui-sref="signup" role="button">Sign up</a>
+=======
+            <div class="landing-button">
+                <a class="btn-green" href="#/login" role="button">Log in</a>
+                <a class="btn-yellow" href="#/signup" role="button">Sign up</a>
+>>>>>>> front-end:src/public/app/home/_home.html
+            </div>
+        </div><!-- landing-wrapper -->
+
+        <!-- Introduction -->
+        <div id="intro">
+            <div class="container">
+                <div class="intro-desc">
+                    <h2>
+                        Your astrology sign, matched up
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                    </h2>
+                    <p><b>Twnkle</b> is an astrology-based social dating app helping to find your match based on your sign.
+                    This app tries to solve a societal problem of judging a book by its cover, as we emphasize your zodiac signs
+                    and personal characteristics when matching with other GGC students.</p>
+                </div>
+                <div class="intro-row">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                            <h3>Find</h3>
+                            <p>Sign up and enter your date of birth, sign, interests, and profile picture!
+                            Once you're done, find who you're matched with and talk to them!</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fa fa-comments" aria-hidden="true"></i>
+                            <h3>Chat</h3>
+                            <p>Our app has a built-in chat system along with all of your potential matches and contacts you've
+                            connected with. Hit them up and set up a time to meet up!</p>
+                        </div>
+                        <div class="col-md-4">
+                            <i class="fa fa-handshake-o" aria-hidden="true"></i>
+                            <h3>Meet</h3>
+                            <p>Successful? Hang out with them, have a meaningful conversation, and have fun! Tell your friends
+                            to join in and ask them what their sign is!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- intro -->
+
+        <!-- Astrology Sign -->
+        <div id="astro">
+            <div id="astro-img"></div>
+            <div class="astro-wrapper">
+                <div class="astro-desc">
+                    <h2>Don't know your zodiac sign?</h2>
+                    <h3>Visit:</h3>
+                </div>
+                <div class="astro-button">
+                    <a class="btn-western" href="http://www.astrology-zodiac-signs.com" role="button">Western Zodiac</a>
+                    <a class="btn-eastern" href="http://www.chinahighlights.com/travelguide/chinese-zodiac" role="button">Chinese Zodiac</a>
+                </div>
+            </div> <!-- astro-wrapper -->
+
+            <!-- Features -->
+            <div id="feature">
+                <div class="container">
+                    <div class="feature-desc">
+
+                        <!-- Matches -->
+                        <div class="matches">
+                            <div class="row featurette">
+                                <div class="col-md-4">
+                                    <div class="matches-heading">
+                                        <h3 class="featurette-heading">
+                                            Find your match.
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#/matches">
+                                        <img class="featurette-image img-responsive center-block" src="/assets/images/feature-one.jpg" alt="Generic placeholder image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider">
+
+                        <!-- Connections -->
+                        <div class="connections">
+                            <div class="row featurette">
+                                <div class="col-md-4 col-md-push-8">
+                                    <div class="connections-heading">
+                                        <h3 class="featurette-heading">
+                                            See your connections.
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-md-pull-4">
+                                    <a href="#/connections">
+                                        <img class="featurette-image img-responsive center-block" src="/assets/images/feature-two.jpg" alt="Generic placeholder image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Profile -->
+                        <hr class="featurette-divider">
+
+                        <div class="profile">
+                            <div class="row featurette">
+                                <div class="col-md-4">
+                                    <div class="profile-heading">
+                                        <h3 class="featurette-heading">
+                                            Check out your profile.
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <a href="#/profile">
+                                        <img class="featurette-image img-responsive center-block" src="/assets/images/feature-three.jpg" alt="Generic placeholder image">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="featurette-divider">
+
+                        <!-- Up Arrow -->
+                        <div class="up-arrow">
+                            <a href="#/home">
+                                <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div><!-- feature -->
+
+        </div><!-- astro -->
+    </header>
+
+</main>

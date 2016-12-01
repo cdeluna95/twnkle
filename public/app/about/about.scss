@@ -3,53 +3,124 @@
  * @date 09/20/2016
  */
 
-/* Variables and mixins */
+/* Variables */
 
-$yellow: #e6ebb7;
-$gray: #473e3e;
+$white: #fff;
+$black: #000;
+$josefin: 'Josefin Sans', sans-serif;
+$raleway: 'Raleway', sans-serif;
+$transition: 0.2s ease;
 
-@mixin headerImg($img-path, $repeat: no-repeat, $size: 100% auto, $attachment: fixed, $position: 0 -10em) {
+/* Mixins */
+
+@mixin headerImg($img-path, $repeat: no-repeat, $attachment: fixed) {
   background: {
     image: linear-gradient(
-                    rgba(0, 0, 0, 0.1),
-                    rgba(0, 0, 0, 0.6)),
-    url($img-path);
+             rgba($black, 0.2),
+             rgba($black, 0)),
+           url($img-path);
     repeat: $repeat;
-    size: $size;
     attachment: $attachment;
-    position: $position;
   }
 }
 
-/* Styles */
+@mixin titleStyle {
+  text-shadow: 3px 3px 5px rgba($black, 0.1);
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* About */
 
 #about {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: $yellow;
-}
 
-#about-header {
-  height: 70%;
-  width: 100%;
-  @include headerImg('/assets/images/ggc-about.jpg');
-}
+  /* Header */
 
-.about-wrapper {
-  color: $gray;
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  padding: 5em 0 5em 0;
-}
+  #header {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
-.about-title h1 {
-  font-family: 'Bree Serif', serif;
-  font-size: 80px;
-}
+  #header-img {
+    padding-bottom: 50rem;
+    @include headerImg('/assets/images/ggc-b.jpg');
+  }
 
-.about-desc p {
-  font-size: 20px;
+  .header-wrapper {
+    width: 50%;
+    position: absolute;
+    top: 25rem;
+    left: 25%;
+
+    .header-title {
+      font-family: $josefin;
+
+      h1 {
+        font-size: 3vw;
+        background: $white;
+        padding: 20px;
+        @include titleStyle;
+      }
+
+      h2 {
+        color: $white;
+        font-size: 1.5vw;
+        background: rgba($black, 0.5);
+        padding: 10px;
+        box-shadow: 2px 2px 10px rgba($black, 0.4);
+        @include titleStyle;
+      }
+    }
+  }
+
+  /* Content */
+
+  #content {
+    margin-top: 5em;
+  }
+
+  .content-title {
+    font-family: $josefin;
+
+    h2 {
+      font-size: 3vw;
+      font-weight: 600;
+      text-shadow: 3px 3px 5px rgba($black, 0.1);
+      @include titleStyle;
+    }
+  }
+
+  .content-members {
+    font-family: $raleway;
+    text-align: center;
+
+    img {
+      opacity: 0.9;
+      box-shadow: 3px 3px 5px rgba($black, 0.4);
+      height: 100%;
+      width: 175px;
+      margin-top: 5em;
+      transition: $transition;
+
+      &:hover {
+        opacity: 1.0;
+        margin-top: 4em;
+      }
+
+      &:active {
+        margin-top: 3.5em;
+      }
+    }
+
+    h3 {
+      font-size: 2vw;
+    }
+
+    h4 {
+      font-size: 1vw;
+    }
+  }
 }

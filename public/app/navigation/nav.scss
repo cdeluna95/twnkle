@@ -3,64 +3,124 @@
  * @date 09/20/2016
  */
 
-/* Variables and mixins */
+/* Variables */
 
-$black: #000;
 $white: #fff;
-$orange: #db7827;
+$black: #000;
+$green: #097a5a;
+$darkgreen: #046b4e;
+$lightgreen: #1ac997;
+$slabo: 'Slabo 27px', serif;
+$transition: 0.2s ease-in-out;
+$zoom: zoom 0.8s infinite ease-in-out;
 
-@mixin customText {
-	color: $white;
-	text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+/* Mixins */
+
+@mixin customText($font-size) {
+	color: rgba($black, 0.5);
+	font-size: $font-size;
+	font-family: $slabo;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-shadow: 1px 1px 1px rgba($black, 0.1);
 	letter-spacing: 2px;
-	transition: 0.2s ease-in-out;
+	transition: $transition;
 }
 
-/* Styles */
+/* Animations */
+
+@keyframes zoom {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.2);
+	}
+}
+
+/* Navigation Bar */
 
 .navbar {
-	padding: 20px 0 20px 0;
 	border: 0;
+	background: $white;
+	box-shadow: 0 5px 20px rgba($black, 0.1),
+				0 10px 40px rgba($black, 0.1);
+	padding: 20px 0;
 }
 
-.navbar-default .navbar-toggle, .navbar-collapse {
-	border: 0;
-	text-align: center;
-	transition: 0.2s ease-in-out;
-}
+.navbar-default {
 
-.navbar-default .navbar-toggle .icon-bar {
-	background-color: $white;
-	transition: 0.2s ease-in-out;
-}
+	.navbar-toggle {
 
-.navbar-default .navbar-brand {
-	font-family: 'Raleway', sans-serif;
-	font-size: 30px;
-	text-transform: lowercase;
-	@include customText;
-}
+		.icon-bar {
+			background: rgba($black, 0.5);
+			transition: $transition;
+		}
 
-.navbar-default .navbar-nav {
-	display: inline-block;
-	float: none;
-	vertical-align: top;
-}
+		&:hover {
+			background: $lightgreen;
+		}
 
-.navbar-default .navbar-nav li a {
-	font-family: 'Slabo 27px', serif;
-	font-size: 14px;
-	text-transform: uppercase;
-	@include customText;
-}
+		&:active {
+			background: $green;
+		}
+	}
 
-.navbar-default .navbar-toggle:hover {
-	background-color: $orange;
-	transition: 0.2s ease-in-out;
-}
+	.navbar-toggle,
+	.navbar-collapse {
+		border: 0;
+		transition: $transition;
+	}
 
-.navbar-default .navbar-brand:hover,
-.navbar-default .navbar-nav > li > a:hover {
-	color: $orange;
-	transition: 0.2s ease-in-out;
+	.navbar-brand {
+		position: absolute;
+		top: 6px;
+
+		&:hover {
+			animation: $zoom;
+		}
+
+		&:active {
+			transform: scale(1.3);
+		}
+	}
+
+	.navbar-nav {
+
+		li {
+
+			a {
+				margin: 0 10px;
+				transition: $transition;
+				@include customText(18px);
+
+				&:before {
+					content: "";
+					background: $lightgreen;
+					position: absolute;
+					height: 1px;
+					width: 100%;
+					bottom: 0;
+					left: 0;
+					opacity: 0;
+					transform: scaleX(0);
+					transition: $transition;
+				}
+
+				&:hover {
+					color: $lightgreen;
+
+					&:before {
+						opacity: 1;
+						transform: scaleX(1);
+					}
+				}
+
+				&:active {
+					color: $green;
+				}
+			}
+		}
+	}
 }

@@ -1,0 +1,84 @@
+<!--
+
+    If you are messing with this file, you probably shouldn't be. This file shouldn't change too much.
+
+    @Christan: Sorry, had to change it! Added SEO, Bootstrap.js, jQuery, Font Awesome, favicon, and etc.
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<<<<<<< HEAD:server/views/index.html
+<head>
+  <!-- Required -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title -->
+  <title>AstroMeet | Home</title>
+  <!-- Design and CSS -->
+  <link rel="stylesheet" href="/assets/css/app.min.css" />
+  <link rel="stylesheet" href="/lib/vendor.min.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+=======
+  <head>
+    <!-- Required -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Canonical SEO -->
+    <title>twnkle</title>
+    <link rel="canonical" href="" />
+    <meta name="robots" content="index,follow" />
+    <meta name="title" content="twnkle | Astrology-Based Social Dating App" />
+    <meta name="description" content="Twnkle uses the concepts of astrology and helps people find their match based on their signs." />
+    <meta name="author" content="GGC ITEC 4860 Fall 2016" />
+    <meta name="language" content="en" />
+    <meta name="keywords" content="astrology, western, eastern, signs, social, network, media, dating, app, application" />
+    <!-- Open Graph data -->
+    <meta property="og:locale" content="en_US"/>
+    <meta property="og:title" content="twnkle | Astrology-Based Social Dating App" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:description" content="Twnkle uses the concepts of astrology and helps people find their match based on their signs." />
+    <meta property="og:site_name" content="Astrology-Based Social Dating App"/>
+    <meta property="og:author" content="GGC ITEC 4860 Fall 2016" />
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@GeorgiaGwinnett">
+    <meta name="twitter:title" content="twnkle | Astrology-Based Social Dating App">
+    <meta name="twitter:description" content="Twnkle uses the concepts of astrology and helps people find their match based on their signs.">
+    <meta name="twitter:creator" content="@GeorgiaGwinnett">
+    <meta name="twitter:image" content="">
+    <!-- Favicon -->
+    <link type="image/png" rel="shortcut icon" href="/assets/images/favicon.jpg" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/vendor.min.css" />
+    <link rel="stylesheet" href="/assets/css/app.min.css" />
+>>>>>>> front-end:src/server/views/index.html
+
+  </head>
+
+  <body ng-app="app">
+
+    <!-- Navigation bar -->
+    <astromeet-nav></astromeet-nav>
+
+    <!-- Content -->
+    <div class="container">
+      <div ui-view></div>
+    </div>
+
+    <!-- Footer -->
+    <am-footer></am-footer>
+
+    <!-- JS -->
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/lib/vendor.js"></script>
+    <script src="/app/app.js"></script>
+  </body>
+</html>
