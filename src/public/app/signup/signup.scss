@@ -166,6 +166,7 @@ and (-webkit-min-device-pixel-ratio: 1) {
         }
 
         textarea:focus,
+        input[type="text"]:focus,
         input[type="email"]:focus,
         input[type="password"]:focus,
         .uneditable-input:focus {
