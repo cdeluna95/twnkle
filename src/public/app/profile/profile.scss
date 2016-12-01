@@ -117,12 +117,20 @@ $transition: 0.2s ease-in-out;
 
         h2 {
           font-weight: 600;
-          margin-bottom: -15px;
+          margin: 0 0 5px;
+        }
+
+        h3 {
+          margin: 0 0 7.5px;
+        }
+
+        h4 {
+          display: inline;
+          margin: 0 5px 0 5px;
         }
 
         p {
-          margin-top: -5px;
-          margin-bottom: 15px;
+          margin: 5px 0 15px 0;
         }
 
         .btn-photo {

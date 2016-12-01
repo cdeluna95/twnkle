@@ -173,7 +173,7 @@ $transition: 0.2s ease-in-out;
 
         li {
           transition: $transition;
-          @include chatBox($black, rgba($black, 0.15), 15px 15px 15px 30px);
+          @include chatBox($black, rgba($black, 0.15), 15px);
 
           &:last-of-type {
             margin: 0;
@@ -187,7 +187,7 @@ $transition: 0.2s ease-in-out;
 
         li {
           transition: $transition;
-          @include chatBox($white, $green, 15px 30px 15px 15px);
+          @include chatBox($white, $green, 15px);
 
           &:last-of-type {
             margin: 0;

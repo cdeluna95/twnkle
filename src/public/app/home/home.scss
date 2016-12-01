@@ -30,13 +30,14 @@ $float: float 0.8s infinite ease;
   }
 }
 
-@mixin contentImg($img-path, $repeat: no-repeat, $attachment: fixed) {
+@mixin contentImg($img-path, $repeat: no-repeat, $size: cover, $attachment: fixed) {
   background: {
     image: linear-gradient(
                     rgba($black, 0.6),
                     rgba($black, 0.6)),
            url($img-path);
     repeat: $repeat;
+    size: $size;
     attachment: $attachment;
   }
 }
